@@ -15,6 +15,16 @@ function App() {
       t0 = new Date().setHours(0, 0, 0, 0), //Setting a time baseline
       delta = (Date.now() - t0); //Calculated change in time
 
+    //Planetary Data 
+    const planets = [
+      {
+        R: 23, r: 1, speed: -1.60, phi0: 35, moons: []
+      },
+      {
+        R: 45, r: 2, speed: -1.17, phi0: 185, moons: []
+      }
+    ];
+
     //Appending svg element to body
     const svg = d3.select("body")
       .append("svg")
@@ -27,7 +37,25 @@ function App() {
       .attr("cx", sunX)
       .attr("cy", sunY)
       .attr("fill", "yellow")
-      .attr("id", "sun");
+      .attr("class", "sun");
+
+    //Creating planetary system variable
+    const planetarySystem = svg.append("g")
+      .attr("class", "planetary-system")
+      .attr("transform", `translate(${sunX}, ${sunY})`)
+
+    //Function to be called on planets object
+    function accretPlanets(d, i) {
+      console.log(d);
+    }
+
+    //Appending planets and moons to planetary system container
+    planetarySystem.selectAll("g.planet")
+      .data(planets)
+      .enter()
+      .append("g")
+      .attr("class", "planet-system")
+      .each(function (d, i) { accretPlanets(d, i) })
   };
 
   solarSystem();
