@@ -34,7 +34,7 @@ const Background = () => {
                 ]
             },
             {
-                R: 290, r: 22, speed: -0.43, phi0: 135, moons: [   // jupiter
+                R: 290, r: 15, speed: -0.43, phi0: 135, moons: [   // jupiter
                     { R: 30, r: 2, speed: -7.70, phi0: 25 },          // io
                     { R: 36, r: 1, speed: -2.45, phi0: 95 },          // europa
                     { R: 49, r: 3, speed: -1.10, phi0: 125 },          // ganymede
@@ -42,7 +42,7 @@ const Background = () => {
                 ]
             },
             {
-                R: 583, r: 18, speed: -0.32, phi0: 260, moons: [   // saturn
+                R: 583, r: 12, speed: -0.32, phi0: 260, moons: [   // saturn
                     { R: 28, r: 1, speed: -4.10, phi0: 120 },          // mimas
                     { R: 33, r: 1, speed: -3.90, phi0: 20 },          // enceladus
                     { R: 38, r: 1, speed: -3.60, phi0: 0 },          // tethys
@@ -62,7 +62,7 @@ const Background = () => {
 
         //Appending Sun to svg
         svg.append("circle")
-            .attr("r", 10)
+            .attr("r", 15)
             .attr("cx", sunX)
             .attr("cy", sunY)
             .attr("fill", "yellow")
@@ -117,6 +117,14 @@ const Background = () => {
             .attr("transform", function (d) {
                 return `rotate(${(d.phi0 + (delta * (d.speed / 100)))})`;
             });
+
+        //Orbiting animation
+        setInterval(function () {
+            planetarySystem.selectAll(".planetary-system, .lunar-system")
+                .attr("transform", function (d) {
+                    return `rotate(${(d.phi0 + (delta * (d.speed / 100)))})`;
+                });
+        }, 40);
     };
 
     solarSystem();
