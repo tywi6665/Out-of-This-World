@@ -121,7 +121,7 @@ function App() {
       });
   };
 
-  solarSystem();
+  // solarSystem();
 
   return (
     <div className="app">
