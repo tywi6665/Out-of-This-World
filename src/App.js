@@ -28,8 +28,8 @@ function App() {
     //Appending svg element to body
     const svg = d3.select("body")
       .append("svg")
-      .attr("width", width + "%")
-      .attr("height", height + "%");
+      .attr("width", width + "vw")
+      .attr("height", height + "vh");
 
     //Appending Sun to svg
     svg.append("circle")
@@ -44,18 +44,28 @@ function App() {
       .attr("class", "planetary-system")
       .attr("transform", `translate(${sunX}, ${sunY})`)
 
-    //Function to be called on planets object
-    function accretPlanets(d, i) {
-      console.log(d);
-    }
-
     //Appending planets and moons to planetary system container
     planetarySystem.selectAll("g.planet")
       .data(planets)
       .enter()
       .append("g")
       .attr("class", "planet-system")
-      .each(function (d, i) { accretPlanets(d, i) })
+      .each(function (d) {
+        console.log(d3.select(this))
+        d3.select(this)
+          .append("circle")
+          .attr("class", "orbital")
+          .attr("r", d.R);
+        d3.select(this)
+          .append("circle")
+          .attr("r", d.r)
+          .attr("cx", d.R)
+          .attr("cy", 0)
+          .attr("class", "planet");
+      })
+      .attr("transform", function (d) {
+        return `rotate(${(d.phi0 + (delta * (d.speed / 100)))})`;
+      });
   };
 
   solarSystem();
