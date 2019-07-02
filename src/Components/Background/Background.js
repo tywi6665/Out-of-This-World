@@ -46,7 +46,7 @@ const Background = () => {
                 { R: 30, r: 1.5, speed: -7.70, phi0: 25 },          // io
                 { R: 36, r: 0.8, speed: -2.45, phi0: 95 },          // europa
                 { R: 49, r: 2.5, speed: -1.10, phi0: 125 },          // ganymede
-                { R: 79, r: 1.5, speed: -0.50, phi0: 315 }           // callisto
+                { R: 69, r: 1.5, speed: -0.50, phi0: 315 }           // callisto
             ]
         },
         {
@@ -58,7 +58,7 @@ const Background = () => {
                 { R: 38, r: 0.8, speed: -3.60, phi0: 0 },          // tethys
                 { R: 44, r: 0.8, speed: -3.20, phi0: 100 },          // dione
                 { R: 58, r: 1.5, speed: -2.90, phi0: 300 },          // rhea
-                { R: 98, r: 2.2, speed: -1.30, phi0: 180 },          // titan
+                { R: 78, r: 2.2, speed: -1.30, phi0: 180 },          // titan
             ]
         }
     ];

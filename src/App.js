@@ -10,7 +10,6 @@ function App() {
     <div className="app">
       <Background />
       <Container>
-        <span></span>
         <Modal>
           <p>This is modal text</p>
           <p>This is modal text</p>

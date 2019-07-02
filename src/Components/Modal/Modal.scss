@@ -1,5 +1,9 @@
 .modal {
+    width: fit-content;
+    padding: 15px;
     background: transparent;
+    border: solid 1px black;
+    border-radius: 20px;
 
     p {
         background: inherit;
