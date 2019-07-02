@@ -67,7 +67,8 @@ const Background = () => {
     const svg = d3.select("body")
         .append("svg")
         .attr("width", width + "vw")
-        .attr("height", height + "vh");
+        .attr("height", height + "vh")
+        .attr("class", "svg-body");
 
     //Appending Sun to svg
     svg.append("circle")

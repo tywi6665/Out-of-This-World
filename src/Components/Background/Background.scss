@@ -9,7 +9,7 @@
 
 .disclaimer {
     position: absolute;
-    bottom: 10px;
+    bottom: 7px;
     right: 15px;
     color: grey;
     opacity: 0.8;
@@ -20,7 +20,13 @@
     }
 }
 
-svg {
+.svg-body {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
     background: whitesmoke;
 }
 

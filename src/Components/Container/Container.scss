@@ -1,6 +1,17 @@
 .container {
     height: 100%;
     width: 100%;
-    padding: 10px;
+    background: transparent;
+    // padding: 10px;
+        display: grid; 
+        grid-template-columns: 1fr 1fr; 
+        grid-template-rows: 1fr; 
+        grid-column-gap: 0px;
+        grid-row-gap: 0px; 
+        span { grid-area: 1 / 1 / 2 / 2; } 
+        div { 
+            grid-area: 1 / 2 / 2 / 3;
+        } 
     overflow: hidden;
+    z-index: 2;
 }
