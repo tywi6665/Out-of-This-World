@@ -7,6 +7,19 @@
     z-index: -1;
 }
 
+.disclaimer {
+    position: absolute;
+    bottom: 10px;
+    right: 15px;
+    color: grey;
+    opacity: 0.8;
+
+    p {
+        font-size: 0.6em;
+        margin: 0;
+    }
+}
+
 svg {
     background: whitesmoke;
 }
