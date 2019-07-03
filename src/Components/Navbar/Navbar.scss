@@ -34,6 +34,36 @@
     z-index: 10;
     transform: scale(0.1);
     transition: all 0.3s ease;
+
+    li {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        font-size: 1.5em;
+        width: 10em;
+        height: 10em;
+        margin: -1.3em 0 0 -10em;
+        overflow: hidden;
+        transform-origin: 100% 100%;
+        transition: border 0.3s ease;
+
+        a {
+            display: block;
+            font-size: 1.18em;
+            height: 14.5em;
+            width: 14.5em;
+            position: absolute;
+            bottom: -7.25em;
+            right: -7.25em;
+            border-radius: 50%;
+            text-decoration: none;
+            color: #fff;
+            padding-top: 1.8em;
+            text-align: center;
+            transform: skew(-50deg) rotate(-70deg) scale(1);
+            transition: opacity 0.3s, color 0.3s;
+        }
+    }   
 }
 
 .open-nav {
