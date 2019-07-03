@@ -13,7 +13,7 @@ const Modal = ({ children }) => {
                 </div>
             }
         >
-            <Tween from={{ opacity: 0 }} to={{ opacity: 1 }} duration={5} />
+            <Tween from={{ transform: "translateY(-100px)", opacity: 0}} to={{ transform: "translateY(0px)", opacity: 1 }} duration={5} />
         </Timeline>
     );
 }
