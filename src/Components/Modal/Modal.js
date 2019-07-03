@@ -6,10 +6,14 @@ import { Tween, Timeline } from "react-gsap";
 const Modal = ({ children }) => {
     return (
         <Timeline
-            wrapper={<div className="modal" />}
-            target={children}
+            wrapper={<div className="tweenedDiv" />}
+            target={
+                <div className="modal">
+                    {children}
+                </div>
+            }
         >
-            <Tween from={{ opacity: 0 }} to={{ opacity: 1 }} duration={10} />
+            <Tween from={{ opacity: 0 }} to={{ opacity: 1 }} duration={5} />
         </Timeline>
     );
 }
