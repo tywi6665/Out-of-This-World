@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Navbar.scss";
 
 const Navbar = () => {
 
-    let isOpen = false;
+    const [isOpen, setIsOpen] = useState(false);
+
+    // let isOpen = false;
 
     function Nav() {
         const button = document.getElementById("nav-button");
@@ -14,7 +16,7 @@ const Navbar = () => {
     }
 
     function openNav(button, nav, overlay) {
-        isOpen = true;
+        setIsOpen(true);
         button.innerHTML = "-";
         nav.classList.add("opened-nav");
         overlay.classList.add("on-overlay");
@@ -22,7 +24,7 @@ const Navbar = () => {
     };
 
     function closeNav(button, nav, overlay) {
-        isOpen = false;
+        setIsOpen(false);
         button.innerHTML = "+";
         nav.classList.remove("opened-nav");
         overlay.classList.remove("on-overlay");
