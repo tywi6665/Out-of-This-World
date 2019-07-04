@@ -5,9 +5,8 @@ const Navbar = () => {
 
     const [isOpen, setIsOpen] = useState(false);
 
-    // let isOpen = false;
-
-    function Nav() {
+    function Nav(e) {
+        e.stopPropagation();
         const button = document.getElementById("nav-button");
         const nav = document.getElementById("nav");
         const overlay = document.getElementById("overlay");
@@ -40,11 +39,11 @@ const Navbar = () => {
             >+</button>
             <nav className="nav-container" id="nav">
                 <ul>
-                    <li><a href="#"></a></li>
-                    <li><a href="#"></a></li>
-                    <li><a href="#"></a></li>
-                    <li><a href="#"></a></li>
-                    <li><a href="#"></a></li>
+                    <li><a href="#"><span></span></a></li>
+                    <li><a href="#"><span></span></a></li>
+                    <li><a href="#"><span></span></a></li>
+                    <li><a href="#"><span></span></a></li>
+                    <li><a href="#"><span></span></a></li>
                 </ul>
             </nav>
             <div className="nav-overlay" id="overlay"></div>
