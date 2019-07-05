@@ -1,11 +1,12 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import './App.scss';
 // import Container from './Components/Container/Container';
 // import Background from './Components/Background/Background';
 // import Modal from "./Components/Modal";
 import Navbar from "./Components/Navbar";
 import Home from './Pages/Home';
+import InnerPlanets from './Pages/InnerPlanets';
 
 function App() {
 
@@ -13,16 +14,9 @@ function App() {
     <Router>
       <div className="app">
         <Navbar />
-        <Route path="/" exact component={Home} />
-        <Route path="/home" exact component={Home} />
-        {/* <Background />
-      <Container>
-        <Modal>
-          <p>This is modal text</p>
-          <p>This is modal text</p>
-          <p>This is modal text</p>
-        </Modal>
-      </Container> */}
+        <Route exact path="/" component={Home} />
+        <Route path="/home" component={Home} />
+        <Route path="/innerplanets" component={InnerPlanets} />
       </div>
     </Router>
   );

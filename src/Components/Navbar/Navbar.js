@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import "./Navbar.scss";
 
 const Navbar = () => {
@@ -39,8 +40,8 @@ const Navbar = () => {
             >+</button>
             <nav className="nav-container" id="nav">
                 <ul>
-                    <li><a href="#"><span></span></a></li>
-                    <li><a href="#"><span></span></a></li>
+                    <li><Link to="/home">Home</Link></li>
+                    <li><Link to="/innerplanets">Inner Planets</Link></li>
                     <li><a href="#"><span></span></a></li>
                     <li><a href="#"><span></span></a></li>
                     <li><a href="#"><span></span></a></li>
