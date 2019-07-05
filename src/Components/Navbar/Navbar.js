@@ -42,7 +42,7 @@ const Navbar = () => {
                 <ul>
                     <li><Link to="/home">Home</Link></li>
                     <li><Link to="/innerplanets">Inner Planets</Link></li>
-                    <li><a href="#"><span></span></a></li>
+                    <li><Link to="/outerplanets">Outer Planets</Link></li>
                     <li><a href="#"><span></span></a></li>
                     <li><a href="#"><span></span></a></li>
                 </ul>
