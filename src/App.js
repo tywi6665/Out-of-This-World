@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import './App.scss';
 import Navbar from "./Components/Navbar";
 import Home from './Pages/Home';
-import InnerPlanets from './Pages/InnerPlanets';
+import InnerPlanets from './Pages/InnerPlanets/InnerPlanets';
 import OuterPlanets from './Pages/OuterPlanets';
 
 function App() {

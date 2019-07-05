@@ -4,6 +4,8 @@ import "./Background.scss";
 
 const Background = () => {
 
+    d3.select("svg-body").remove();
+
     //Defining global and constant variables
     const width = 100,
         height = 100,
