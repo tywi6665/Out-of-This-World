@@ -6,7 +6,7 @@
     grid-row-gap: 0px; 
     justify-items: center;
     align-items: center;
-    overflow: hidden;
+    // overflow: hidden;
     z-index: 2;
 
     &-home {
@@ -20,17 +20,18 @@
     }
 
     &-inner-planets {
+        position: relative;
         color: #fff;
-        height: 100vh;
+        min-height: 100%;
         grid-template-columns: 1fr 1fr; 
         grid-template-rows: 2fr 1fr 1fr 1fr 1fr; 
             .planet-card-mercury { grid-area: 2 / 1 / 3 / 2; } 
-            .div2 { grid-area: 2 / 2 / 3 / 3; } 
-            .div3 { grid-area: 3 / 1 / 4 / 2; } 
+            .planet-info-mercury { grid-area: 2 / 2 / 3 / 3; } 
+            .planet-info-venus { grid-area: 3 / 1 / 4 / 2; } 
             .planet-card-venus { grid-area: 3 / 2 / 4 / 3; } 
             .planet-card-earth { grid-area: 4 / 1 / 5 / 2; } 
-            .div6 { grid-area: 4 / 2 / 5 / 3; } 
-            .div7 { grid-area: 5 / 1 / 6 / 2; } 
+            .planet-info-earth { grid-area: 4 / 2 / 5 / 3; } 
+            .planet-info-mars { grid-area: 5 / 1 / 6 / 2; } 
             .planet-card-mars { grid-area: 5 / 2 / 6 / 3; } 
     }
 }

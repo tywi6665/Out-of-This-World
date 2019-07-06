@@ -1,12 +1,8 @@
-.inner-planets-page {
+.stars {
     position: absolute;
-    height: 100vh;
+    min-height: 100%;
     width: 100%;
     background: black;
-    z-index: -1;
-}
-
-.stars {
     z-index: -10;
 
     @function generate_stars ($width, $color, $density) {

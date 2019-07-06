@@ -2,3 +2,11 @@
 //     width: 300px;
 //     height: 300px;
 // }
+
+.bounding-box {
+    fill: white;
+    fill-opacity: 0;
+    stroke: #fff;
+    stroke-opacity: 0.5;
+    stroke-dasharray: 3,3;
+  }

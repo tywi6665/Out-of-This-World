@@ -16,27 +16,23 @@ const InnerPlanets = () => {
     d3.select(".svg-body").remove();
 
     return (
-        <>
-            <div className="inner-planets-page">
-                <div className="stars">
-                    <div className="star-group1"></div>
-                    <div className="star-group2"></div>
-                    <div className="star-group3"></div>
-                </div>
+        <Container
+            page={"inner-planets"}
+        >
+            <div className="stars">
+                <div className="star-group1"></div>
+                <div className="star-group2"></div>
+                <div className="star-group3"></div>
             </div>
-            <Container
-                page={"inner-planets"}
-            >
-                {innerPlanets.map(innerPlanet => {
-                    return (
-                        <PlanetCard
-                            planet={innerPlanet}
-                            key={innerPlanet.name}
-                        />
-                    )
-                })}
-            </Container>
-        </>
+            {innerPlanets.map(innerPlanet => {
+                return (
+                    <PlanetCard
+                        planet={innerPlanet}
+                        key={innerPlanet.name}
+                    />
+                )
+            })}
+        </Container>
     );
 }
 
