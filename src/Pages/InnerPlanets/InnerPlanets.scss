@@ -1,7 +1,9 @@
 .inner-planets-page {
+    position: absolute;
     height: 100vh;
     width: 100%;
     background: black;
+    z-index: -1;
 }
 
 .stars {
