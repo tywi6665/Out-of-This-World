@@ -7,7 +7,9 @@ const Home = () => {
     return (
         <>
             <Background />
-            <Container>
+            <Container
+                page={"home"}
+            >
                 <Modal>
                     <p>This is modal text</p>
                     <p>This is modal text</p>

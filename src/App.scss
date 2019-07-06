@@ -1,9 +1,12 @@
 .app {
   height: 100%;
   width: 100%;
-  background: transparent;
   text-align: center;
   overflow: hidden;
+
+  svg {
+    background: transparent;
+  }
 }
 
 

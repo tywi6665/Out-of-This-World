@@ -70,7 +70,8 @@ const Background = () => {
         .append("svg")
         .attr("width", width + "vw")
         .attr("height", height + "vh")
-        .attr("class", "svg-body");
+        .attr("class", "svg-body")
+        .attr("style", "background: whitesmoke");
 
     //Appending Sun to svg
     svg.append("circle")
