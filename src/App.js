@@ -4,7 +4,7 @@ import './App.scss';
 import Navbar from "./Components/Navbar";
 import Home from './Pages/Home';
 import InnerPlanets from './Pages/InnerPlanets/InnerPlanets';
-import OuterPlanets from './Pages/OuterPlanets';
+import OuterPlanets from './Pages/OuterPlanets/OuterPlanets';
 
 function App() {
 

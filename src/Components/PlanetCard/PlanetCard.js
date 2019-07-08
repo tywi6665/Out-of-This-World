@@ -36,7 +36,7 @@ const PlanetCard = ({ planet }) => {
             .data(planetData)
             .enter()
             .append("g")
-            .attr("class", "planet-area")
+            .attr("class", `planet-area planet-area-${planetData[0].name}`)
             .attr("transform", (d, i) => `translate(${[i * (boundingSize + 10), height / 2]})`)
             // .on("mouseover", showInfo)
             // .on("mouseout", hideInfo);
@@ -61,7 +61,6 @@ const PlanetCard = ({ planet }) => {
 
         function generatePlanet(data) {
 
-            console.log(data)
             const rotation = [0, 0, data[0].tilt];
             const projection = d3.geoOrthographic()
                 .translate([0, 0])
@@ -73,7 +72,8 @@ const PlanetCard = ({ planet }) => {
                 .projection(projection);
             const graticule = d3.geoGraticule();
 
-            const body = boundingArea.append("g")
+            const body = d3.select(`.planet-area-${data[0].name}`)
+                .append("g")
                 .attr("class", `planet ${data[0].name}-inner`)
                 .attr("transform", `translate(${[boundingSize / 2, 0]})`)
 
@@ -104,9 +104,10 @@ const PlanetCard = ({ planet }) => {
                 .style("fill", "url(#gradient-" + data[0].name + ")")
                 .style("filter", `url(#glow-${data[0].name})`);
 
-            const gridLines = body.append("path")
+            const gridLines = d3.select(`.${data[0].name}-inner`)
+                .append("path")
                 .attr("class", "graticule")
-                .datum(graticule.step([graticuleScale(data[0].radius), graticuleScale(data[0].radius)]))
+                .datum({ type: "Sphere" })
                 .attr("d", path);
 
             d3.timer(function (elapsed) {
