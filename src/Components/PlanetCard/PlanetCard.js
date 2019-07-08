@@ -7,7 +7,6 @@ const PlanetCard = ({ planet }) => {
     useEffect(() => {
 
         const planetData = [planet]
-        console.log(planetData)
 
         const width = 150,
             height = 150;
@@ -18,7 +17,7 @@ const PlanetCard = ({ planet }) => {
             .attr("height", `${height}px`)
             .attr("class", `svg-${planetData[0].name}`);
 
-        const definitions = d3.select(`.planet-card-${planetData[0].name}`).append("defs");
+        const definitions = d3.select(`.svg-${planetData[0].name}`).append("defs");
         const filter = definitions.append("filter")
             .attr("id", `glow-${planetData[0].name}`);
         filter.append("feGaussianBlur")
@@ -52,7 +51,7 @@ const PlanetCard = ({ planet }) => {
 
         const radiusScale = d3.scaleLinear()
             .domain([0, d3.max(planetData, d => d.radius)])
-            .range([20, 10]);
+            .range([20, (boundingSize / 4) - 3]);
 
         const graticuleScale = d3.scaleLinear()
             .domain(d3.extent(planetData, d => d.radius))
@@ -62,7 +61,8 @@ const PlanetCard = ({ planet }) => {
 
         function generatePlanet(data) {
 
-            const rotation = [0, 0, data.tilt];
+            console.log(data)
+            const rotation = [0, 0, data[0].tilt];
             const projection = d3.geoOrthographic()
                 .translate([0, 0])
                 .scale(radiusScale(data[0].radius))
@@ -74,10 +74,10 @@ const PlanetCard = ({ planet }) => {
             const graticule = d3.geoGraticule();
 
             const body = boundingArea.append("g")
-                .attr("class", `planet ${data[0].name}`)
+                .attr("class", `planet ${data[0].name}-inner`)
                 .attr("transform", `translate(${[boundingSize / 2, 0]})`)
 
-            const defs = d3.select(`.planet-card-${data[0].name}`)
+            const defs = d3.select(`.svg-${data[0].name}`)
                 .select("defs");
 
             const gradient = defs.append("radialGradient")
@@ -101,13 +101,18 @@ const PlanetCard = ({ planet }) => {
 
             const fill = body.append("circle")
                 .attr("r", radiusScale(data[0].radius))
-            // .style("fill", "url(#gradient-" + data[0].name + ")")
-            // .style("filter", `url(#glow-${planetData[0].name})`);
+                .style("fill", "url(#gradient-" + data[0].name + ")")
+                .style("filter", `url(#glow-${data[0].name})`);
 
             const gridLines = body.append("path")
                 .attr("class", "graticule")
                 .datum(graticule.step([graticuleScale(data[0].radius), graticuleScale(data[0].radius)]))
                 .attr("d", path);
+
+            d3.timer(function (elapsed) {
+                projection.rotate([rotation[0] + elapsed * 0.01 / data.period, rotation[1] + elapsed * 0 / data.period, rotation[2]])
+                gridLines.attr("d", path);
+            })
         }
 
     }, []);
