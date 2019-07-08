@@ -14,4 +14,19 @@
     stroke: #fff;
     stroke-opacity: 0.5;
     stroke-dasharray: 3,3;
-  }
+}
+
+.planet circle, .graticule {
+    // fill: none;
+    stroke: #123;
+    stroke-opacity: 0.15;
+}
+
+.planet circle {
+    stroke-width: 1px;
+}
+
+.axis-line {
+    stroke: #fff;
+    stroke-opacity: 0.3;   
+}
