@@ -40,9 +40,9 @@ const Navbar = () => {
             >+</button>
             <nav className="nav-container" id="nav">
                 <ul>
-                    <li><Link to="/home">Home</Link></li>
-                    <li><Link to="/innerplanets">Inner Planets</Link></li>
-                    <li><Link to="/outerplanets">Outer Planets</Link></li>
+                    <li><Link to="/home"><span>Home</span></Link></li>
+                    <li><Link to="/innerplanets"><span>Inner</span></Link></li>
+                    <li><Link to="/outerplanets"><span>Outer</span></Link></li>
                     <li><a href="#"><span></span></a></li>
                     <li><a href="#"><span></span></a></li>
                 </ul>

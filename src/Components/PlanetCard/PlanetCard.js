@@ -51,7 +51,7 @@ const PlanetCard = ({ planet }) => {
 
         const radiusScale = d3.scaleLinear()
             .domain([0, d3.max(planetData, d => d.radius)])
-            .range([20, (boundingSize / 4) - 3]);
+            .range([20, (boundingSize / 2) - 3]);
 
         const graticuleScale = d3.scaleLinear()
             .domain(d3.extent(planetData, d => d.radius))
