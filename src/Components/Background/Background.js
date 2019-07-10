@@ -30,37 +30,50 @@ const Background = () => {
             name: "earth",
             R: 90, r: 2, speed: -1.00, phi0: 135,
             moons: [
-                { R: 10, r: 1, speed: -9.00, phi0: 15 }           // the moon
+                //the moon
+                { R: 10, r: 1, speed: -9.00, phi0: 15 }
             ]
         },
         {
             name: "mars",
             R: 140, r: 1, speed: -0.80, phi0: 235,
             moons: [
-                { R: 6, r: 0.5, speed: -3.80, phi0: 15 },          // phobos
-                { R: 9, r: 0.5, speed: -2.80, phi0: 115 }           // deimos
+                //Phobos
+                { R: 6, r: 0.5, speed: -3.80, phi0: 15 },
+                //Deimos
+                { R: 9, r: 0.5, speed: -2.80, phi0: 115 }
             ]
         },
         {
             name: "jupiter",
             R: 290, r: 15, speed: -0.43, phi0: 135,
             moons: [
-                { R: 30, r: 1.5, speed: -7.70, phi0: 25 },          // io
-                { R: 36, r: 0.8, speed: -2.45, phi0: 95 },          // europa
-                { R: 49, r: 2.5, speed: -1.10, phi0: 125 },          // ganymede
-                { R: 69, r: 1.5, speed: -0.50, phi0: 315 }           // callisto
+                //Io
+                { R: 30, r: 1.5, speed: -7.70, phi0: 25 },
+                //Europa
+                { R: 36, r: 0.8, speed: -2.45, phi0: 95 },
+                //Ganymede
+                { R: 49, r: 2.5, speed: -1.10, phi0: 125 },
+                //Callisto
+                { R: 69, r: 1.5, speed: -0.50, phi0: 315 }
             ]
         },
         {
             name: "saturn",
             R: 550, r: 12, speed: -0.32, phi0: 260,
             moons: [
-                { R: 28, r: 0.8, speed: -4.10, phi0: 120 },          // mimas
-                { R: 33, r: 0.8, speed: -3.90, phi0: 20 },          // enceladus
-                { R: 38, r: 0.8, speed: -3.60, phi0: 0 },          // tethys
-                { R: 44, r: 0.8, speed: -3.20, phi0: 100 },          // dione
-                { R: 58, r: 1.5, speed: -2.90, phi0: 300 },          // rhea
-                { R: 78, r: 2.2, speed: -1.30, phi0: 180 },          // titan
+                //Mimas
+                { R: 28, r: 0.8, speed: -4.10, phi0: 120 },
+                //Enceladus         
+                { R: 33, r: 0.8, speed: -3.90, phi0: 20 },
+                //Tethys         
+                { R: 38, r: 0.8, speed: -3.60, phi0: 0 },
+                //Dione         
+                { R: 44, r: 0.8, speed: -3.20, phi0: 100 },
+                //Rhea        
+                { R: 58, r: 1.5, speed: -2.90, phi0: 300 },
+                //Titan    
+                { R: 78, r: 2.2, speed: -1.30, phi0: 180 },
             ]
         },
         {
@@ -83,7 +96,10 @@ const Background = () => {
         {
             name: "neptune",
             R: 1200, r: 7, speed: -0.05, phi0: 500,
-            moons: []
+            moons: [
+                //Triton
+                { R: 25, r: 1.2, speed: 2.90, phi0: 20 }
+            ]
         }
     ];
 
