@@ -18,7 +18,7 @@ const Background = () => {
     const planets = [
         {
             name: "mercury",
-            R: 23, r: 1, speed: -1.60, phi0: 35,
+            R: 25, r: 1, speed: -1.60, phi0: 35,
             moons: []
         },
         {
@@ -28,7 +28,7 @@ const Background = () => {
         },
         {
             name: "earth",
-            R: 87, r: 2, speed: -1.00, phi0: 135,
+            R: 90, r: 2, speed: -1.00, phi0: 135,
             moons: [
                 { R: 10, r: 1, speed: -9.00, phi0: 15 }           // the moon
             ]
@@ -53,7 +53,7 @@ const Background = () => {
         },
         {
             name: "saturn",
-            R: 583, r: 12, speed: -0.32, phi0: 260,
+            R: 550, r: 12, speed: -0.32, phi0: 260,
             moons: [
                 { R: 28, r: 0.8, speed: -4.10, phi0: 120 },          // mimas
                 { R: 33, r: 0.8, speed: -3.90, phi0: 20 },          // enceladus
@@ -62,6 +62,16 @@ const Background = () => {
                 { R: 58, r: 1.5, speed: -2.90, phi0: 300 },          // rhea
                 { R: 78, r: 2.2, speed: -1.30, phi0: 180 },          // titan
             ]
+        },
+        {
+            name: "uranus",
+            R: 850, r: 8, speed: -0.10, phi0: 325,
+            moons: []
+        },
+        {
+            name: "neptune",
+            R: 1200, r: 7, speed: -0.05, phi0: 500,
+            moons: []
         }
     ];
 
