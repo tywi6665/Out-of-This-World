@@ -57,6 +57,7 @@
         overflow: hidden;
         transform-origin: 100% 100%;
         transition: border 0.3s ease;
+        border: solid black 0.5px;
 
         a {
             display: block;
@@ -64,20 +65,23 @@
             height: 14.5em;
             width: 14.5em;
             position: absolute;
-            bottom: -7.25em;
+            bottom: -7.5em;
             right: -7.25em;
             border-radius: 50%;
             text-decoration: none;
-            color: #fff;
+            color: black;
             padding-top: 1.8em;
             text-align: center;
             transform: skew(-50deg) rotate(-70deg) scale(1);
             transition: opacity 0.3s, color 0.3s;
 
-            span {
-                // position: absolute;
-                font-size: 1.1em;
+            .nav-item {
+                font-size: 1em;
                 opacity: 0.7;
+
+                &-inner, &-outer {
+                    padding-right: 20px;
+                }
             }
         }
 
@@ -102,7 +106,7 @@
         }
 
         &:nth-child(odd) a {
-            background-color: grey;
+            background-color: whitesmoke;
         }
 
         &:nth-child(even) a {
@@ -114,7 +118,8 @@
         }
 
         &:not(.active) a:hover, &:not(.active) a:active, &:not(.active) a:focus {
-            background-color: #fff;
+            background-color: black;
+            color: white;
         }
 
         &:not(.active) a:focus {
