@@ -66,7 +66,19 @@ const Background = () => {
         {
             name: "uranus",
             R: 850, r: 8, speed: -0.10, phi0: 325,
-            moons: []
+            moons: [
+                //Puck
+                { R: 15, r: 0.5, speed: -4.10, phi0: 120 },
+                //Miranda       
+                { R: 25, r: 0.8, speed: -3.90, phi0: 20 },
+                //Ariel       
+                { R: 30, r: 1.2, speed: -3.60, phi0: 0 },
+                //Umbriel       
+                { R: 35, r: 1.0, speed: -3.20, phi0: 100 },
+                //Titania      
+                { R: 50, r: 1.5, speed: -2.90, phi0: 300 },
+                //Oberon        
+                { R: 60, r: 1.3, speed: -1.30, phi0: 180 },]
         },
         {
             name: "neptune",
