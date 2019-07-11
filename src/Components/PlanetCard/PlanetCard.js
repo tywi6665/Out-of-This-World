@@ -54,6 +54,10 @@ const PlanetCard = ({ planet, page }) => {
             .domain([0, d3.max(planetData, d => d.radius)])
             .range([0, (boundingSize / 2) - 3]);
 
+        const orbitalScale = d3.scaleLinear()
+            .domain([0, d3.max(planetData[0].moons, d => d.orbitalDistance)])
+            .range([0, (boundingSize / 2) - 3]);
+
         const graticuleScale = d3.scaleLinear()
             .domain(d3.extent(planetData, d => d.radius))
             .range([20, 10]);
@@ -117,8 +121,8 @@ const PlanetCard = ({ planet, page }) => {
                     d3.select(this)
                         .append("circle")
                         .attr("r", radiusScale(d.radius))
-                        // .attr("cx", d.R)
-                        // .attr("cy", 0)
+                        .attr("cx", orbitalScale(d.orbitalDistance))
+                        .attr("cy", 0)
                         .attr("fill", d.colors[0])
                         .attr("class", `moon ${d.name}`);
                 })

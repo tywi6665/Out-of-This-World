@@ -12,14 +12,14 @@ const InnerPlanets = () => {
         {
             name: "earth", tilt: 23.44, radius: 6371, period: 1, colors: ["#9fc164", "#6b93d6"],
             moons: [
-                { name: "the-moon", radius: 1737, colors: ["grey", "lightgrey"] }
+                { name: "the-moon", radius: 1737, orbitalDistance: 385000, colors: ["grey", "lightgrey"] }
             ]
         },
         {
             name: "mars", tilt: 6.68, radius: 3389.5, period: 1.03, colors: ["#ef1501", "#ad0000"],
             moons: [
-                { name: "phobos", radius: 110, colors: ["grey"] },
-                { name: "deimos", radius: 600, colors: ["grey"] }
+                { name: "phobos", radius: 110, orbitalDistance: 9350, colors: ["grey"] },
+                { name: "deimos", radius: 600, orbitalDistance: 23460, colors: ["grey"] }
             ]
         }
     ])
