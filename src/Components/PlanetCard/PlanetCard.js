@@ -52,7 +52,7 @@ const PlanetCard = ({ planet }) => {
 
         const radiusScale = d3.scaleLinear()
             .domain([0, d3.max(planetData, d => d.radius)])
-            .range([20, (boundingSize / 2) - 3]);
+            .range([20, (boundingSize / 4) - 3]);
 
         const graticuleScale = d3.scaleLinear()
             .domain(d3.extent(planetData, d => d.radius))
@@ -63,15 +63,15 @@ const PlanetCard = ({ planet }) => {
         function generatePlanet(data) {
 
             const rotation = [0, 0, data[0].tilt];
-            const projection = d3.geoOrthographic()
-                .translate([0, 0])
-                .scale(radiusScale(data[0].radius))
-                .clipAngle(90)
-                .precision(0.1);
+            // const projection = d3.geoOrthographic()
+            //     .translate([0, 0])
+            //     .scale(radiusScale(data[0].radius))
+            //     .clipAngle(90)
+            //     .precision(0.1);
 
-            const path = d3.geoPath()
-                .projection(projection);
-            const graticule = d3.geoGraticule();
+            // const path = d3.geoPath()
+            //     .projection(projection);
+            // const graticule = d3.geoGraticule();
 
             const body = d3.select(`.planet-area-${data[0].name}`)
                 .append("g")
@@ -105,17 +105,38 @@ const PlanetCard = ({ planet }) => {
                 .style("fill", "url(#gradient-" + data[0].name + ")")
                 .style("filter", `url(#glow-${data[0].name})`);
 
-            const gridLines = d3.select(`.${data[0].name}-inner`)
-                .append("path")
-                .attr("class", "graticule")
-                .datum({ type: "Sphere" })
-                .attr("d", path);
+            const moons = d3.select(`.${data[0].name}-inner`)
+                .append("g")
+                .attr("transform", `translate(50, 0)`)
+                .data(data[0].moons)
+                .append("g")
+                .each(function (d) {
+                    d3.select(this)
+                        .append("circle")
+                        .attr("r", radiusScale(d.radius))
+                        // .attr("cx", d.R)
+                        // .attr("cy", 0)
+                        .attr("fill", "white")
+                        .attr("class", `inner-moon ${d.name}`);
+                })
 
-            d3.timer(function (elapsed) {
-                projection.rotate([rotation[0] + elapsed * 0.01 / data.period, rotation[1] + elapsed * 0 / data.period, rotation[2]])
-                gridLines.attr("d", path);
-            })
-        }
+            // data[0].moons ? generateMoons(data[0].moons) : console.log("no moons")
+
+            // const gridLines = d3.select(`.${data[0].name}-inner`)
+            //     .append("path")
+            //     .attr("class", "graticule")
+            //     .datum({ type: "Sphere" })
+            //     .attr("d", path);
+
+            // d3.timer(function (elapsed) {
+            //     projection.rotate([rotation[0] + elapsed * 0.01 / data.period, rotation[1] + elapsed * 0 / data.period, rotation[2]])
+            //     gridLines.attr("d", path);
+            // })
+        };
+
+        // function generateMoons(data) {
+        //     console.log(data)
+        // };
 
     }, []);
 
@@ -128,8 +149,8 @@ const PlanetCard = ({ planet }) => {
                 }
             >
                 <Tween from={{ transform: "translateY(-150px)", opacity: 0 }} to={{ transform: "translateY(0px)", opacity: 1 }} duration={3} />
-            </Timeline>
-            <Timeline
+            </Timeline> */}
+            {/* <Timeline
                 wrapper={<span className="tweened-span-inner" />}
                 target={
                     <div className={`planet-info planet-info-${planet.name}`}>
