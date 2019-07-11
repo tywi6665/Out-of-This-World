@@ -71,9 +71,9 @@ const Background = () => {
                 //Dione         
                 { R: 44, r: 0.8, speed: -3.20, phi0: 100 },
                 //Rhea        
-                { R: 58, r: 1.5, speed: -2.90, phi0: 300 },
+                { R: 52, r: 1.5, speed: -2.90, phi0: 300 },
                 //Titan    
-                { R: 78, r: 2.2, speed: -1.30, phi0: 180 },
+                { R: 62, r: 2.2, speed: -1.30, phi0: 180 },
             ]
         },
         {
@@ -162,11 +162,11 @@ const Background = () => {
                         .attr("class", "moon");
                 })
                 .attr("transform", function (d) {
-                    return "rotate(" + (d.phi0 + (delta * (d.speed / 100))) + ")";
+                    return "rotate(" + (delta * (d.speed / 100)) + ")";
                 });
         })
         .attr("transform", function (d) {
-            return "rotate(" + (d.phi0 + (delta * (d.speed / 100))) + ")";
+            return "rotate(" + (delta * (d.speed / 100)) + ")";
         });
 
     //Orbiting animation
@@ -174,7 +174,7 @@ const Background = () => {
         const delta = (Date.now() - t0);
         svg.selectAll(".planet-system, .lunar-system")
             .attr("transform", function (d) {
-                return "rotate(" + (d.phi0 + (delta * (d.speed / 100))) + ")";
+                return "rotate(" + (delta * (d.speed / 100)) + ")";
             });
     }, 40);
 
