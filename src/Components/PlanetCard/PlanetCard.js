@@ -42,13 +42,13 @@ const PlanetCard = ({ planet, page }) => {
             // .on("mouseover", showInfo)
             // .on("mouseout", hideInfo);
             .attr("width", `${width}%`)
-            .attr("height", `${height - 4}%`);
+            .attr("height", `${height}%`);
 
-        const boundingBox = boundingArea.append("rect")
-            .attr("class", "bounding-box")
-            .attr("y", -boundingSize / 2)
-            .attr("width", `${width}%`)
-            .attr("height", `${height - 4}%`);
+        // const boundingBox = boundingArea.append("rect")
+        //     .attr("class", "bounding-box")
+        //     .attr("y", -boundingSize / 2)
+        //     .attr("width", `${width}%`)
+        //     .attr("height", `${height - 4}%`);
 
         const radiusScale = d3.scaleLinear()
             .domain([0, d3.max(planetData, d => d.radius)])
@@ -78,7 +78,7 @@ const PlanetCard = ({ planet, page }) => {
             const body = d3.select(`.planet-area-${data[0].name}`)
                 .append("g")
                 .attr("class", `planet ${data[0].name}-${page}`)
-                .attr("transform", `translate(${[boundingSize / 2, boundingSize / 4]})`)
+                .attr("transform", `translate(${[boundingSize / 1.5, boundingSize / 3]})`)
 
             const defs = d3.select(`.svg-${data[0].name}`)
                 .select("defs");
