@@ -16,8 +16,8 @@
     stroke-dasharray: 3,3;
 }
 
-.planet, .graticule {
-    fill: none;
+.planet, circle .graticule {
+    // fill: none;
     stroke: #123;
     stroke-opacity: 0.15;
 }

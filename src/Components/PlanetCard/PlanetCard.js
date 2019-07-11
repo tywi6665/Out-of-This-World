@@ -3,7 +3,7 @@ import "./PlanetCard.scss";
 import * as d3 from "d3";
 import { Tween, Timeline } from "react-gsap";
 
-const PlanetCard = ({ planet }) => {
+const PlanetCard = ({ planet, page }) => {
 
     useEffect(() => {
 
@@ -77,7 +77,7 @@ const PlanetCard = ({ planet }) => {
 
             const body = d3.select(`.planet-area-${data[0].name}`)
                 .append("g")
-                .attr("class", `planet ${data[0].name}-inner`)
+                .attr("class", `planet ${data[0].name}-${page}`)
                 .attr("transform", `translate(${[boundingSize / 2, boundingSize / 4]})`)
 
             const defs = d3.select(`.svg-${data[0].name}`)

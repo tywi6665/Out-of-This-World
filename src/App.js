@@ -16,6 +16,9 @@ function App() {
         <Route path="/home" component={Home} />
         <Route path="/innerplanets" component={InnerPlanets} />
         <Route path="/outerplanets" component={OuterPlanets} />
+        <div className="disclaimer">
+          <p>*Not to Scale</p>
+        </div>
       </div>
     </Router>
   );

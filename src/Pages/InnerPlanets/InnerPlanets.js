@@ -39,6 +39,7 @@ const InnerPlanets = () => {
                 return (
                     <PlanetCard
                         planet={innerPlanet}
+                        page={"inner"}
                         key={innerPlanet.name}
                     />
                 )

@@ -8,6 +8,19 @@
     background: transparent;
   }
 
+  .disclaimer {
+    position: fixed;
+    bottom: 7px;
+    right: 15px;
+    color: grey;
+    z-index: 10;
+
+        p {
+            font-size: 0.6em;
+            margin: 0;
+        }
+    }
+
   .stars {
     position: absolute;
     min-height: 100%;

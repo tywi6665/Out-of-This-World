@@ -177,9 +177,6 @@ const Background = () => {
     return (
         <>
             <div className="background"></div>
-            <div className="disclaimer">
-                <p>*Not to Scale</p>
-            </div>
         </>
     );
 }
