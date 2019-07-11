@@ -9,13 +9,13 @@ const PlanetCard = ({ planet }) => {
 
         const planetData = [planet]
 
-        const width = 150,
-            height = 150;
+        const width = 100,
+            height = 100;
 
         const svg = d3.select(`.planet-card-${planetData[0].name}`)
             .append("svg")
-            .attr("width", `${width}px`)
-            .attr("height", `${height}px`)
+            .attr("width", `${width}%`)
+            .attr("height", `${height}%`)
             .attr("class", `svg-${planetData[0].name}`);
 
         const definitions = d3.select(`.svg-${planetData[0].name}`).append("defs");
@@ -38,21 +38,21 @@ const PlanetCard = ({ planet }) => {
             .enter()
             .append("g")
             .attr("class", `planet-area planet-area-${planetData[0].name}`)
-            .attr("transform", (d, i) => `translate(${[i * (boundingSize + 10), height / 2]})`)
+            .attr("transform", (d, i) => `translate(${[0, height / 2]})`)
             // .on("mouseover", showInfo)
             // .on("mouseout", hideInfo);
-            .attr("width", boundingSize)
-            .attr("height", boundingSize);
+            .attr("width", `${width}%`)
+            .attr("height", `${height - 4}%`);
 
         const boundingBox = boundingArea.append("rect")
             .attr("class", "bounding-box")
             .attr("y", -boundingSize / 2)
-            .attr("width", boundingSize)
-            .attr("height", boundingSize);
+            .attr("width", `${width}%`)
+            .attr("height", `${height - 4}%`);
 
         const radiusScale = d3.scaleLinear()
             .domain([0, d3.max(planetData, d => d.radius)])
-            .range([20, (boundingSize / 4) - 3]);
+            .range([0, (boundingSize / 2) - 3]);
 
         const graticuleScale = d3.scaleLinear()
             .domain(d3.extent(planetData, d => d.radius))
@@ -61,6 +61,8 @@ const PlanetCard = ({ planet }) => {
         generatePlanet(planetData)
 
         function generatePlanet(data) {
+
+            const moons = data[0].moons
 
             const rotation = [0, 0, data[0].tilt];
             // const projection = d3.geoOrthographic()
@@ -76,7 +78,7 @@ const PlanetCard = ({ planet }) => {
             const body = d3.select(`.planet-area-${data[0].name}`)
                 .append("g")
                 .attr("class", `planet ${data[0].name}-inner`)
-                .attr("transform", `translate(${[boundingSize / 2, 0]})`)
+                .attr("transform", `translate(${[boundingSize / 2, boundingSize / 4]})`)
 
             const defs = d3.select(`.svg-${data[0].name}`)
                 .select("defs");
@@ -105,19 +107,20 @@ const PlanetCard = ({ planet }) => {
                 .style("fill", "url(#gradient-" + data[0].name + ")")
                 .style("filter", `url(#glow-${data[0].name})`);
 
-            const moons = d3.select(`.${data[0].name}-inner`)
-                .append("g")
-                .attr("transform", `translate(50, 0)`)
+            const generateMoons = body.selectAll("g.moon")
                 .data(data[0].moons)
+                .enter()
                 .append("g")
-                .each(function (d) {
+                .attr("transform", function (d, i) { return `translate(${(i + 1) * 50}, 0)` })
+                .each(function (d, i) {
+                    console.log(d)
                     d3.select(this)
                         .append("circle")
                         .attr("r", radiusScale(d.radius))
                         // .attr("cx", d.R)
                         // .attr("cy", 0)
-                        .attr("fill", "white")
-                        .attr("class", `inner-moon ${d.name}`);
+                        .attr("fill", d.colors[0])
+                        .attr("class", `moon ${d.name}`);
                 })
 
             // data[0].moons ? generateMoons(data[0].moons) : console.log("no moons")

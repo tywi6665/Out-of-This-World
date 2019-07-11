@@ -15,7 +15,13 @@ const InnerPlanets = () => {
                 { name: "the-moon", radius: 1737, colors: ["grey", "lightgrey"] }
             ]
         },
-        { name: "mars", tilt: 6.68, radius: 3389.5, period: 1.03, colors: ["#ef1501", "#ad0000"], moons: [] }
+        {
+            name: "mars", tilt: 6.68, radius: 3389.5, period: 1.03, colors: ["#ef1501", "#ad0000"],
+            moons: [
+                { name: "phobos", radius: 110, colors: ["grey"] },
+                { name: "deimos", radius: 600, colors: ["grey"] }
+            ]
+        }
     ])
 
     d3.select(".svg-body").remove();

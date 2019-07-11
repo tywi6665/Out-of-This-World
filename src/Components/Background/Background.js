@@ -150,10 +150,6 @@ const Background = () => {
                 .append("g")
                 .attr("class", "lunar-system")
                 .each(function (d) {
-                    // d3.select(this)
-                    //     .append("circle")
-                    //     .attr("class", "orbital")
-                    //     .attr("r", d.R);
                     d3.select(this)
                         .append("circle")
                         .attr("r", d.r)
