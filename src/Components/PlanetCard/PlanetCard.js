@@ -82,7 +82,7 @@ const PlanetCard = ({ planet, page }) => {
             const body = d3.select(`.planet-area-${data[0].name}`)
                 .append("g")
                 .attr("class", `planet ${data[0].name}-${page}`)
-                .attr("transform", `translate(${[boundingSize / 1.5, boundingSize / 3]})`)
+                .attr("transform", `translate(${[boundingSize, boundingSize / 3]})`)
 
             const defs = d3.select(`.svg-${data[0].name}`)
                 .select("defs");
@@ -115,14 +115,13 @@ const PlanetCard = ({ planet, page }) => {
                 .data(data[0].moons)
                 .enter()
                 .append("g")
-                .attr("transform", function (d) { return `translate(0, 0)` })
+                .attr("transform", function (d) { return `translate(50, 0)` })
                 .each(function (d, i) {
-                    console.log(d)
                     d3.select(this)
                         .append("circle")
-                        .attr("r", radiusScale(d.radius) * 5)
-                        // .attr("transform", function (d) { return `translate(${(orbitalScale(d.orbitalDistance) * 10) + 25}, 0)` })
-                        .attr("cx", orbitalScale(d.orbitalDistance) * 10)
+                        .attr("r", radiusScale(d.radius) * 2)
+                        .attr("transform", function (d) { return `translate(${(orbitalScale(d.orbitalDistance) * 10) + 25}, 0)` })
+                        // .attr("cx", orbitalScale(d.orbitalDistance) * 10)
                         .attr("cy", 0)
                         .attr("fill", d.colors[0])
                         .attr("class", `moon ${d.name}`);
