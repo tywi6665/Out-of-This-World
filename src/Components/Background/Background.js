@@ -18,87 +18,87 @@ const Background = () => {
     const planets = [
         {
             name: "mercury",
-            R: 25, r: 1, speed: -1.60, phi0: 35,
+            R: 25, r: 1, speed: -1.60,
             moons: []
         },
         {
             name: "venus",
-            R: 45, r: 2, speed: -1.17, phi0: 185,
+            R: 45, r: 2, speed: -1.17,
             moons: []
         },
         {
             name: "earth",
-            R: 90, r: 2, speed: -1.00, phi0: 135,
+            R: 90, r: 2, speed: -1.00,
             moons: [
                 //the moon
-                { R: 10, r: 1, speed: -9.00, phi0: 15 }
+                { R: 10, r: 1, speed: -9.00 }
             ]
         },
         {
             name: "mars",
-            R: 140, r: 1, speed: -0.80, phi0: 235,
+            R: 140, r: 1, speed: -0.80,
             moons: [
                 //Phobos
-                { R: 6, r: 0.5, speed: -3.80, phi0: 15 },
+                { R: 6, r: 0.5, speed: -3.80 },
                 //Deimos
-                { R: 9, r: 0.5, speed: -2.80, phi0: 115 }
+                { R: 9, r: 0.5, speed: -2.80 }
             ]
         },
         {
             name: "jupiter",
-            R: 290, r: 15, speed: -0.43, phi0: 135,
+            R: 290, r: 15, speed: -0.43,
             moons: [
                 //Io
-                { R: 30, r: 1.5, speed: -7.70, phi0: 25 },
+                { R: 30, r: 1.5, speed: -7.70 },
                 //Europa
-                { R: 36, r: 0.8, speed: -2.45, phi0: 95 },
+                { R: 36, r: 0.8, speed: -2.45 },
                 //Ganymede
-                { R: 49, r: 2.5, speed: -1.10, phi0: 125 },
+                { R: 49, r: 2.5, speed: -1.10 },
                 //Callisto
-                { R: 69, r: 1.5, speed: -0.50, phi0: 315 }
+                { R: 69, r: 1.5, speed: -0.50 }
             ]
         },
         {
             name: "saturn",
-            R: 550, r: 12, speed: -0.32, phi0: 260,
+            R: 550, r: 12, speed: -0.32,
             moons: [
                 //Mimas
-                { R: 28, r: 0.8, speed: -4.10, phi0: 120 },
+                { R: 28, r: 0.8, speed: -4.10 },
                 //Enceladus         
-                { R: 33, r: 0.8, speed: -3.90, phi0: 20 },
+                { R: 33, r: 0.8, speed: -3.90 },
                 //Tethys         
-                { R: 38, r: 0.8, speed: -3.60, phi0: 0 },
+                { R: 38, r: 0.8, speed: -3.60 },
                 //Dione         
-                { R: 44, r: 0.8, speed: -3.20, phi0: 100 },
+                { R: 44, r: 0.8, speed: -3.20 },
                 //Rhea        
-                { R: 52, r: 1.5, speed: -2.90, phi0: 300 },
+                { R: 52, r: 1.5, speed: -2.90 },
                 //Titan    
-                { R: 62, r: 2.2, speed: -1.30, phi0: 180 },
+                { R: 62, r: 2.2, speed: -1.30 },
             ]
         },
         {
             name: "uranus",
-            R: 850, r: 8, speed: -0.10, phi0: 325,
+            R: 850, r: 8, speed: -0.20,
             moons: [
                 //Puck
-                { R: 15, r: 0.5, speed: -4.10, phi0: 120 },
+                { R: 15, r: 0.5, speed: -4.10 },
                 //Miranda       
-                { R: 25, r: 0.8, speed: -3.90, phi0: 20 },
+                { R: 25, r: 0.8, speed: -3.90 },
                 //Ariel       
-                { R: 30, r: 1.2, speed: -3.60, phi0: 0 },
+                { R: 30, r: 1.2, speed: -3.60 },
                 //Umbriel       
-                { R: 35, r: 1.0, speed: -3.20, phi0: 100 },
+                { R: 35, r: 1.0, speed: -3.20 },
                 //Titania      
-                { R: 50, r: 1.5, speed: -2.90, phi0: 300 },
+                { R: 50, r: 1.5, speed: -2.90 },
                 //Oberon        
-                { R: 60, r: 1.3, speed: -1.30, phi0: 180 },]
+                { R: 60, r: 1.3, speed: -1.30 },]
         },
         {
             name: "neptune",
-            R: 1200, r: 7, speed: -0.05, phi0: 500,
+            R: 1200, r: 7, speed: -0.10,
             moons: [
                 //Triton
-                { R: 25, r: 1.2, speed: 2.90, phi0: 20 }
+                { R: 25, r: 1.2, speed: 2.90 }
             ]
         }
     ];

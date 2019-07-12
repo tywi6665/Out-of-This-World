@@ -1,20 +1,30 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import "./PlanetCard.scss";
 import * as d3 from "d3";
 import { Tween, Timeline } from "react-gsap";
 
 const PlanetCard = ({ planet, page }) => {
 
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+    useEffect(() => {
+        const handleResize = () => setWindowWidth(window.innerWidth);
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
+
     useEffect(() => {
 
-        const planetData = [planet]
+        const planetData = [planet];
 
-        const width = 100,
+        d3.select(`.svg-${planetData[0].name}`).remove();
+
+        const width = windowWidth,
             height = 100;
 
         const svg = d3.select(`.planet-card-${planetData[0].name}`)
             .append("svg")
-            .attr("width", `${width}%`)
+            .attr("width", `${width}px`)
             .attr("height", `${height}%`)
             .attr("class", `svg-${planetData[0].name}`);
 
@@ -41,7 +51,7 @@ const PlanetCard = ({ planet, page }) => {
             .attr("transform", (d, i) => `translate(${[0, height / 2]})`)
             // .on("mouseover", showInfo)
             // .on("mouseout", hideInfo);
-            .attr("width", `${width}%`)
+            .attr("width", `${width}px`)
             .attr("height", `${height}%`);
 
         // const boundingBox = boundingArea.append("rect")
@@ -82,7 +92,7 @@ const PlanetCard = ({ planet, page }) => {
             const body = d3.select(`.planet-area-${data[0].name}`)
                 .append("g")
                 .attr("class", `planet ${data[0].name}-${page}`)
-                .attr("transform", `translate(${[boundingSize, boundingSize / 3]})`)
+                .attr("transform", `translate(${[width / 5, height / 2.5]})`)
 
             const defs = d3.select(`.svg-${data[0].name}`)
                 .select("defs");
@@ -138,7 +148,7 @@ const PlanetCard = ({ planet, page }) => {
             //     gridLines.attr("d", path);
             // })
         };
-    }, []);
+    }, [windowWidth]);
 
     return (
         <>
