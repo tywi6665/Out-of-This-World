@@ -102,12 +102,12 @@ const PlanetCard = ({ planet, page }) => {
 
             const axis = body.append("line")
                 .attr("class", "axis-line")
-                .attr("x1", -radiusScale(data[0].radius) * 1.4)
-                .attr("x2", radiusScale(data[0].radius) * 1.4)
+                .attr("x1", -(data[0].radius / 1000) * 1.4)
+                .attr("x2", (data[0].radius / 1000) * 1.4)
                 .attr("transform", `rotate(${90 - data[0].tilt})`);
 
             const fill = body.append("circle")
-                .attr("r", radiusScale(data[0].radius))
+                .attr("r", data[0].radius / 1000)
                 .style("fill", "url(#gradient-" + data[0].name + ")")
                 .style("filter", `url(#glow-${data[0].name})`);
 
@@ -115,7 +115,7 @@ const PlanetCard = ({ planet, page }) => {
                 .data(data[0].moons)
                 .enter()
                 .append("g")
-                .attr("transform", function (d) { return `translate(50, 0)` })
+                .attr("transform", function (d) { return `translate(0, 0)` })
                 .each(function (d, i) {
                     console.log(d)
                     d3.select(this)
@@ -128,8 +128,6 @@ const PlanetCard = ({ planet, page }) => {
                         .attr("class", `moon ${d.name}`);
                 })
 
-            // data[0].moons ? generateMoons(data[0].moons) : console.log("no moons")
-
             // const gridLines = d3.select(`.${data[0].name}-inner`)
             //     .append("path")
             //     .attr("class", "graticule")
@@ -141,11 +139,6 @@ const PlanetCard = ({ planet, page }) => {
             //     gridLines.attr("d", path);
             // })
         };
-
-        // function generateMoons(data) {
-        //     console.log(data)
-        // };
-
     }, []);
 
     return (
