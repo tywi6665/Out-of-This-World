@@ -92,7 +92,7 @@ const PlanetCard = ({ planet, page }) => {
             const body = d3.select(`.planet-area-${data[0].name}`)
                 .append("g")
                 .attr("class", `planet ${data[0].name}-${page}`)
-                .attr("transform", `translate(${[width / 6, height / 2.5]})`)
+                .attr("transform", `translate(${[width / 8, height / 2.5]})`)
 
             const defs = d3.select(`.svg-${data[0].name}`)
                 .select("defs");

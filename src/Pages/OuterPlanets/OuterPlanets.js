@@ -39,7 +39,13 @@ const OuterPlanets = () => {
                 { name: "oberon", radius: 761, orbitalDistance: 583520, colors: ["grey", "lightgrey"] },
             ]
         },
-        { name: "neptune", tilt: 28.32, radius: 24622, period: 0.72, colors: ["#85addb", "#3f54ba"], moons: [] }
+        {
+            name: "neptune", tilt: 28.32, radius: 24622, period: 0.72, colors: ["#85addb", "#3f54ba"],
+            moons: [
+                { name: "proteus", radius: 420, orbitalDistance: 117646, colors: ["grey", "lightgrey"] },
+                { name: "triton", radius: 2705, orbitalDistance: 354759, colors: ["#606855", "#beb6b4"] },
+            ]
+        }
     ])
 
     d3.select(".svg-body").remove();

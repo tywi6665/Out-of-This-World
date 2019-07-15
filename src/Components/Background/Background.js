@@ -91,7 +91,7 @@ const Background = () => {
                 //Titania      
                 { R: 50, r: 1.5, speed: -2.90 },
                 //Oberon        
-                { R: 60, r: 1.3, speed: -1.30 },]
+                { R: 60, r: 1.3, speed: -1.30 }]
         },
         {
             name: "neptune",
