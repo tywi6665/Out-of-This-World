@@ -12,7 +12,7 @@ const InnerPlanets = () => {
         {
             name: "earth", tilt: 23.44, radius: 6371, period: 1, colors: ["#9fc164", "#6b93d6"],
             moons: [
-                { name: "the-moon", radius: 173, orbitalDistance: 385000, colors: ["grey", "lightgrey"] }
+                { name: "the-moon", radius: 1736, orbitalDistance: 385000, colors: ["grey", "lightgrey"] }
             ]
         },
         {
