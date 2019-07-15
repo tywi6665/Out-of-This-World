@@ -130,8 +130,8 @@ const PlanetCard = ({ planet, page }) => {
                     d3.select(this)
                         .append("circle")
                         .attr("r", radiusScale(d.radius))
-                        .attr("transform", function (d) { return `translate(${(orbitalScale(d.orbitalDistance)) / 1000}, 0)` })
-                        // .attr("cx", orbitalScale(d.orbitalDistance))
+                        // .attr("transform", function (d) { return `translate(${(orbitalScale(d.orbitalDistance)) / 1000}, 0)` })
+                        .attr("cx", orbitalScale(d.orbitalDistance) / 1000)
                         .attr("cy", 0)
                         .attr("fill", d.colors[0])
                         .attr("class", `moon ${d.name}`);

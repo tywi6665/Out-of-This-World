@@ -28,7 +28,17 @@ const OuterPlanets = () => {
                 { name: "lapetus", radius: 1470, orbitalDistance: 3560820, colors: ["#fff", "#403b1d"] }
             ]
         },
-        { name: "uranus", tilt: 82.23, radius: 25362, period: -0.72, colors: ["#e1eeee", "#adb0c3"], moons: [] },
+        {
+            name: "uranus", tilt: 82.23, radius: 25362, period: -0.72, colors: ["#e1eeee", "#adb0c3"],
+            moons: [
+                { name: "puck", radius: 81, orbitalDistance: 86004, colors: ["grey", "lightgrey"] },
+                { name: "miranda", radius: 235, orbitalDistance: 129390, colors: ["lightgrey", "#fff"] },
+                { name: "ariel", radius: 579, orbitalDistance: 190900, colors: ["grey", "lightgrey"] },
+                { name: "umbriel", radius: 584, orbitalDistance: 266000, colors: ["lightgrey", "grey"] },
+                { name: "titania", radius: 788, orbitalDistance: 435910, colors: ["grey", "lightgrey"] },
+                { name: "oberon", radius: 761, orbitalDistance: 583520, colors: ["grey", "lightgrey"] },
+            ]
+        },
         { name: "neptune", tilt: 28.32, radius: 24622, period: 0.72, colors: ["#85addb", "#3f54ba"], moons: [] }
     ])
 
