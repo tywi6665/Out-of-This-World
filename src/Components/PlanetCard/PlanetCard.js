@@ -148,11 +148,11 @@ const PlanetCard = ({ planet, page }) => {
                 div.transition()
                     .delay(100)
                     .duration(200)
-                    .style("opacity", 0.9);
+                    .style("opacity", 1);
 
-                div.html(`<h4>${d.name.charAt(0).toUpperCase() + d.name.slice(1)}</h4>`)
-                    .style("left", `${d3.event.pageX - 55}px`)
-                    .style("top", `${d3.event.pageY - 125}px`)
+                div.html(`<img src=${d.url} /><h4>${d.name.charAt(0).toUpperCase() + d.name.slice(1)}</h4>`)
+                    .style("left", `${d3.event.pageX - 116}px`)
+                    .style("top", `${d3.event.pageY + 15}px`)
             }
 
             function hideInfo(d) {

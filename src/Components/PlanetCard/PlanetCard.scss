@@ -39,7 +39,7 @@
 div.tool-tip {	
     position: absolute;			
     text-align: center;			
-    width: 80px;					
+    width: fit-content;					
     height: fit-content;					
     padding: 15px;				
     background: lightsteelblue;		
@@ -51,6 +51,11 @@ div.tool-tip {
         border-bottom: 1px solid #fff;
     }
 
+    img {
+        width: 200px;
+        height: 200px;
+    }
+
     &:after {
         box-sizing: border-box;
         display: inline;
@@ -59,8 +64,9 @@ div.tool-tip {
         line-height: 1;
         content: "\25BC";
         position: absolute;
-        bottom: -8px;
+        top: -8px;
         left: 0;
+        transform: rotate(180deg);
         text-align: center;
       }
 }
