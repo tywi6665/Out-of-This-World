@@ -66,9 +66,9 @@ const PlanetCard = ({ planet, page }) => {
             .domain([0, width - 50])
             .range([0, (boundingSize / 2) - 3]);
 
-        const graticuleScale = d3.scaleLinear()
-            .domain(d3.extent(planetData, d => d.radius))
-            .range([20, 10]);
+        // const graticuleScale = d3.scaleLinear()
+        //     .domain(d3.extent(planetData, d => d.radius))
+        //     .range([20, 10]);
 
         generatePlanet(planetData)
 
@@ -151,6 +151,8 @@ const PlanetCard = ({ planet, page }) => {
                     .style("opacity", 0.9);
 
                 div.html("<p>Hey Hey Hey</p>")
+                    .style("left", `${d3.event.pageX - 55}px`)
+                    .style("top", `${d3.event.pageY - 125}px`)
             }
 
             function hideInfo(d) {
