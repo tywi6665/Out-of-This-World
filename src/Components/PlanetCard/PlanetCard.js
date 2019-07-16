@@ -150,7 +150,7 @@ const PlanetCard = ({ planet, page }) => {
                     .duration(200)
                     .style("opacity", 0.9);
 
-                div.html("<p>Hey Hey Hey</p>")
+                div.html(`<h4>${d.name.charAt(0).toUpperCase() + d.name.slice(1)}</h4>`)
                     .style("left", `${d3.event.pageX - 55}px`)
                     .style("top", `${d3.event.pageY - 125}px`)
             }
@@ -201,7 +201,7 @@ const PlanetCard = ({ planet, page }) => {
             </Timeline> */}
             <div className={`planet-card planet-card-${planet.name}`}></div>
             <div className={`planet-info planet-info-${planet.name}`}>
-                <p>{planet.name}</p>
+                <p>{planet.name.charAt(0).toUpperCase() + planet.name.slice(1)}</p>
                 <p>Radius: {planet.radius}km</p>
                 <p>Axial Tilt: {planet.tilt}°</p>
                 <p>Day Length: {planet.period}</p>

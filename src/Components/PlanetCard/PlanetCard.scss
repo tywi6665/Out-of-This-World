@@ -47,6 +47,10 @@ div.tool-tip {
     pointer-events: none;	
     border: 1px solid #fff;
 
+    h4 {
+        border-bottom: 1px solid #fff;
+    }
+
     &:after {
         box-sizing: border-box;
         display: inline;
