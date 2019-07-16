@@ -26,7 +26,7 @@ const PlanetCard = ({ planet, page }) => {
             .append("svg")
             .attr("width", `${width}px`)
             .attr("height", `${height}%`)
-            .attr("class", `svg-${planetData[0].name}`);
+            .attr("class", `svg-planet svg-${planetData[0].name}`);
 
         const definitions = d3.select(`.svg-${planetData[0].name}`).append("defs");
         const filter = definitions.append("filter")
@@ -49,8 +49,6 @@ const PlanetCard = ({ planet, page }) => {
             .append("g")
             .attr("class", `planet-area planet-area-${planetData[0].name}`)
             .attr("transform", (d, i) => `translate(${[0, height / 2]})`)
-            // .on("mouseover", showInfo)
-            // .on("mouseout", hideInfo);
             .attr("width", `${width}px`)
             .attr("height", `${height}%`);
 
@@ -134,8 +132,34 @@ const PlanetCard = ({ planet, page }) => {
                         .attr("cx", orbitalScale(d.orbitalDistance) / 1000)
                         .attr("cy", 0)
                         .attr("fill", d.colors[0])
-                        .attr("class", `moon ${d.name}`);
+                        .attr("class", `moon ${d.name}`)
+                        .on("mouseover", showInfo)
+                        .on("mouseout", hideInfo);
                 })
+
+            const div = d3.select(`.planet-card-${planet.name}`)
+                .append("div")
+                .attr("class", "tool-tip")
+                .style("opacity", 0);
+
+            function showInfo(d) {
+                // d3.select(this)
+
+                div.transition()
+                    .delay(100)
+                    .duration(200)
+                    .style("opacity", 0.9);
+
+                div.html("<p>Hey Hey Hey</p>")
+            }
+
+            function hideInfo(d) {
+                // d3.select(this)
+
+                div.transition()
+                    .duration(500)
+                    .style("opacity", 0);
+            }
 
             // const gridLines = d3.select(`.${data[0].name}-inner`)
             //     .append("path")

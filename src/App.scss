@@ -58,15 +58,15 @@
     }
 
     .star-group1 {
-        @include star_content(2000, #fff, 200, 2, 0);
+        @include star_content(2000, #fff, 100, 2, 0);
     }
 
     .star-group2 {
-        @include star_content(2000, #fff, 200, 2, 0.2);
+        @include star_content(2000, #fff, 100, 2, 0.2);
     }
 
     .star-group3 {
-        @include star_content(2000, #fff, 200, 4, 0.5);
+        @include star_content(2000, #fff, 100, 4, 0.5);
     }
   }
 }
