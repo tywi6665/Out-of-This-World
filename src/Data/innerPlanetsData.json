@@ -36,6 +36,7 @@
                     "name": "the-moon",
                     "radius": 1736,
                     "orbitalDistance": 385000,
+                    "discovery": "Always known to mankind",
                     "colors": [
                         "grey",
                         "lightgrey"
@@ -58,6 +59,7 @@
                     "name": "phobos",
                     "radius": 110,
                     "orbitalDistance": 9350,
+                    "discovery": "17 August 1877",
                     "colors": [
                         "grey"
                     ],
@@ -67,6 +69,7 @@
                     "name": "deimos",
                     "radius": 60,
                     "orbitalDistance": 23460,
+                    "discovery": "12 August 1877",
                     "colors": [
                         "grey"
                     ],

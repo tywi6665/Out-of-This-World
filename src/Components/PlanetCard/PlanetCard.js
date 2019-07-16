@@ -157,7 +157,7 @@ const PlanetCard = ({ planet, page }) => {
                             <ul>
                                 <li><b>Mean Radius:</b> ${d.radius}km</li>
                                 <li><b>Mean Orbital Distance:</b> ${d.orbitalDistance}km</li>
-                                <li><b>Something</b></li>
+                                <li><b>Date of Discovery: </b>${d.discovery}</li>
                             </ul>
                         </div>`)
                     .style("left", `${d3.event.pageX - 200}px`)
