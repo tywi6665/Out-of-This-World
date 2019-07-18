@@ -102,6 +102,8 @@ const PlanetCard = ({ planet, page }) => {
 
             function radialGradient() {
                 gradient = defs.append("radialGradient")
+                    .attr("cx", "100%")
+                    .attr("cy", "50%")
                     .attr("id", `gradient-${data[0].name}`)
 
                 gradient.append("stop")
