@@ -98,21 +98,32 @@ const PlanetCard = ({ planet, page }) => {
 
             let gradient = null;
 
-            data[0].name === "jupiter" ? linearGradient() : radialGradient(data[0]);
+            data[0].name === "jupiter" ? linearGradient() : radialGradient(data[0], false);
 
-            function radialGradient(data) {
+            function radialGradient(data, isMoon) {
                 gradient = defs.append("radialGradient")
-                    .attr("cx", "100%")
+                    .attr("cx", `${isMoon ? "75%" : "100%"}`)
                     .attr("cy", "50%")
                     .attr("id", `gradient-${data.name}`)
+                    .attr("gradientTransform", `${isMoon ? "rotate(" + Math.random() * 90 + ")" : "rotate(0)"}`)
 
-                gradient.append("stop")
-                    .attr("offset", "5%")
-                    .attr("stop-color", data.colors[0]);
+                if (isMoon) {
+                    gradient.append("stop")
+                        .attr("offset", `${Math.random() * 50}%`)
+                        .attr("stop-color", data.colors[0]);
 
-                gradient.append("stop")
-                    .attr("offset", "100%")
-                    .attr("stop-color", data.colors[1]);
+                    gradient.append("stop")
+                        .attr("offset", "100%")
+                        .attr("stop-color", data.colors[1]);
+                } else {
+                    gradient.append("stop")
+                        .attr("offset", "5%")
+                        .attr("stop-color", data.colors[0]);
+
+                    gradient.append("stop")
+                        .attr("offset", "100%")
+                        .attr("stop-color", data.colors[1]);
+                }
 
                 return `url(#gradient-${data.name})`
             }
@@ -219,7 +230,7 @@ const PlanetCard = ({ planet, page }) => {
                         // .attr("cy", 0)
                         // .attr("fill", d.colors[0])
                         .attr("class", `moon ${d.name}`)
-                        .style("fill", radialGradient(d))
+                        .style("fill", radialGradient(d, true))
                         .style("filter", `url(#glow-${data[0].name})`)
                         .on("mouseover", showInfo)
                         .on("mouseout", hideInfo);
