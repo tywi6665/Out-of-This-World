@@ -1,6 +1,18 @@
 .planet-card {
-    width: fit-content;
+    // width: fit-content;
     // height: 300px;
+
+    &-jupiter {
+        // position: relative;
+
+        .great-red-spot {
+            width: 200px;
+            height: 100px;
+            transform: translate(320px, -450px) rotate(-25.2deg);
+            border-radius: 50%;
+            background:radial-gradient(ellipse at center, rgb(240, 62, 17), rgb(233,147,8), rgb(205,126,9), rgb(165,145,134));
+        }
+    }
 }
 
 .svg {

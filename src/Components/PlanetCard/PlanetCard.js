@@ -20,7 +20,7 @@ const PlanetCard = ({ planet, page }) => {
         d3.select(`.svg-${planetData[0].name}`).remove();
 
         const width = 2700,
-            height = planetData[0].radius / 200;
+            height = planetData[0].radius / 250;
 
         const svg = d3.select(`.planet-card-${planetData[0].name}`)
             .append("svg")
@@ -91,7 +91,7 @@ const PlanetCard = ({ planet, page }) => {
             const body = d3.select(`.planet-area-${data[0].name}`)
                 .append("g")
                 .attr("class", `planet ${data[0].name}-${page}`)
-                .attr("transform", `translate(${[width / 8, height / 2.5]})`)
+                .attr("transform", `translate(${[width / 10, height / 2.5]})`)
 
             const defs = d3.select(`.svg-${data[0].name}`)
                 .select("defs");
@@ -111,14 +111,23 @@ const PlanetCard = ({ planet, page }) => {
 
             const axis = body.append("line")
                 .attr("class", "axis-line")
-                .attr("x1", -(data[0].radius / 200) * 1.4)
-                .attr("x2", (data[0].radius / 200) * 1.4)
+                .attr("x1", -(data[0].radius / 250) * 1.3)
+                .attr("x2", (data[0].radius / 250) * 1.3)
                 .attr("transform", `rotate(${90 - data[0].tilt})`);
 
             const fill = body.append("circle")
                 .attr("r", radiusScale(data[0].radius))
                 .style("fill", "url(#gradient-" + data[0].name + ")")
                 .style("filter", `url(#glow-${data[0].name})`);
+
+            data[0].name === "jupiter" ? generateSpot() : console.log(data[0].name);
+
+            function generateSpot() {
+                d3.select(".great-red-spot").remove();
+                const greatRedSpot = d3.select(`.planet-card-jupiter`)
+                    .append("div")
+                    .attr("class", "great-red-spot")
+            }
 
             const generateMoons = body.selectAll("g.moon")
                 .data(data[0].moons)
@@ -145,8 +154,6 @@ const PlanetCard = ({ planet, page }) => {
                 .style("opacity", 0);
 
             function showInfo(d) {
-                // d3.select(this)
-
                 div.transition()
                     .delay(100)
                     .duration(200)
@@ -162,7 +169,7 @@ const PlanetCard = ({ planet, page }) => {
                                 <li><b>Date of Discovery: </b>${d.discovery}</li>
                             </ul>
                         </div>`)
-                    .style("left", `${d3.event.pageX - 200}px`)
+                    .style("left", `${d3.event.pageX - 250}px`)
                     .style("top", `${d3.event.pageY + 15}px`)
             }
 
@@ -172,6 +179,7 @@ const PlanetCard = ({ planet, page }) => {
                 div.transition()
                     .duration(500)
                     .style("opacity", 0);
+
             }
 
             // const gridLines = d3.select(`.${data[0].name}-inner`)
