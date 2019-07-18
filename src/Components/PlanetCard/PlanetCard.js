@@ -96,18 +96,39 @@ const PlanetCard = ({ planet, page }) => {
             const defs = d3.select(`.svg-${data[0].name}`)
                 .select("defs");
 
-            const gradient = defs.append("radialGradient")
-                .attr("id", `gradient-${data[0].name}`)
-                .attr("cx", "25%")
-                .attr("cy", "25%");
+            let gradient = null;
 
-            gradient.append("stop")
-                .attr("offset", "5%")
-                .attr("stop-color", data[0].colors[0]);
+            data[0].name === "jupiter" ? linearGradient() : radialGradient();
 
-            gradient.append("stop")
-                .attr("offset", "100%")
-                .attr("stop-color", data[0].colors[1]);
+            function radialGradient() {
+                gradient = defs.append("radialGradient")
+                    .attr("id", `gradient-${data[0].name}`)
+                    .attr("cx", "25%")
+                    .attr("cy", "25%");
+
+                gradient.append("stop")
+                    .attr("offset", "5%")
+                    .attr("stop-color", data[0].colors[0]);
+
+                gradient.append("stop")
+                    .attr("offset", "100%")
+                    .attr("stop-color", data[0].colors[1]);
+            }
+
+            function linearGradient() {
+                gradient = defs.append("linearGradient")
+                    .attr("id", `gradient-${data[0].name}`)
+                    .attr("cx", "25%")
+                    .attr("cy", "25%");
+
+                gradient.append("stop")
+                    .attr("offset", "5%")
+                    .attr("stop-color", data[0].colors[0]);
+
+                gradient.append("stop")
+                    .attr("offset", "100%")
+                    .attr("stop-color", data[0].colors[1]);
+            }
 
             const axis = body.append("line")
                 .attr("class", "axis-line")
@@ -120,9 +141,7 @@ const PlanetCard = ({ planet, page }) => {
                 .style("fill", "url(#gradient-" + data[0].name + ")")
                 .style("filter", `url(#glow-${data[0].name})`);
 
-            data[0].name === "jupiter" ? generateSpot() : console.log(data[0].name);
-
-            function generateSpot() {
+            if (data[0].name === "jupiter") {
                 d3.select(".great-red-spot").remove();
                 const greatRedSpot = d3.select(`.planet-card-jupiter`)
                     .append("div")
