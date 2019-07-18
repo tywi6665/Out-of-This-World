@@ -211,10 +211,20 @@ const PlanetCard = ({ planet, page }) => {
 
             if (data[0].name === "jupiter") {
                 d3.select(".great-red-spot").remove();
-                const greatRedSpot = d3.select(`.planet-card-jupiter`)
+                const greatRedSpot = d3.select(".planet-card-jupiter")
                     .append("div")
                     .attr("class", "great-red-spot");
             };
+
+            // if (data[0].name === "saturn") {
+            //     d3.select(".saturn-rings").remove();
+            //     const ringsBehind = d3.select(".planet-card-saturn")
+            //         .append("div")
+            //         .attr("class", "saturn-rings saturn-rings-behind")
+            //     const ringsFront = d3.select(".planet-card-saturn")
+            //         .append("div")
+            //         .attr("class", "saturn-rings saturn-rings-front")
+            // }
 
             const generateMoons = body.selectAll("g.moon")
                 .data(data[0].moons)
@@ -281,7 +291,7 @@ const PlanetCard = ({ planet, page }) => {
             //     gridLines.attr("d", path);
             // })
         };
-    }, [windowWidth]);
+    }, []);
 
     return (
         <>
