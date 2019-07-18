@@ -98,21 +98,23 @@ const PlanetCard = ({ planet, page }) => {
 
             let gradient = null;
 
-            data[0].name === "jupiter" ? linearGradient() : radialGradient();
+            data[0].name === "jupiter" ? linearGradient() : radialGradient(data[0]);
 
-            function radialGradient() {
+            function radialGradient(data) {
                 gradient = defs.append("radialGradient")
                     .attr("cx", "100%")
                     .attr("cy", "50%")
-                    .attr("id", `gradient-${data[0].name}`)
+                    .attr("id", `gradient-${data.name}`)
 
                 gradient.append("stop")
                     .attr("offset", "5%")
-                    .attr("stop-color", data[0].colors[0]);
+                    .attr("stop-color", data.colors[0]);
 
                 gradient.append("stop")
                     .attr("offset", "100%")
-                    .attr("stop-color", data[0].colors[1]);
+                    .attr("stop-color", data.colors[1]);
+
+                return `url(#gradient-${data.name})`
             }
 
             function linearGradient() {
@@ -200,8 +202,8 @@ const PlanetCard = ({ planet, page }) => {
                 d3.select(".great-red-spot").remove();
                 const greatRedSpot = d3.select(`.planet-card-jupiter`)
                     .append("div")
-                    .attr("class", "great-red-spot")
-            }
+                    .attr("class", "great-red-spot");
+            };
 
             const generateMoons = body.selectAll("g.moon")
                 .data(data[0].moons)
@@ -215,12 +217,13 @@ const PlanetCard = ({ planet, page }) => {
                         .attr("transform", function (d) { return `translate(${((orbitalScale(d.orbitalDistance)) / 1000) + radiusScale(data[0].radius)}, 0)` })
                         // .attr("cx", orbitalScale(d.orbitalDistance) / 1000)
                         // .attr("cy", 0)
-                        .attr("fill", d.colors[0])
+                        // .attr("fill", d.colors[0])
                         .attr("class", `moon ${d.name}`)
+                        .style("fill", radialGradient(d))
                         .style("filter", `url(#glow-${data[0].name})`)
                         .on("mouseover", showInfo)
                         .on("mouseout", hideInfo);
-                })
+                });
 
             const div = d3.select(`.planet-card-${planet.name}`)
                 .append("div")
