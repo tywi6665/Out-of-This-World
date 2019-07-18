@@ -1,5 +1,5 @@
 .container {
-    width: 100%;
+    min-width: 100%;
     background: transparent;
     display: grid; 
     grid-column-gap: 0px;
@@ -32,6 +32,7 @@
         min-height: 100%;
         grid-template-columns: 1fr; 
         grid-template-rows: 0.15fr auto 1fr auto 1fr auto 1fr auto 1fr; 
+        overflow: hidden;
 
         // .tweened-div-inner {
 
@@ -73,7 +74,7 @@
         text-align: left;
         color: #fff;
         min-height: 100%;
-        min-width: 100%;
+        width: 2700px;
         grid-template-columns: 1fr; 
         grid-template-rows: 0.15fr auto 1fr auto 1fr auto 1fr auto 1fr; 
             .planet-card-jupiter { 
@@ -104,5 +105,54 @@
             .planet-info-neptune { 
                 grid-area: 9 / 1 / 10 / 2; 
             } 
+    }
+
+    .stars {
+        position: absolute;
+        min-height: 100%;
+        width: 100%;
+        background: black;
+        z-index: -10;
+
+        @function generate_stars ($width, $color, $density) {
+            $h-shadow: random($width);
+            $v-shadow: random($width);
+
+            $stars: "#{$h-shadow}px #{$v-shadow}px #{$color}";
+            @for $i from 2 through $density {
+                $h-shadow: random($width);
+                $v-shadow: random($width);
+                $stars: "#{$stars}, #{$h-shadow}px #{$v-shadow}px #{$color}";
+            }
+            @return unquote($stars);
+        }
+
+        @mixin star_content($width, $color, $density, $speed, $delay) {
+            width: 2px;
+            height: 2px;
+            border-radius: 50%;
+            opacity: 0;
+            z-index: -10;
+            box-shadow: generate_stars($width, $color, $density);
+            animation: twinkle $speed+s linear $delay+s infinite alternate;
+        }
+
+        @keyframes twinkle {
+            0% {opacity: 0;}
+            50% { opacity: 1;}
+            100% { opacity: 0;}
+        }
+
+        .star-group1 {
+            @include star_content(2500, #fff, 100, 2, 0);
+        }
+
+        .star-group2 {
+            @include star_content(2500, #fff, 100, 2, 0.2);
+        }
+
+        .star-group3 {
+            @include star_content(2500, #fff, 100, 4, 0.5);
+        }
     }
 }

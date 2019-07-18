@@ -19,7 +19,7 @@ const PlanetCard = ({ planet, page }) => {
 
         d3.select(`.svg-${planetData[0].name}`).remove();
 
-        const width = windowWidth,
+        const width = 2700,
             height = planetData[0].radius / 200;
 
         const svg = d3.select(`.planet-card-${planetData[0].name}`)
@@ -42,21 +42,6 @@ const PlanetCard = ({ planet, page }) => {
             .attr("in", "SourceGraphic");
 
         const boundingSize = width - 10;
-        const boundingArea = svg.append("g")
-            .selectAll("g")
-            .data(planetData)
-            .enter()
-            .append("g")
-            .attr("class", `planet-area planet-area-${planetData[0].name}`)
-            .attr("transform", (d, i) => `translate(${[0, height / 2]})`)
-            .attr("width", `${width}px`)
-            .attr("height", `${height}px`);
-
-        // const boundingBox = boundingArea.append("rect")
-        //     .attr("class", "bounding-box")
-        //     .attr("y", -boundingSize / 2)
-        //     .attr("width", `${width}%`)
-        //     .attr("height", `${height - 4}%`);
 
         const radiusScale = d3.scaleLinear()
             .domain([0, planetData[0].radius])
@@ -65,6 +50,22 @@ const PlanetCard = ({ planet, page }) => {
         const orbitalScale = d3.scaleLinear()
             .domain([0, width - 50])
             .range([0, (boundingSize / 2) - 3]);
+
+        const boundingArea = svg.append("g")
+            .selectAll("g")
+            .data(planetData)
+            .enter()
+            .append("g")
+            .attr("class", `planet-area planet-area-${planetData[0].name}`)
+            .attr("transform", (d, i) => `translate(${[radiusScale(planetData[0].radius) / 5, height / 2]})`)
+            .attr("width", `${width}px`)
+            .attr("height", `${height}px`);
+
+        // const boundingBox = boundingArea.append("rect")
+        //     .attr("class", "bounding-box")
+        //     .attr("y", -boundingSize / 2)
+        //     .attr("width", `${width}%`)
+        //     .attr("height", `${height - 4}%`);
 
         // const graticuleScale = d3.scaleLinear()
         //     .domain(d3.extent(planetData, d => d.radius))
