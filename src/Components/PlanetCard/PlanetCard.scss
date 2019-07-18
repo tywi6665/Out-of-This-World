@@ -8,8 +8,52 @@
 //     }
 // }
 
-.svg-planet {
-    position: relative;
+.svg {
+
+    &-planet {
+        position: relative;
+        overflow: visible;
+    }
+
+    &-mercury {
+        margin-top: 100px;
+        margin-bottom: 40px;
+    }
+
+    &-venus {
+        margin-top: 100px;
+        margin-bottom: 50px;
+    }
+    
+    &-earth {
+        margin-top: 100px;
+        margin-bottom: 50px;
+    }
+
+    &-mars {
+        margin-top: 100px;
+        margin-bottom: 50px;
+    }
+
+    &-jupiter {
+        margin-top: 100px;
+        margin-bottom: 450px;
+    }
+
+    &-saturn {
+        margin-top: 50px;
+        margin-bottom: 350px;
+    }
+
+    &-uranus {
+        margin-top: 50px;
+        margin-bottom: 150px;
+    }
+
+    &-neptune {
+        margin-top: 50px;
+        margin-bottom: 150px;
+    }
 }
 
 .bounding-box {

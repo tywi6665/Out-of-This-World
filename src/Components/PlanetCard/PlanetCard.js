@@ -20,12 +20,12 @@ const PlanetCard = ({ planet, page }) => {
         d3.select(`.svg-${planetData[0].name}`).remove();
 
         const width = windowWidth,
-            height = 100;
+            height = planetData[0].radius / 200;
 
         const svg = d3.select(`.planet-card-${planetData[0].name}`)
             .append("svg")
             .attr("width", `${width}px`)
-            .attr("height", `${height}%`)
+            .attr("height", `${height}px`)
             .attr("class", `svg-planet svg-${planetData[0].name}`);
 
         const definitions = d3.select(`.svg-${planetData[0].name}`).append("defs");
@@ -50,7 +50,7 @@ const PlanetCard = ({ planet, page }) => {
             .attr("class", `planet-area planet-area-${planetData[0].name}`)
             .attr("transform", (d, i) => `translate(${[0, height / 2]})`)
             .attr("width", `${width}px`)
-            .attr("height", `${height}%`);
+            .attr("height", `${height}px`);
 
         // const boundingBox = boundingArea.append("rect")
         //     .attr("class", "bounding-box")
@@ -60,7 +60,7 @@ const PlanetCard = ({ planet, page }) => {
 
         const radiusScale = d3.scaleLinear()
             .domain([0, 69911])
-            .range([0, height * 1.5]);
+            .range([0, height]);
 
         const orbitalScale = d3.scaleLinear()
             .domain([0, width - 50])
@@ -110,12 +110,12 @@ const PlanetCard = ({ planet, page }) => {
 
             const axis = body.append("line")
                 .attr("class", "axis-line")
-                .attr("x1", -(data[0].radius / 1000) * 1.4)
-                .attr("x2", (data[0].radius / 1000) * 1.4)
+                .attr("x1", -(data[0].radius / 200) * 1.4)
+                .attr("x2", (data[0].radius / 200) * 1.4)
                 .attr("transform", `rotate(${90 - data[0].tilt})`);
 
             const fill = body.append("circle")
-                .attr("r", data[0].radius / 1000)
+                .attr("r", data[0].radius / 200)
                 .style("fill", "url(#gradient-" + data[0].name + ")")
                 .style("filter", `url(#glow-${data[0].name})`);
 
