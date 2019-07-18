@@ -103,8 +103,6 @@ const PlanetCard = ({ planet, page }) => {
             function radialGradient() {
                 gradient = defs.append("radialGradient")
                     .attr("id", `gradient-${data[0].name}`)
-                    .attr("cx", "25%")
-                    .attr("cy", "25%");
 
                 gradient.append("stop")
                     .attr("offset", "5%")
@@ -118,16 +116,71 @@ const PlanetCard = ({ planet, page }) => {
             function linearGradient() {
                 gradient = defs.append("linearGradient")
                     .attr("id", `gradient-${data[0].name}`)
-                    .attr("cx", "25%")
-                    .attr("cy", "25%");
+                    .attr("x1", "5%")
+                    .attr("x2", "100%")
+                    .attr("y1", "25%")
+                    .attr("y2", "75%")
+                    .attr("gradientTransform", "rotate(36)");
 
                 gradient.append("stop")
                     .attr("offset", "5%")
                     .attr("stop-color", data[0].colors[0]);
 
                 gradient.append("stop")
-                    .attr("offset", "100%")
+                    .attr("offset", "8%")
                     .attr("stop-color", data[0].colors[1]);
+
+                gradient.append("stop")
+                    .attr("offset", "12%")
+                    .attr("stop-color", data[0].colors[2]);
+
+                gradient.append("stop")
+                    .attr("offset", "20%")
+                    .attr("stop-color", data[0].colors[3]);
+
+                gradient.append("stop")
+                    .attr("offset", "25%")
+                    .attr("stop-color", data[0].colors[1]);
+
+                gradient.append("stop")
+                    .attr("offset", "30%")
+                    .attr("stop-color", data[0].colors[5]);
+
+                gradient.append("stop")
+                    .attr("offset", "40%")
+                    .attr("stop-color", data[0].colors[6]);
+
+                gradient.append("stop")
+                    .attr("offset", "45%")
+                    .attr("stop-color", data[0].colors[7]);
+
+                gradient.append("stop")
+                    .attr("offset", "52%")
+                    .attr("stop-color", data[0].colors[8]);
+
+                gradient.append("stop")
+                    .attr("offset", "58%")
+                    .attr("stop-color", data[0].colors[9]);
+
+                gradient.append("stop")
+                    .attr("offset", "70%")
+                    .attr("stop-color", data[0].colors[10]);
+
+                gradient.append("stop")
+                    .attr("offset", "75%")
+                    .attr("stop-color", data[0].colors[11]);
+
+                gradient.append("stop")
+                    .attr("offset", "80%")
+                    .attr("stop-color", data[0].colors[12]);
+
+                gradient.append("stop")
+                    .attr("offset", "85%")
+                    .attr("stop-color", data[0].colors[13]);
+
+                gradient.append("stop")
+                    .attr("offset", "100%")
+                    .attr("stop-color", data[0].colors[14]);
             }
 
             const axis = body.append("line")
