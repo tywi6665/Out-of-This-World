@@ -59,7 +59,7 @@ const PlanetCard = ({ planet, page }) => {
         //     .attr("height", `${height - 4}%`);
 
         const radiusScale = d3.scaleLinear()
-            .domain([0, 69911])
+            .domain([0, planetData[0].radius])
             .range([0, height]);
 
         const orbitalScale = d3.scaleLinear()
@@ -115,7 +115,7 @@ const PlanetCard = ({ planet, page }) => {
                 .attr("transform", `rotate(${90 - data[0].tilt})`);
 
             const fill = body.append("circle")
-                .attr("r", data[0].radius / 200)
+                .attr("r", radiusScale(data[0].radius))
                 .style("fill", "url(#gradient-" + data[0].name + ")")
                 .style("filter", `url(#glow-${data[0].name})`);
 
@@ -128,11 +128,12 @@ const PlanetCard = ({ planet, page }) => {
                     d3.select(this)
                         .append("circle")
                         .attr("r", radiusScale(d.radius))
-                        // .attr("transform", function (d) { return `translate(${(orbitalScale(d.orbitalDistance)) / 1000}, 0)` })
-                        .attr("cx", orbitalScale(d.orbitalDistance) / 1000)
-                        .attr("cy", 0)
+                        .attr("transform", function (d) { return `translate(${((orbitalScale(d.orbitalDistance)) / 1000) + radiusScale(data[0].radius)}, 0)` })
+                        // .attr("cx", orbitalScale(d.orbitalDistance) / 1000)
+                        // .attr("cy", 0)
                         .attr("fill", d.colors[0])
                         .attr("class", `moon ${d.name}`)
+                        .style("filter", `url(#glow-${data[0].name})`)
                         .on("mouseover", showInfo)
                         .on("mouseout", hideInfo);
                 })
