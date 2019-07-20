@@ -218,12 +218,9 @@ const PlanetCard = ({ planet, page }) => {
 
             if (data[0].name === "saturn") {
                 d3.select(".saturn-rings").remove();
-                // const ringsBehind = d3.select(".planet-card-saturn")
-                //     .append("div")
-                //     .attr("class", "saturn-rings saturn-rings-behind")
-                const ringsFront = d3.select(".planet-card-saturn")
+                const ringsBehind = d3.select(".planet-card-saturn")
                     .append("div")
-                    .attr("class", "saturn-rings saturn-rings-front")
+                    .attr("class", "saturn-rings")
             }
 
             const generateMoons = body.selectAll("g.moon")
