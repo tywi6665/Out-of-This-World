@@ -216,15 +216,15 @@ const PlanetCard = ({ planet, page }) => {
                     .attr("class", "great-red-spot");
             };
 
-            // if (data[0].name === "saturn") {
-            //     d3.select(".saturn-rings").remove();
-            //     const ringsBehind = d3.select(".planet-card-saturn")
-            //         .append("div")
-            //         .attr("class", "saturn-rings saturn-rings-behind")
-            //     const ringsFront = d3.select(".planet-card-saturn")
-            //         .append("div")
-            //         .attr("class", "saturn-rings saturn-rings-front")
-            // }
+            if (data[0].name === "saturn") {
+                d3.select(".saturn-rings").remove();
+                // const ringsBehind = d3.select(".planet-card-saturn")
+                //     .append("div")
+                //     .attr("class", "saturn-rings saturn-rings-behind")
+                const ringsFront = d3.select(".planet-card-saturn")
+                    .append("div")
+                    .attr("class", "saturn-rings saturn-rings-front")
+            }
 
             const generateMoons = body.selectAll("g.moon")
                 .data(data[0].moons)
