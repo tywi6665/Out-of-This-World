@@ -73,6 +73,13 @@
             "tilt": 26.73,
             "radius": 58232,
             "period": 0.44,
+            "rings": {
+                "name": "mimas",
+                "radius": 198,
+                "orbitalDistance": 185000,
+                "discovery": "17 September 1789",
+                "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/PIA17172_Saturn_eclipse_mosaic_bright_crop.jpg/1280px-PIA17172_Saturn_eclipse_mosaic_bright_crop.jpg"
+            },
             "colors": [
                 "#f4d587",
                 "#f4a587"
