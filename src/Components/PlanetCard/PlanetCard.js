@@ -220,7 +220,7 @@ const PlanetCard = ({ planet, page }) => {
                 d3.select(".saturn-rings").remove();
                 const ringsBehind = d3.select(".planet-card-saturn")
                     .append("div")
-                    .attr("class", "saturn-rings")
+                    .attr("class", "saturn-rings");
             }
 
             const generateMoons = body.selectAll("g.moon")
@@ -233,9 +233,6 @@ const PlanetCard = ({ planet, page }) => {
                         .append("circle")
                         .attr("r", radiusScale(d.radius))
                         .attr("transform", function (d) { return `translate(${((orbitalScale(d.orbitalDistance)) / 1000) + radiusScale(data[0].radius)}, 0)` })
-                        // .attr("cx", orbitalScale(d.orbitalDistance) / 1000)
-                        // .attr("cy", 0)
-                        // .attr("fill", d.colors[0])
                         .attr("class", `moon ${d.name}`)
                         .style("fill", radialGradient(d, true))
                         .style("filter", `url(#glow-${data[0].name})`)
@@ -245,7 +242,7 @@ const PlanetCard = ({ planet, page }) => {
 
             const div = d3.select(`.planet-card-${planet.name}`)
                 .append("div")
-                .attr("class", "tool-tip")
+                .attr("class", `tool-tip tool-tip-${planet.name}`)
                 .style("opacity", 0);
 
             function showInfo(d) {
@@ -264,8 +261,10 @@ const PlanetCard = ({ planet, page }) => {
                                 <li><b>Date of Discovery: </b>${d.discovery}</li>
                             </ul>
                         </div>`)
-                    .style("left", `${d3.event.pageX - 250}px`)
-                    .style("top", `${d3.event.pageY + 15}px`)
+                    .style("left", `${d3.event.pageX - 275}px`)
+                    .style("top", d.name === "mimas" || d.name === "enceladus" || d.name === "tethys" || d.name === "dione" || d.name === "rhea" || d.name === "titan" || d.name === "lapetus"
+                        ? `${d3.event.pageY - 1175}px`
+                        : `${d3.event.pageY + 25}px`);
             }
 
             function hideInfo(d) {
