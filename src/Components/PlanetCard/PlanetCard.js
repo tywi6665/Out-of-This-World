@@ -207,7 +207,9 @@ const PlanetCard = ({ planet, page }) => {
             const fill = body.append("circle")
                 .attr("r", radiusScale(data[0].radius))
                 .style("fill", "url(#gradient-" + data[0].name + ")")
-                .style("filter", `url(#glow-${data[0].name})`);
+                .style("filter", `url(#glow-${data[0].name})`)
+                .on("click", showPlanetInfo)
+            // .on("click", hidePlanetInfo);
 
             if (data[0].name === "jupiter") {
                 d3.select(".great-red-spot").remove();
@@ -236,22 +238,26 @@ const PlanetCard = ({ planet, page }) => {
                         .attr("class", `moon ${d.name}`)
                         .style("fill", radialGradient(d, true))
                         .style("filter", `url(#glow-${data[0].name})`)
-                        .on("mouseover", showInfo)
-                        .on("mouseout", hideInfo);
+                        .on("mouseover", showMoonInfo)
+                        .on("mouseout", hideMoonInfo);
                 });
 
-            const div = d3.select(`.planet-card-${planet.name}`)
+            const moonModal = d3.select(`.planet-card-${planet.name}`)
                 .append("div")
                 .attr("class", `tool-tip tool-tip-${planet.name}`)
                 .style("opacity", 0);
 
-            function showInfo(d) {
-                div.transition()
+            function showPlanetInfo(d) {
+                console.log(d)
+            }
+
+            function showMoonInfo(d) {
+                moonModal.transition()
                     .delay(100)
                     .duration(200)
                     .style("opacity", 1);
 
-                div.html(`
+                moonModal.html(`
                         <img src=${d.url} />
                         <div>
                             <h4>${d.name.charAt(0).toUpperCase() + d.name.slice(1)}</h4>
@@ -267,10 +273,10 @@ const PlanetCard = ({ planet, page }) => {
                         : `${d3.event.pageY + 25}px`);
             }
 
-            function hideInfo(d) {
+            function hideMoonInfo(d) {
                 // d3.select(this)
 
-                div.transition()
+                moonModal.transition()
                     .duration(500)
                     .style("opacity", 0);
 
