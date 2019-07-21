@@ -2,6 +2,7 @@
     "data": [
         {
             "name": "mercury",
+            "systemName": "mercurian",
             "tilt": 0.03,
             "radius": 2439.7,
             "period": 58.65,
@@ -20,6 +21,7 @@
         },
         {
             "name": "venus",
+            "systemName": "venusian",
             "tilt": 2.64,
             "radius": 6051.8,
             "period": -243,
@@ -38,6 +40,7 @@
         },
         {
             "name": "earth",
+            "systemName": "earthly",
             "tilt": 23.44,
             "radius": 6371,
             "period": 1,
@@ -68,6 +71,7 @@
         },
         {
             "name": "mars",
+            "systemName": "martian",
             "tilt": 6.68,
             "radius": 3389.5,
             "period": 1.03,

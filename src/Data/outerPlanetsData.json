@@ -2,6 +2,7 @@
     "data": [
         {
             "name": "jupiter",
+            "systemName": "jovian",
             "tilt": 25.19,
             "radius": 69911,
             "period": 0.41,
@@ -77,6 +78,7 @@
         },
         {
             "name": "saturn",
+            "systemName": "saturnian",
             "tilt": 26.73,
             "radius": 58232,
             "period": 0.44,
@@ -176,6 +178,7 @@
         },
         {
             "name": "uranus",
+            "systemName": "uranian",
             "tilt": 82.23,
             "radius": 25362,
             "period": -0.72,
@@ -250,6 +253,7 @@
         },
         {
             "name": "neptune",
+            "systemName": "neptunian",
             "tilt": 28.32,
             "radius": 24622,
             "period": 0.72,
