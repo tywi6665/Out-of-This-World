@@ -73,11 +73,14 @@
             "tilt": 26.73,
             "radius": 58232,
             "period": 0.44,
+            "symbol": "♄",
+            "orbitalDistance": "1,433.53 million",
+            "discovery": "Always known to mankind",
+            "funFact": "Saturn is the sixth planet from the Sun and the second-largest in the Solar System.",
+            "volume": "8.27 x 10^14 km^3",
+            "mass": "5.68 x 10^26 kg",
+            "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Saturn_during_Equinox.jpg/1280px-Saturn_during_Equinox.jpg",
             "rings": {
-                "name": "mimas",
-                "radius": 198,
-                "orbitalDistance": 185000,
-                "discovery": "17 September 1789",
                 "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/PIA17172_Saturn_eclipse_mosaic_bright_crop.jpg/1280px-PIA17172_Saturn_eclipse_mosaic_bright_crop.jpg"
             },
             "colors": [

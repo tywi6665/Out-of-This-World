@@ -209,7 +209,7 @@ const PlanetCard = ({ planet, page }) => {
                 .style("fill", "url(#gradient-" + data[0].name + ")")
                 .style("filter", `url(#glow-${data[0].name})`)
                 .on("click", showPlanetInfo)
-            // .on("click", hidePlanetInfo);
+            // .on("mouseout", hideInfo);
 
             if (data[0].name === "jupiter") {
                 d3.select(".great-red-spot").remove();
@@ -220,7 +220,7 @@ const PlanetCard = ({ planet, page }) => {
 
             if (data[0].name === "saturn") {
                 d3.select(".saturn-rings").remove();
-                const ringsBehind = d3.select(".planet-card-saturn")
+                const rings = d3.select(".planet-card-saturn")
                     .append("div")
                     .attr("class", "saturn-rings");
             }
@@ -239,31 +239,55 @@ const PlanetCard = ({ planet, page }) => {
                         .style("fill", radialGradient(d, true))
                         .style("filter", `url(#glow-${data[0].name})`)
                         .on("mouseover", showMoonInfo)
-                        .on("mouseout", hideMoonInfo);
+                        .on("mouseout", hideInfo);
                 });
 
-            const moonModal = d3.select(`.planet-card-${planet.name}`)
+            const modal = d3.select(`.planet-card-${planet.name}`)
                 .append("div")
-                .attr("class", `tool-tip tool-tip-${planet.name}`)
+                .attr("class", `tool-tip tool-tip-planet`)
                 .style("opacity", 0);
 
             function showPlanetInfo(d) {
                 console.log(d)
-            }
-
-            function showMoonInfo(d) {
-                moonModal.transition()
+                modal.transition()
                     .delay(100)
                     .duration(200)
                     .style("opacity", 1);
 
-                moonModal.html(`
+                modal.html(`
+                        <img src=${d.url} />
+                        <div>
+                            <h4>${d.name.charAt(0).toUpperCase() + d.name.slice(1)} ${d.symbol}</h4>
+                            <p>${d.funFact}</p>
+                            <ul>
+                                <li><b>Mass:</b> ${d.mass} km</li>
+                                <li><b>Volume:</b> ${d.volume} km</li>
+                                <li><b>Mean Radius:</b> ${d.radius} km</li>
+                                <li><b>Mean Orbital Distance:</b> ${d.orbitalDistance} km</li>
+                                <li><b>Date of Discovery: </b>${d.discovery}</li>
+                                <li><b>Axial Tilt:</b> ${d.tilt}°</li>
+                                <li><b>Day Length:</b> ${d.period} (compared to Earth)</li>
+                            </ul>
+                        </div>`)
+                    .style("left", `${d3.event.pageX}px`)
+                    .style("top", d.name === "saturn"
+                        ? `${d3.event.pageY - 1280}px`
+                        : `${d3.event.pageY}px`);
+            }
+
+            function showMoonInfo(d) {
+                modal.transition()
+                    .delay(100)
+                    .duration(200)
+                    .style("opacity", 1);
+
+                modal.html(`
                         <img src=${d.url} />
                         <div>
                             <h4>${d.name.charAt(0).toUpperCase() + d.name.slice(1)}</h4>
                             <ul>
-                                <li><b>Mean Radius:</b> ${d.radius}km</li>
-                                <li><b>Mean Orbital Distance:</b> ${d.orbitalDistance}km</li>
+                                <li><b>Mean Radius:</b> ${d.radius} km</li>
+                                <li><b>Mean Orbital Distance:</b> ${d.orbitalDistance} km</li>
                                 <li><b>Date of Discovery: </b>${d.discovery}</li>
                             </ul>
                         </div>`)
@@ -273,10 +297,10 @@ const PlanetCard = ({ planet, page }) => {
                         : `${d3.event.pageY + 25}px`);
             }
 
-            function hideMoonInfo(d) {
+            function hideInfo(d) {
                 // d3.select(this)
 
-                moonModal.transition()
+                modal.transition()
                     .duration(500)
                     .style("opacity", 0);
 

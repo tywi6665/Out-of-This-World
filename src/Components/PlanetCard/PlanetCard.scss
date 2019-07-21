@@ -98,6 +98,7 @@
 
 .planet circle {
     stroke-width: 1px;
+    cursor: pointer;
 }
 
 .axis-line {
@@ -118,9 +119,15 @@ div.tool-tip {
     border: 1px solid #fff;
     display: flex;
     justify-content: center;
-    perspective: 0px;
     transform-style: none;
     z-index: 10;
+
+    // &-planet {
+
+    //     img {
+    //         justify-self: center;
+    //     }
+    // }
 
     h4 {
         border-bottom: 1px solid #fff;
@@ -128,7 +135,7 @@ div.tool-tip {
     }
 
     img {
-        width: 200px;
+        // width: 250px;
         height: 200px;
         margin-right: 15px;
     }
