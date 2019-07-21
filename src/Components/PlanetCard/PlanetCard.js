@@ -293,7 +293,7 @@ const PlanetCard = ({ planet, page }) => {
                         </div>`)
                     .style("left", `${d3.event.pageX - 275}px`)
                     .style("top", d.name === "mimas" || d.name === "enceladus" || d.name === "tethys" || d.name === "dione" || d.name === "rhea" || d.name === "titan" || d.name === "lapetus"
-                        ? `${d3.event.pageY - 1260}px`
+                        ? `${d3.event.pageY - 860}px`
                         : `${d3.event.pageY + 25}px`);
             }
 
