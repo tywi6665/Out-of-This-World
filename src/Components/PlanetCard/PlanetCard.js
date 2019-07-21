@@ -209,7 +209,7 @@ const PlanetCard = ({ planet, page }) => {
                 .style("fill", "url(#gradient-" + data[0].name + ")")
                 .style("filter", `url(#glow-${data[0].name})`)
                 .on("click", showPlanetInfo)
-            // .on("mouseout", hideInfo);
+                .on("mouseout", hideInfo);
 
             if (data[0].name === "jupiter") {
                 d3.select(".great-red-spot").remove();
@@ -255,8 +255,8 @@ const PlanetCard = ({ planet, page }) => {
                     .style("opacity", 1);
 
                 modal.html(`
-                        <img src=${d.url} />
                         <div>
+                            <img src=${d.url} />
                             <h4>${d.name.charAt(0).toUpperCase() + d.name.slice(1)} ${d.symbol}</h4>
                             <p>${d.funFact}</p>
                             <ul>

@@ -110,7 +110,8 @@
 div.tool-tip {	
     position: absolute;			
     text-align: center;			
-    width: fit-content;					
+    width: fit-content;	
+    max-width: 500px;				
     height: fit-content;					
     padding: 15px;				
     background: lightsteelblue;		

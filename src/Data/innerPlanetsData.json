@@ -5,6 +5,13 @@
             "tilt": 0.03,
             "radius": 2439.7,
             "period": 58.65,
+            "symbol": "☿",
+            "orbitalDistance": "57,909,050",
+            "discovery": "Always known to mankind",
+            "funFact": "Mercury is the smallest and innermost planet in the Solar System. It is named after the Roman deity Mercury, the messenger of the gods.",
+            "volume": "6.08 × 10^10 km^3",
+            "mass": "3.03 x 10^23 kg",
+            "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Mercury_in_color_-_Prockter07-edit1.jpg/1280px-Mercury_in_color_-_Prockter07-edit1.jpg",
             "colors": [
                 "#e7e8ec",
                 "#b1adad"
@@ -16,6 +23,13 @@
             "tilt": 2.64,
             "radius": 6051.8,
             "period": -243,
+            "symbol": "♀",
+            "orbitalDistance": "108,208,000",
+            "discovery": "Always known to mankind",
+            "funFact": "Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty. It is the second-brightest natural object in the night sky after the Moon.",
+            "volume": "9.24 × 10^11 km^3",
+            "mass": "4.88 x 10^24 kg",
+            "url": "https://upload.wikimedia.org/wikipedia/commons/e/e5/Venus-real_color.jpg",
             "colors": [
                 "#f8e2b0",
                 "#d3a567"
@@ -27,6 +41,13 @@
             "tilt": 23.44,
             "radius": 6371,
             "period": 1,
+            "symbol": "♁",
+            "orbitalDistance": "149,598,023",
+            "discovery": "Always known to mankind",
+            "funFact": "Earth is the third planet from the Sun and the only astronomical object known to harbor life. According to radiometric dating and other sources of evidence, Earth formed over 4.5 billion years ago.",
+            "volume": "1.08 × 10^12 km^3",
+            "mass": "5.97 x 10^24 kg",
+            "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/The_Earth_seen_from_Apollo_17.jpg/1280px-The_Earth_seen_from_Apollo_17.jpg",
             "colors": [
                 "#9fc164",
                 "#6b93d6"
@@ -50,6 +71,13 @@
             "tilt": 6.68,
             "radius": 3389.5,
             "period": 1.03,
+            "symbol": "♂",
+            "orbitalDistance": "227,939,200",
+            "discovery": "Always known to mankind",
+            "funFact": "Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System after Mercury. In English, Mars carries a name of the Roman god of war, and is often referred to as the 'Red Planet'.",
+            "volume": "1.63 × 10^11 km^3",
+            "mass": "6.41 x 10^23 kg",
+            "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/OSIRIS_Mars_true_color.jpg/1280px-OSIRIS_Mars_true_color.jpg",
             "colors": [
                 "#ef1501",
                 "#ad0000"
