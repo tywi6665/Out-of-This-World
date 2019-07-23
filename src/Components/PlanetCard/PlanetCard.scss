@@ -50,22 +50,22 @@
 
     &-mercury {
         margin-top: 100px;
-        margin-bottom: 40px;
+        margin-bottom: 100px;
     }
 
     &-venus {
         margin-top: 100px;
-        margin-bottom: 50px;
+        margin-bottom: 100px;
     }
     
     &-earth {
         margin-top: 100px;
-        margin-bottom: 50px;
+        margin-bottom: 100px;
     }
 
     &-mars {
         margin-top: 100px;
-        margin-bottom: 50px;
+        margin-bottom: 100px;
     }
 
     &-jupiter {
@@ -114,8 +114,7 @@
     stroke-opacity: 0.3;   
 }
 
-div.tool-tip {	
-    position: absolute;			
+.tool-tip-moon, .tool-tip-planet {	
     text-align: center;			
     width: fit-content;	
     max-width: 500px;				
@@ -129,13 +128,6 @@ div.tool-tip {
     justify-content: center;
     transform-style: none;
     z-index: 10;
-
-    // &-planet {
-
-    //     img {
-    //         justify-self: center;
-    //     }
-    // }
 
     h4 {
         border-bottom: 1px solid #fff;
@@ -153,18 +145,18 @@ div.tool-tip {
         text-align: left;
         padding-left: 0;
     }
+}
 
-    // &:after {
-    //     box-sizing: border-box;
-    //     display: inline;
-    //     font-size: 10px;
-    //     width: 100%;
-    //     line-height: 1;
-    //     content: "\25BC";
-    //     position: absolute;
-    //     top: -8px;
-    //     left: 0;
-    //     transform: rotate(180deg);
-    //     text-align: center;
-    //   }
+.tool-tip-moon {
+    position: absolute;
+}
+
+.tool-tip-planet {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+
+    img {
+        justify-self: center;
+    }
 }

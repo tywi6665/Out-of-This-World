@@ -61,16 +61,6 @@ const PlanetCard = ({ planet, page }) => {
             .attr("width", `${width}px`)
             .attr("height", `${height}px`);
 
-        // const boundingBox = boundingArea.append("rect")
-        //     .attr("class", "bounding-box")
-        //     .attr("y", -boundingSize / 2)
-        //     .attr("width", `${width}%`)
-        //     .attr("height", `${height - 4}%`);
-
-        // const graticuleScale = d3.scaleLinear()
-        //     .domain(d3.extent(planetData, d => d.radius))
-        //     .range([20, 10]);
-
         generatePlanet(planetData)
 
         function generatePlanet(data) {
@@ -78,15 +68,6 @@ const PlanetCard = ({ planet, page }) => {
             const moons = data[0].moons
 
             const rotation = [0, 0, data[0].tilt];
-            // const projection = d3.geoOrthographic()
-            //     .translate([0, 0])
-            //     .scale(radiusScale(data[0].radius))
-            //     .clipAngle(90)
-            //     .precision(0.1);
-
-            // const path = d3.geoPath()
-            //     .projection(projection);
-            // const graticule = d3.geoGraticule();
 
             const body = d3.select(`.planet-area-${data[0].name}`)
                 .append("g")
@@ -242,19 +223,23 @@ const PlanetCard = ({ planet, page }) => {
                         .on("mouseout", hideInfo);
                 });
 
-            const modal = d3.select(`.planet-card-${planet.name}`)
+            const moonModal = d3.select(`.container`)
                 .append("div")
-                .attr("class", `tool-tip tool-tip-planet`)
+                .attr("class", "tool-tip-moon")
+                .style("opacity", 0);
+
+            const planetModal = d3.select(`.container`)
+                .append("div")
+                .attr("class", `tool-tip-planet`)
                 .style("opacity", 0);
 
             function showPlanetInfo(d) {
-                console.log(d)
-                modal.transition()
+                planetModal.transition()
                     .delay(100)
                     .duration(200)
                     .style("opacity", 1);
 
-                modal.html(`
+                planetModal.html(`
                         <div>
                             <img src=${d.url} />
                             <h4>${d.name.charAt(0).toUpperCase() + d.name.slice(1)} ${d.symbol}</h4>
@@ -269,19 +254,15 @@ const PlanetCard = ({ planet, page }) => {
                                 <li><b>Day Length:</b> ${d.period} (compared to Earth)</li>
                             </ul>
                         </div>`)
-                    .style("left", `${d3.event.pageX}px`)
-                    .style("top", d.name === "saturn"
-                        ? `${d3.event.pageY - 1480}px`
-                        : `${d3.event.pageY}px`);
             }
 
             function showMoonInfo(d) {
-                modal.transition()
+                moonModal.transition()
                     .delay(100)
                     .duration(200)
                     .style("opacity", 1);
 
-                modal.html(`
+                moonModal.html(`
                         <img src=${d.url} />
                         <div>
                             <h4>${d.name.charAt(0).toUpperCase() + d.name.slice(1)}</h4>
@@ -292,25 +273,18 @@ const PlanetCard = ({ planet, page }) => {
                             </ul>
                         </div>`)
                     .style("left", `${d3.event.pageX - 275}px`)
-                    .style("top", d.name === "mimas" || d.name === "enceladus" || d.name === "tethys" || d.name === "dione" || d.name === "rhea" || d.name === "titan" || d.name === "lapetus"
-                        ? `${d3.event.pageY - 860}px`
-                        : `${d3.event.pageY + 25}px`);
+                    .style("top", `${d3.event.pageY + 25}px`);
             }
 
             function hideInfo(d) {
-                // d3.select(this)
-
-                modal.transition()
+                planetModal.transition()
                     .duration(500)
-                    .style("opacity", 0);
+                    .style("opacity", 0)
 
+                moonModal.transition()
+                    .duration(500)
+                    .style("opacity", 0)
             }
-
-            // const gridLines = d3.select(`.${data[0].name}-inner`)
-            //     .append("path")
-            //     .attr("class", "graticule")
-            //     .datum({ type: "Sphere" })
-            //     .attr("d", path);
 
             // d3.timer(function (elapsed) {
             //     projection.rotate([rotation[0] + elapsed * 0.01 / data.period, rotation[1] + elapsed * 0 / data.period, rotation[2]])
