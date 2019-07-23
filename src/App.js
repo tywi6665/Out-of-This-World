@@ -5,6 +5,7 @@ import Navbar from "./Components/Navbar";
 import Home from './Pages/Home';
 import InnerPlanets from './Pages/InnerPlanets/InnerPlanets';
 import OuterPlanets from './Pages/OuterPlanets/OuterPlanets';
+import Footer from "./Components/Footer/Footer";
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
           <p>*Not to Scale</p>
         </div>
       </div>
+      <Footer />
     </Router>
   );
 }
