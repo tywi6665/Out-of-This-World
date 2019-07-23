@@ -296,33 +296,19 @@ const PlanetCard = ({ planet, page }) => {
     }, []);
 
     return (
-        <>
-            {/* <Timeline
-                wrapper={<span className="tweened-span-inner" />}
-                target={
-                    <div className={`planet-card planet-card-${planet.name}`}></div>
-                }
-            >
-                <Tween from={{ transform: "translateY(-150px)", opacity: 0 }} to={{ transform: "translateY(0px)", opacity: 1 }} duration={3} />
-            </Timeline> */}
-            {/* <Timeline
-                wrapper={<span className="tweened-span-inner" />}
-                target={
+        <Timeline
+            wrapper={<span className="tweened-span-inner" />}
+            target={
+                <>
                     <div className={`planet-info planet-info-${planet.name}`}>
-                        <p>{planet.name}</p>
-                        <p>Radius: {planet.radius}km</p>
-                        <p>Axial Tilt: {planet.tilt}°</p>
-                        <p>Day Length: {planet.period}</p>
+                        <h2>{planet.systemName.charAt(0).toUpperCase() + planet.systemName.slice(1)} System</h2>
                     </div>
-                }
-            >
-                <Tween from={{ transform: "translateY(-150px)", opacity: 0 }} to={{ transform: "translateY(0px)", opacity: 1 }} duration={3} />
-            </Timeline> */}
-            <div className={`planet-card planet-card-${planet.name}`}></div>
-            <div className={`planet-info planet-info-${planet.name}`}>
-                <h2>{planet.systemName.charAt(0).toUpperCase() + planet.systemName.slice(1)} System</h2>
-            </div>
-        </>
+                    <div className={`planet-card planet-card-${planet.name}`}></div>
+                </>
+            }
+        >
+            <Tween from={{ transform: "translatex(-150px)", opacity: 0 }} to={{ transform: "translateY(0px)", opacity: 1 }} duration={3} />
+        </Timeline>
     );
 }
 
