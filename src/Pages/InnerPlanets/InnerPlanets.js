@@ -1,5 +1,4 @@
 import React from 'react';
-// import "./InnerPlanets.scss";
 import Container from "../../Components/Container";
 import PlanetCard from "../../Components/PlanetCard";
 import * as d3 from "d3";

@@ -46,8 +46,8 @@ const Navbar = () => {
                     <li><Link to="/home"><span className="nav-item nav-item-home">Home</span></Link></li>
                     <li><Link to="/innerplanets"><span className="nav-item nav-item-inner">Inner</span></Link></li>
                     <li><Link to="/outerplanets"><span className="nav-item nav-item-outer">Outer</span></Link></li>
-                    <li><a href="#"><span></span></a></li>
-                    <li><a href="#"><span></span></a></li>
+                    <li><a href="#"><span className="nav-item nav-item-sun">Sun</span></a></li>
+                    <li><a href="#"><span className="nav-item nav-item-misc">Misc</span></a></li>
                 </ul>
             </nav>
             <div className="nav-overlay" id="overlay"></div>

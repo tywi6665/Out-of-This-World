@@ -5,13 +5,13 @@ import { Tween, Timeline } from "react-gsap";
 
 const PlanetCard = ({ planet, page }) => {
 
-    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+    // const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
-    useEffect(() => {
-        const handleResize = () => setWindowWidth(window.innerWidth);
-        window.addEventListener("resize", handleResize);
-        return () => window.removeEventListener("resize", handleResize);
-    }, []);
+    // useEffect(() => {
+    //     const handleResize = () => setWindowWidth(window.innerWidth);
+    //     window.addEventListener("resize", handleResize);
+    //     return () => window.removeEventListener("resize", handleResize);
+    // }, []);
 
     useEffect(() => {
 

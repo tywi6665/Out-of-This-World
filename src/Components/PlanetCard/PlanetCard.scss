@@ -1,6 +1,4 @@
 .planet-card {
-    // width: fit-content;
-    // height: 300px;
 
     &-jupiter {
 
@@ -89,21 +87,9 @@
     }
 }
 
-.bounding-box {
-    fill: white;
-    fill-opacity: 0;
-    stroke: #fff;
-    stroke-opacity: 0.5;
-    stroke-dasharray: 3,3;
-}
-
-.planet, circle .graticule {
-    // fill: none;
+.planet circle {
     stroke: #123;
     stroke-opacity: 0.15;
-}
-
-.planet circle {
     stroke-width: 1px;
     cursor: pointer;
 }
@@ -135,7 +121,6 @@
     }
 
     img {
-        // width: 250px;
         height: 200px;
         margin-right: 15px;
     }
