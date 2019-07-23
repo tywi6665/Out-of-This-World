@@ -244,17 +244,21 @@ const PlanetCard = ({ planet, page }) => {
                             <img src=${d.url} />
                             <h4>${d.name.charAt(0).toUpperCase() + d.name.slice(1)} ${d.symbol}</h4>
                             <p>${d.funFact}</p>
-                            <ul>
-                                <li><b>Mass:</b> ${d.mass}</li>
-                                <li><b>Volume:</b> ${d.volume}</li>
-                                <li><b>Mean Radius:</b> ${d.radius} km</li>
-                                <li><b>Mean Orbital Distance:</b> ${d.orbitalDistance} km</li>
-                                <li><b>Date of Discovery: </b>${d.discovery}</li>
-                                <li><b>Axial Tilt:</b> ${d.tilt}°</li>
-                                <li><b>Day Length:</b> ${d.dayLength} (compared to Earth)</li>
-                                <li><b>Year Length:</b> ${d.yearLength} (compared to Earth)</li>
-                                <li><b>Number of known moons: </b>${d.numMoons}</li>
-                            </ul>
+                            <span>
+                                <ul>
+                                    <li><b>Mass:</b> ${d.mass}</li>
+                                    <li><b>Volume:</b> ${d.volume}</li>
+                                    <li><b>Mean Radius:</b> ${d.radius} km</li>
+                                    <li><b>Mean Orbital Distance:</b> ${d.orbitalDistance} km</li>
+                                    <li><b>Date of Discovery: </b>${d.discovery}</li>
+                                </ul>
+                                <ul>
+                                    <li><b>Axial Tilt:</b> ${d.tilt}°</li>
+                                    <li><b>Day Length:</b> ${d.dayLength} (compared to Earth)</li>
+                                    <li><b>Year Length:</b> ${d.yearLength} (compared to Earth)</li>
+                                    <li><b>Number of known moons: </b>${d.numMoons}</li>
+                                </ul>
+                            </span>
                         </div>`)
             }
 
