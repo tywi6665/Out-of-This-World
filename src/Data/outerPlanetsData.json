@@ -6,6 +6,8 @@
             "tilt": 25.19,
             "radius": 69911,
             "period": 0.41,
+            "dayLength": "9h 56m",
+            "yearLength": "12 years",
             "symbol": "♃",
             "orbitalDistance": "778.57 million",
             "discovery": "Always known to mankind",
@@ -83,6 +85,8 @@
             "tilt": 26.73,
             "radius": 58232,
             "period": 0.44,
+            "dayLength": "10h 42m",
+            "yearLength": "29 years",
             "symbol": "♄",
             "orbitalDistance": "1,433.53 million",
             "discovery": "Always known to mankind",
@@ -184,6 +188,8 @@
             "tilt": 82.23,
             "radius": 25362,
             "period": -0.72,
+            "dayLength": "17h 14m",
+            "yearLength": "84 years",
             "symbol": "⛢",
             "orbitalDistance": "2.875.04 million",
             "discovery": "13 March 1781 by William Herschel",
@@ -193,8 +199,8 @@
             "numMoons": 27,
             "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Uranus2.jpg/1280px-Uranus2.jpg",
             "colors": [
-                "#e1eeee",
-                "#adb0c3"
+                "#d0f6f7",
+                "#88adb5"
             ],
             "moons": [
                 {
@@ -260,6 +266,8 @@
             "tilt": 28.32,
             "radius": 24622,
             "period": 0.72,
+            "dayLength": "16h 6m",
+            "yearLength": "165 years",
             "symbol": "♆",
             "orbitalDistance": "4.54 billion",
             "discovery": "23 September 1846 by Johann Galle",
