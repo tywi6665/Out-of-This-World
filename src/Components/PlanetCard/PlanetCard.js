@@ -252,6 +252,7 @@ const PlanetCard = ({ planet, page }) => {
                                 <li><b>Date of Discovery: </b>${d.discovery}</li>
                                 <li><b>Axial Tilt:</b> ${d.tilt}°</li>
                                 <li><b>Day Length:</b> ${d.period} (compared to Earth)</li>
+                                <li><b>Number of known moons: ${d.numMoons}</b></li>
                             </ul>
                         </div>`)
             }
