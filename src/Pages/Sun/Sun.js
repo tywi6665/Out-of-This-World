@@ -27,9 +27,22 @@ const Sun = () => {
         feMerge.append("feMergeNode")
             .attr("in", "SourceGraphic");
 
+        defs.append("radialGradient")
+            .attr("id", "sun-gradient")
+            .selectAll("stop")
+            .data([
+                { offset: "0%", color: "#FFF76B" },
+                { offset: "50%", color: "#FFF845" },
+                { offset: "90%", color: "#FFDA4E" },
+                { offset: "100%", color: "#FB8933" }
+            ])
+            .enter().append("stop")
+            .attr("offset", (d) => d.offset)
+            .attr("stop-color", (d) => d.color);
+
         svg.append("circle")
             .attr("r", 200)
-            .style("fill", "yellow")
+            .style("fill", "url(#sun-gradient)")
             .style("filter", "url(#glow-sun)");
     }, []);
 
