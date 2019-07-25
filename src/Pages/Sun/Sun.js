@@ -13,7 +13,7 @@ const Sun = () => {
         console.log(sunData)
         const svg = d3.select("#svg-sun")
             .append("g")
-            .attr("transform", "translate(150, 150)")
+            .attr("transform", "translate(250, 250)")
 
         const defs = svg.append("defs");
         const filter = defs.append("filter")
@@ -28,7 +28,7 @@ const Sun = () => {
             .attr("in", "SourceGraphic");
 
         svg.append("circle")
-            .attr("r", 100)
+            .attr("r", 200)
             .style("fill", "yellow")
             .style("filter", "url(#glow-sun)");
     }, []);
@@ -38,16 +38,26 @@ const Sun = () => {
             page={"sun"}
         >
             <Stars />
-            <div className="sun-info-left">
-                Deets
+            <div className="sun-info">
+                <h4>{sunData.name} {sunData.symbol}</h4>
+                <p>{sunData.funFact}</p>
+                <ul>
+                    <li><b>Type:</b> {sunData.type}</li>
+                    <li><b>Mass:</b> {sunData.mass}</li>
+                    <li><b>Volume:</b> {sunData.volume}</li>
+                    <li><b>Mean Radius:</b> {sunData.radius} km</li>
+                    <li><b>Core Temperature:</b> {sunData.tempCore}</li>
+                    <li><b>Surface Temperature:</b> {sunData.tempSurface}</li>
+                    <li><b>Coronal Temperature:</b> {sunData.tempCorona}</li>
+                    <li><b>Age:</b> {sunData.age}</li>
+                    <li><b>Distance to Milky Way Core:</b> {sunData.galacticDistance}</li>
+                    <li><b>Orbital Period:</b> {sunData.orbitalPeriod}</li>
+                </ul>
             </div>
             <svg id="svg-sun"
-                width="300px"
-                height="300px"
+                width="500px"
+                height="500px"
             ></svg>
-            <div className="sun-info-right">
-                Deets
-            </div>
         </Container>
 
     );
