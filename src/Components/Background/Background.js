@@ -32,7 +32,7 @@ const Background = () => {
         .attr("cx", sunX)
         .attr("cy", sunY)
         .attr("fill", "yellow")
-        .attr("class", "sun");
+        .attr("class", "the-sun");
 
     //Creating planetary system variable
     const planetarySystem = svg.append("g")
