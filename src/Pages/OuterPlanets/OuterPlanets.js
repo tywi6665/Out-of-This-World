@@ -1,5 +1,6 @@
 import React from 'react';
 import Container from "../../Components/Container";
+import Stars from "../../Components/Stars";
 import PlanetCard from "../../Components/PlanetCard";
 import * as d3 from "d3";
 const outerPlanetData = require("../../Data/outerPlanetsData.json");
@@ -14,11 +15,7 @@ const OuterPlanets = () => {
         <Container
             page={"outer-planets"}
         >
-            <div className="stars">
-                <div className="star-group1"></div>
-                <div className="star-group2"></div>
-                <div className="star-group3"></div>
-            </div>
+            <Stars />
             {outerPlanets.map(outerPlanet => {
                 return (
                     <PlanetCard
