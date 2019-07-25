@@ -39,15 +39,10 @@ const Sun = () => {
             .attr("offset", (d) => d.offset)
             .attr("stop-color", (d) => d.color);
 
-        // svg.append("circle")
-        //     .attr("r", 200)
-        //     .style("fill", "url(#sun-gradient)")
-        //     .style("filter", "url(#glow-sun)");
-
         const projection = d3.geoOrthographic()
             .scale(240)
             .translate([0, 0])
-            .clipAngle(90 + 1e-6)
+            .clipAngle(90)
             .precision(0.3);
 
         const path = d3.geoPath()
@@ -67,6 +62,18 @@ const Sun = () => {
             .attr("class", "graticule")
             .attr("d", path)
             .style("fill", "none");
+
+        const allPaths = d3.selectAll("path");
+        const time = Date.now();
+        const rotate = [10, 0],
+            velocity = [.003, -.001];
+
+        d3.timer(() => {
+            let dt = Date.now() - time;
+            projection.rotate([rotate[0] + velocity[0] * dt, 0]);
+            allPaths.attr("d", path);
+        })
+
 
     }, []);
 
