@@ -1,0 +1,20 @@
+{
+    "name": "The Sun",
+    "symbol": "☉",
+    "funFact": "The Sun is the star at the center of the Solar System. It accounts for about 99.86% of the total mass of the Solar System.",
+    "composition": {
+        "hydrogen": 73.46,
+        "helium": 24.85,
+        "oxygen, carbon, neon, iron": 1.69
+    },
+    "type": "G-type main-sequence (G2V)",
+    "radius": 696342,
+    "volume": "1.41 x 10^18 km^3",
+    "mass": "1.99 x 10^30 kg",
+    "tempCore": "1.57 x 10^7 K",
+    "tempSurface": "5,778 K",
+    "tempCorona": "5 x 10^6 K",
+    "age": "4.6 billion years",
+    "galacticDistance": "27,200 lightyears",
+    "orbitalPeriod": "(2.25-2.50) x 10^8 years"
+}

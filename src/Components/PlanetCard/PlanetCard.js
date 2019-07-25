@@ -28,11 +28,10 @@ const PlanetCard = ({ planet, page }) => {
             .attr("height", `${height}px`)
             .attr("class", `svg-planet svg-${planetData[0].name}`);
 
-        const definitions = d3.select(`.svg-${planetData[0].name}`).append("defs");
-        const filter = definitions.append("filter")
+        const defs = d3.select(`.svg-${planetData[0].name}`).append("defs");
+        const filter = defs.append("filter")
             .attr("id", `glow-${planetData[0].name}`);
         filter.append("feGaussianBlur")
-            .attr("class", "blur")
             .attr("stdDeviation", 2)
             .attr("result", "coloredBlur");
         const feMerge = filter.append("feMerge")
