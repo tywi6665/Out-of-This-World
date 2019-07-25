@@ -107,7 +107,19 @@
             max-width: 80%;
         }   
         
-        .svg-sun { grid-area: 1 / 2 / 2 / 3; } 
+        .svg-sun { 
+            grid-area: 1 / 2 / 2 / 3; 
+        } 
+
+        path {
+            fill: none;
+            stroke-linejoin: round;
+        }
+              
+        .sphere,
+        .graticule {
+            stroke: rgba(170, 170, 170, 0.3);
+        }
 
         h4 {
             border-bottom: 1px solid #fff;

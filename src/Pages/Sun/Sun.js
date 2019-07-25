@@ -10,7 +10,6 @@ const Sun = () => {
 
     useEffect(() => {
 
-        console.log(sunData)
         const svg = d3.select("#svg-sun")
             .append("g")
             .attr("transform", "translate(250, 250)")
@@ -40,10 +39,35 @@ const Sun = () => {
             .attr("offset", (d) => d.offset)
             .attr("stop-color", (d) => d.color);
 
-        svg.append("circle")
-            .attr("r", 200)
+        // svg.append("circle")
+        //     .attr("r", 200)
+        //     .style("fill", "url(#sun-gradient)")
+        //     .style("filter", "url(#glow-sun)");
+
+        const projection = d3.geoOrthographic()
+            .scale(240)
+            .translate([0, 0])
+            .clipAngle(90 + 1e-6)
+            .precision(0.3);
+
+        const path = d3.geoPath()
+            .projection(projection)
+
+        const graticule = d3.geoGraticule();
+
+        svg.append("path")
+            .datum({ type: "Sphere" })
+            .attr("class", "sphere")
+            .attr("d", path)
             .style("fill", "url(#sun-gradient)")
             .style("filter", "url(#glow-sun)");
+
+        svg.append("path")
+            .datum(graticule)
+            .attr("class", "graticule")
+            .attr("d", path)
+            .style("fill", "none");
+
     }, []);
 
     return (
