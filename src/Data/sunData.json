@@ -9,12 +9,130 @@
     },
     "type": "G-type main-sequence (G2V)",
     "radius": 696342,
-    "volume": "1.41 x 10^18 km^3",
-    "mass": "1.99 x 10^30 kg",
-    "tempCore": "1.57 x 10^7 K",
+    "volume": "1.41e18 km^3",
+    "mass": "1.99e30 kg",
+    "tempCore": "1.57e7 K",
     "tempSurface": "5,778 K",
-    "tempCorona": "5 x 10^6 K",
+    "tempCorona": "5e6 K",
     "age": "4.6 billion years",
     "galacticDistance": "27,200 lightyears",
-    "orbitalPeriod": "(2.25-2.50) x 10^8 years"
+    "orbitalPeriod": "(2.25-2.50)e8 years",
+    "sunspotLocations": [
+        {
+            "lat": 39,
+            "long": 101
+        },
+        {
+            "lat": 40,
+            "long": 104
+        },
+        {
+            "lat": 43,
+            "long": 105
+        },
+        {
+            "lat": 42,
+            "long": 105
+        },
+        {
+            "lat": 38,
+            "long": 102
+        },
+        {
+            "lat": 0,
+            "long": 51
+        },
+        {
+            "lat": 1,
+            "long": 52
+        },
+        {
+            "lat": 2,
+            "long": 53
+        },
+        {
+            "lat": 0,
+            "long": 54
+        },
+        {
+            "lat": -1,
+            "long": 50
+        },
+        {
+            "lat": -2,
+            "long": 51
+        },
+        {
+            "lat": -20,
+            "long": -71
+        },
+        {
+            "lat": -21,
+            "long": -72
+        },
+        {
+            "lat": -22,
+            "long": -73
+        },
+        {
+            "lat": -22,
+            "long": -74
+        },
+        {
+            "lat": -21,
+            "long": -70
+        },
+        {
+            "lat": -20,
+            "long": -71
+        },
+        {
+            "lat": -21,
+            "long": -72
+        },
+        {
+            "lat": -22,
+            "long": -73
+        },
+        {
+            "lat": -23,
+            "long": -74
+        },
+        {
+            "lat": -23,
+            "long": -75
+        },
+        {
+            "lat": -22,
+            "long": -71
+        },
+        {
+            "lat": -21,
+            "long": -72
+        },
+        {
+            "lat": -19,
+            "long": -69
+        },
+        {
+            "lat": -18,
+            "long": -68
+        },
+        {
+            "lat": -17,
+            "long": -67
+        },
+        {
+            "lat": -17,
+            "long": -68
+        },
+        {
+            "lat": -18,
+            "long": -70
+        },
+        {
+            "lat": -19,
+            "long": -72
+        }
+    ]
 }

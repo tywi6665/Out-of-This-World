@@ -3,7 +3,6 @@ import Container from "../../Components/Container";
 import Stars from "../../Components/Stars";
 import * as d3 from "d3";
 const sunData = require("../../Data/sunData.json");
-const sunspotLocation = require("../../Data/sunspotLocations.json");
 
 const Sun = () => {
 
@@ -11,7 +10,7 @@ const Sun = () => {
 
     useEffect(() => {
 
-        const data = sunspotLocation.data;
+        const data = sunData.sunspotLocations;
 
         const svg = d3.select("#svg-sun")
             .append("g")

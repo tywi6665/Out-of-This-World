@@ -12,8 +12,8 @@
             "orbitalDistance": "778.57 million",
             "discovery": "Antiquity",
             "funFact": "Jupiter is the fifth planet from the Sun and the largest in the Solar System. It is a giant planet with a mass one-thousandth that of the Sun, but two-and-a-half times that of all the other planets in the Solar System combined. It is named after the Roman god Jupiter.",
-            "volume": "1.43 x 10^15 km^3",
-            "mass": "1.90 x 10^27 kg",
+            "volume": "1.43e15 km^3",
+            "mass": "1.90e27 kg",
             "numMoons": 79,
             "url": "https://upload.wikimedia.org/wikipedia/commons/2/2b/Jupiter_and_its_shrunken_Great_Red_Spot.jpg",
             "colors": [
@@ -91,8 +91,8 @@
             "orbitalDistance": "1,433.53 million",
             "discovery": "Antiquity",
             "funFact": "Saturn is the sixth planet from the Sun and the second-largest in the Solar System. Saturn is named after the Roman god of agriculture; its astronomical symbol (♄) represents the god's sickle.",
-            "volume": "8.27 x 10^14 km^3",
-            "mass": "5.68 x 10^26 kg",
+            "volume": "8.27e14 km^3",
+            "mass": "5.68e26 kg",
             "numMoons": 62,
             "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Saturn_during_Equinox.jpg/1280px-Saturn_during_Equinox.jpg",
             "rings": {
@@ -194,8 +194,8 @@
             "orbitalDistance": "2.875.04 million",
             "discovery": "13 March 1781 by William Herschel",
             "funFact": "Uranus (from the Latin name Ūranus for the Greek god Οὐρανός) is the seventh planet from the Sun. It has the third-largest planetary radius and fourth-largest planetary mass in the Solar System.",
-            "volume": "6.83 x 10^13 km^3",
-            "mass": "8.68 x 10^25 kg",
+            "volume": "6.83e13 km^3",
+            "mass": "8.68e25 kg",
             "numMoons": 27,
             "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Uranus2.jpg/1280px-Uranus2.jpg",
             "colors": [
@@ -272,8 +272,8 @@
             "orbitalDistance": "4.54 billion",
             "discovery": "23 September 1846 by Johann Galle",
             "funFact": "Neptune is the eighth and farthest known planet from the Sun in the Solar System. In the Solar System, it is the fourth-largest planet by diameter, the third-most-massive planet, and the densest giant planet.  It is named after the Roman god of the sea.",
-            "volume": "6.25 x 10^13 km^3",
-            "mass": "1.02 x 10^26 kg",
+            "volume": "6.25e13 km^3",
+            "mass": "1.02e26 kg",
             "numMoons": 14,
             "url": "https://upload.wikimedia.org/wikipedia/commons/5/56/Neptune_Full.jpg",
             "colors": [

@@ -12,8 +12,8 @@
             "orbitalDistance": "57,909,050",
             "discovery": "Antiquity",
             "funFact": "Mercury is the smallest and innermost planet in the Solar System. It is named after the Roman deity Mercury, the messenger of the gods.",
-            "volume": "6.08 × 10^10 km^3",
-            "mass": "3.03 x 10^23 kg",
+            "volume": "6.08e10 km^3",
+            "mass": "3.03e23 kg",
             "numMoons": 0,
             "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Mercury_in_color_-_Prockter07-edit1.jpg/1280px-Mercury_in_color_-_Prockter07-edit1.jpg",
             "colors": [
@@ -34,8 +34,8 @@
             "orbitalDistance": "108,208,000",
             "discovery": "Antiquity",
             "funFact": "Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty. It is the second-brightest natural object in the night sky after the Moon.",
-            "volume": "9.24 × 10^11 km^3",
-            "mass": "4.88 x 10^24 kg",
+            "volume": "9.24e11 km^3",
+            "mass": "4.88e24 kg",
             "numMoons": 0,
             "url": "https://upload.wikimedia.org/wikipedia/commons/e/e5/Venus-real_color.jpg",
             "colors": [
@@ -56,8 +56,8 @@
             "orbitalDistance": "149,598,023",
             "discovery": "n/a",
             "funFact": "Earth is the third planet from the Sun and the only astronomical object known to harbor life. According to radiometric dating and other sources of evidence, Earth formed over 4.5 billion years ago.",
-            "volume": "1.08 × 10^12 km^3",
-            "mass": "5.97 x 10^24 kg",
+            "volume": "1.08e12 km^3",
+            "mass": "5.97e24 kg",
             "numMoons": 1,
             "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/The_Earth_seen_from_Apollo_17.jpg/1280px-The_Earth_seen_from_Apollo_17.jpg",
             "colors": [
@@ -90,8 +90,8 @@
             "orbitalDistance": "227,939,200",
             "discovery": "Antiquity",
             "funFact": "Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System after Mercury. In English, Mars carries a name of the Roman god of war, and is often referred to as the 'Red Planet'.",
-            "volume": "1.63 × 10^11 km^3",
-            "mass": "6.41 x 10^23 kg",
+            "volume": "1.63e11 km^3",
+            "mass": "6.41e23 kg",
             "numMoons": 2,
             "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/OSIRIS_Mars_true_color.jpg/1280px-OSIRIS_Mars_true_color.jpg",
             "colors": [
