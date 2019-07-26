@@ -109,22 +109,22 @@ const Sun = () => {
 
         const arc = d3.arc()
             .innerRadius(0)
-            .outerRadius(Math.min(200, 200) / 2 - 1)
+            .outerRadius(Math.min(100, 100) / 2 - 1)
 
         const arcs = pie(composition);
         const pieSvg = d3.select("#svg-composition")
-            .attr("viewBox", [-100, -100, 200, 200]);
+            .attr("viewBox", [-50, -50, 100, 100]);
 
-        const color = d3.scaleOrdinal()
-            .domain(composition.map(d => d.name))
-            .range(d3.quantize(t => d3.interpolateSpectral(t * 0.8 + 0.1), composition.length).reverse())
+        const color = d3.scaleLinear()
+            .domain(d3.extent(composition, d => d.value))
+            .range(["#003f5c", "#ffa600"]);
 
         pieSvg.append("g")
             .attr("stroke", "white")
             .selectAll("path.pie-path")
             .data(arcs)
             .join("path")
-            .attr("fill", d => color(d.name))
+            .attr("fill", d => color(d.value))
             .attr("d", arc)
 
     }, []);
@@ -145,8 +145,8 @@ const Sun = () => {
                     <li>
                         <b>Composition: </b>
                         <svg id="svg-composition"
-                            width="200px"
-                            height="200px"
+                            width="100px"
+                            height="100px"
                         ></svg>
                     </li>
                     <li><b>Core Temperature:</b> {sunData.tempCore}</li>
