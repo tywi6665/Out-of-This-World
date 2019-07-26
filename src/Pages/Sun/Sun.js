@@ -10,7 +10,8 @@ const Sun = () => {
 
     useEffect(() => {
 
-        const data = sunData.sunspotLocations;
+        const sunspotData = sunData.sunspotLocations;
+        const composition = sunData.composition;
 
         const svg = d3.select("#svg-sun")
             .append("g")
@@ -78,7 +79,7 @@ const Sun = () => {
             .style("fill", "none");
 
         svg.selectAll("path.sunspot")
-            .data(data)
+            .data(sunspotData)
             .enter().append("path")
             .attr("class", "sunspot")
             .datum(function (d) {
@@ -102,6 +103,30 @@ const Sun = () => {
             allPaths.attr("d", path);
         });
 
+        const pie = d3.pie()
+            .sort(null)
+            .value(d => d.value)
+
+        const arc = d3.arc()
+            .innerRadius(0)
+            .outerRadius(Math.min(200, 200) / 2 - 1)
+
+        const arcs = pie(composition);
+        const pieSvg = d3.select("#svg-composition")
+            .attr("viewBox", [-100, -100, 200, 200]);
+
+        const color = d3.scaleOrdinal()
+            .domain(composition.map(d => d.name))
+            .range(d3.quantize(t => d3.interpolateSpectral(t * 0.8 + 0.1), composition.length).reverse())
+
+        pieSvg.append("g")
+            .attr("stroke", "white")
+            .selectAll("path.pie-path")
+            .data(arcs)
+            .join("path")
+            .attr("fill", d => color(d.name))
+            .attr("d", arc)
+
     }, []);
 
     return (
@@ -117,6 +142,13 @@ const Sun = () => {
                     <li><b>Mass:</b> {sunData.mass}</li>
                     <li><b>Volume:</b> {sunData.volume}</li>
                     <li><b>Mean Radius:</b> {sunData.radius} km</li>
+                    <li>
+                        <b>Composition: </b>
+                        <svg id="svg-composition"
+                            width="200px"
+                            height="200px"
+                        ></svg>
+                    </li>
                     <li><b>Core Temperature:</b> {sunData.tempCore}</li>
                     <li><b>Surface Temperature:</b> {sunData.tempSurface}</li>
                     <li><b>Coronal Temperature:</b> {sunData.tempCorona}</li>
