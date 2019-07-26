@@ -3,12 +3,15 @@ import Container from "../../Components/Container";
 import Stars from "../../Components/Stars";
 import * as d3 from "d3";
 const sunData = require("../../Data/sunData.json");
+const sunspotLocation = require("../../Data/sunspotLocations.json");
 
 const Sun = () => {
 
     d3.select(".svg-body").remove();
 
     useEffect(() => {
+
+        const data = sunspotLocation.data;
 
         const svg = d3.select("#svg-sun")
             .append("g")
@@ -64,7 +67,7 @@ const Sun = () => {
             .style("fill", "none");
 
         svg.selectAll("path.sunspot")
-            .data([{ lat: 0.1278, long: 51.5074 }])
+            .data(data)
             .enter().append("path")
             .attr("class", "sunspot")
             .datum(function (d) {
@@ -74,12 +77,13 @@ const Sun = () => {
                 };
             })
             .attr("d", path)
-            .style("fill", "black");
+            .attr("fill", "black")
+            .attr("fill-opacity", 0.7);
 
         const allPaths = d3.selectAll("path");
         const time = Date.now();
         const rotate = [10, 0],
-            velocity = [.003, -.001];
+            velocity = [.013, -.001];
 
         d3.timer(() => {
             let dt = Date.now() - time;
