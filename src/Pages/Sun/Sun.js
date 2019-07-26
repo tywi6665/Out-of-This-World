@@ -12,7 +12,7 @@ const Sun = () => {
 
         const sunspotData = sunData.sunspotLocations;
         const composition = sunData.composition;
-        const radius = 50;
+        const radius = 75;
 
         const svg = d3.select("#svg-sun")
             .append("g")
@@ -110,11 +110,15 @@ const Sun = () => {
 
         const arc = d3.arc()
             .innerRadius(0)
-            .outerRadius(Math.min(100, 100) / 2 - 1)
+            .outerRadius(radius * 0.8);
+
+        const outerArc = d3.arc()
+            .innerRadius(radius * 0.9)
+            .outerRadius(radius * 0.9);
 
         const arcs = pie(composition);
         const pieSvg = d3.select("#svg-composition")
-            .attr("viewBox", [-50, -50, 100, 100]);
+            .attr("viewBox", [-100, -100, 200, 200])
 
         const color = d3.scaleLinear()
             .domain(d3.extent(composition, d => d.value))
@@ -122,27 +126,48 @@ const Sun = () => {
 
         pieSvg.append("g")
             .attr("stroke", "white")
+            .attr("stroke-width", 0.5)
             .selectAll("path.pie-path")
             .data(arcs)
             .join("path")
             .attr("class", "pie-path")
+            .attr("translate", "transform(100, 100)")
             .attr("fill", d => color(d.value))
             .attr("d", arc);
 
-        pieSvg.selectAll("allPolylines")
+        pieSvg.selectAll("polyline")
             .data(arcs)
             .enter()
             .append("polyline")
             .style("fill", "none")
-            .attr("stroke-width", 1)
+            .attr("stroke", "white")
+            .attr("stroke-width", 0.5)
             .attr("points", (d) => {
                 let posA = arc.centroid(d);
-                let posB = arc.centroid(d);
-                let posC = arc.centroid(d);
-                let midangle = d.startAngle + (d.endAngle - d.startAngle);
+                let posB = outerArc.centroid(d);
+                let posC = outerArc.centroid(d);
+                let midangle = d.startAngle + (d.endAngle - d.startAngle) / 2;
                 posC[0] = radius * 0.95 * (midangle < Math.PI ? 1 : -1);
                 return [posA, posB, posC]
             });
+
+        pieSvg.selectAll("text")
+            .data(arcs)
+            .enter()
+            .append("text")
+            .text((d) => { return `${d.data.name}\n${d.data.value}%` })
+            .attr("transform", (d) => {
+                let position = outerArc.centroid(d);
+                let midangle = d.startAngle + (d.endAngle - d.startAngle) / 2;
+                position[0] = radius * 0.99 * (midangle < Math.PI ? 1 : -1);
+                position[1] = position[1] + 5;
+                return `translate(${position})`;
+            })
+            .style("text-anchor", (d) => {
+                let midangle = d.startAngle + (d.endAngle - d.startAngle) / 2;
+                return (midangle < Math.PI ? "start" : "end");
+            })
+            .style("fill", "white");
 
     }, []);
 
@@ -154,25 +179,29 @@ const Sun = () => {
             <div className="sun-info">
                 <h4>{sunData.name} {sunData.symbol}</h4>
                 <p>{sunData.funFact}</p>
-                <ul>
-                    <li><b>Type:</b> {sunData.type}</li>
-                    <li><b>Mass:</b> {sunData.mass}</li>
-                    <li><b>Volume:</b> {sunData.volume}</li>
-                    <li><b>Mean Radius:</b> {sunData.radius} km</li>
-                    <li>
-                        <b>Composition: </b>
-                        <svg id="svg-composition"
-                            width="100px"
-                            height="100px"
-                        ></svg>
-                    </li>
-                    <li><b>Core Temperature:</b> {sunData.tempCore}</li>
-                    <li><b>Surface Temperature:</b> {sunData.tempSurface}</li>
-                    <li><b>Coronal Temperature:</b> {sunData.tempCorona}</li>
-                    <li><b>Age:</b> {sunData.age}</li>
-                    <li><b>Distance to Milky Way Core:</b> {sunData.galacticDistance}</li>
-                    <li><b>Orbital Period:</b> {sunData.orbitalPeriod}</li>
-                </ul>
+                <div className="wrapper-div">
+                    <ul>
+                        <li><b>Type:</b> {sunData.type}</li>
+                        <li><b>Mass:</b> {sunData.mass}</li>
+                        <li><b>Volume:</b> {sunData.volume}</li>
+                        <li><b>Mean Radius:</b> {sunData.radius} km</li>
+                        <li><b>Age:</b> {sunData.age}</li>
+                        <li><b>Core Temperature:</b> {sunData.tempCore}</li>
+                    </ul>
+                    <ul>
+                        <li><b>Surface Temperature:</b> {sunData.tempSurface}</li>
+                        <li><b>Coronal Temperature:</b> {sunData.tempCorona}</li>
+                        <li><b>Distance to Milky Way Core:</b> {sunData.galacticDistance}</li>
+                        <li><b>Orbital Period:</b> {sunData.orbitalPeriod}</li>
+                    </ul>
+                </div>
+                <div>
+                    <b>Composition: </b>
+                    <svg id="svg-composition"
+                        width="100%"
+                        height="200px"
+                    ></svg>
+                </div>
             </div>
             <svg id="svg-sun"
                 width="500px"

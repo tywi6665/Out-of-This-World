@@ -4,16 +4,16 @@
     "funFact": "The Sun is the star at the center of the Solar System. It accounts for about 99.86% of the total mass of the Solar System.",
     "composition": [
         {
-            "name": "hydrogen",
-            "value": 73.46
-        },
-        {
-            "name": "helium",
+            "name": "Helium",
             "value": 24.85
         },
         {
-            "name": "oxygen, carbon, neon, iron",
+            "name": "Trace elements",
             "value": 1.69
+        },
+        {
+            "name": "Hydrogen",
+            "value": 73.46
         }
     ],
     "type": "G-type main-sequence (G2V)",
