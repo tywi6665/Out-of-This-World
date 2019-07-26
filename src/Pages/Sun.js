@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
-import Container from "../../Components/Container";
-import Stars from "../../Components/Stars";
+import Container from "../Components/Container";
+import Stars from "../Components/Stars";
 import * as d3 from "d3";
-const sunData = require("../../Data/sunData.json");
+const sunData = require("../Data/sunData.json");
 
 const Sun = () => {
 
@@ -155,7 +155,7 @@ const Sun = () => {
             .data(arcs)
             .enter()
             .append("text")
-            .text((d) => { return `${d.data.name}\n${d.data.value}%` })
+            .text((d) => { return `${d.data.name} ${d.data.value}%` })
             .attr("transform", (d) => {
                 let position = outerArc.centroid(d);
                 let midangle = d.startAngle + (d.endAngle - d.startAngle) / 2;

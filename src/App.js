@@ -3,10 +3,11 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import './App.scss';
 import Navbar from "./Components/Navbar";
 import Home from './Pages/Home';
-import InnerPlanets from './Pages/InnerPlanets/InnerPlanets';
-import OuterPlanets from './Pages/OuterPlanets/OuterPlanets';
+import InnerPlanets from './Pages/InnerPlanets';
+import OuterPlanets from './Pages/OuterPlanets';
 import Footer from "./Components/Footer/Footer";
-import Sun from './Pages/Sun/Sun';
+import Sun from './Pages/Sun';
+import Dwarf from './Pages/Dwarf';
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
         <Route path="/innerplanets" component={InnerPlanets} />
         <Route path="/outerplanets" component={OuterPlanets} />
         <Route path="/sun" component={Sun} />
+        <Route path="/dwarf" component={Dwarf} />
         <div className="disclaimer">
           <p>*Not to Scale</p>
         </div>
