@@ -42,6 +42,18 @@ const Sun = () => {
             .attr("offset", (d) => d.offset)
             .attr("stop-color", (d) => d.color);
 
+        defs.append("radialGradient")
+            .attr("id", "sunspot-gradient")
+            .selectAll("stop")
+            .data([
+                { offset: "0%", color: "#000000" },
+                { offset: "80%", color: "#200000" },
+                { offset: "100%", color: "#fe6006" }
+            ])
+            .enter().append("stop")
+            .attr("offset", (d) => d.offset)
+            .attr("stop-color", (d) => d.color);
+
         const projection = d3.geoOrthographic()
             .scale(240)
             .translate([0, 0])
@@ -77,13 +89,13 @@ const Sun = () => {
                 };
             })
             .attr("d", path)
-            .attr("fill", "black")
-            .attr("fill-opacity", 0.7);
+            .attr("fill", "url(#sunspot-gradient)")
+            .attr("fill-opacity", 0.7)
 
         const allPaths = d3.selectAll("path");
         const time = Date.now();
         const rotate = [10, 0],
-            velocity = [.013, -.001];
+            velocity = [.010, -.001];
 
         d3.timer(() => {
             let dt = Date.now() - time;
