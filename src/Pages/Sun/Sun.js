@@ -12,6 +12,7 @@ const Sun = () => {
 
         const sunspotData = sunData.sunspotLocations;
         const composition = sunData.composition;
+        const radius = 50;
 
         const svg = d3.select("#svg-sun")
             .append("g")
@@ -117,15 +118,31 @@ const Sun = () => {
 
         const color = d3.scaleLinear()
             .domain(d3.extent(composition, d => d.value))
-            .range(["#003f5c", "#ffa600"]);
+            .range(["#bc5090", "#ffa600"]);
 
         pieSvg.append("g")
             .attr("stroke", "white")
             .selectAll("path.pie-path")
             .data(arcs)
             .join("path")
+            .attr("class", "pie-path")
             .attr("fill", d => color(d.value))
-            .attr("d", arc)
+            .attr("d", arc);
+
+        pieSvg.selectAll("allPolylines")
+            .data(arcs)
+            .enter()
+            .append("polyline")
+            .style("fill", "none")
+            .attr("stroke-width", 1)
+            .attr("points", (d) => {
+                let posA = arc.centroid(d);
+                let posB = arc.centroid(d);
+                let posC = arc.centroid(d);
+                let midangle = d.startAngle + (d.endAngle - d.startAngle);
+                posC[0] = radius * 0.95 * (midangle < Math.PI ? 1 : -1);
+                return [posA, posB, posC]
+            });
 
     }, []);
 
