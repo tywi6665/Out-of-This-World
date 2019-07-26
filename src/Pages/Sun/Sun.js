@@ -63,6 +63,19 @@ const Sun = () => {
             .attr("d", path)
             .style("fill", "none");
 
+        svg.selectAll("path.sunspot")
+            .data([{ lat: 0.1278, long: 51.5074 }])
+            .enter().append("path")
+            .attr("class", "sunspot")
+            .datum(function (d) {
+                return {
+                    type: "Point",
+                    coordinates: [d.long, d.lat]
+                };
+            })
+            .attr("d", path)
+            .style("fill", "black");
+
         const allPaths = d3.selectAll("path");
         const time = Date.now();
         const rotate = [10, 0],
@@ -72,8 +85,7 @@ const Sun = () => {
             let dt = Date.now() - time;
             projection.rotate([rotate[0] + velocity[0] * dt, 0]);
             allPaths.attr("d", path);
-        })
-
+        });
 
     }, []);
 
