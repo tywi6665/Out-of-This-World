@@ -2,7 +2,7 @@ import React from 'react';
 import Container from "../Components/Container";
 import Stars from "../Components/Stars";
 import * as d3 from "d3";
-// const outerPlanetData = require("../Data/outerPlanetsData.json");
+const dwarfData = require("../Data/dwarfData.json");
 
 const Dwarf = () => {
 
@@ -13,7 +13,7 @@ const Dwarf = () => {
             page={"dwarf"}
         >
             <Stars />
-            <p>This is the Dwarf Objects page</p>
+            <p>{dwarfData.definition}</p>
         </Container>
     );
 }
