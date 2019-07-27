@@ -13,7 +13,7 @@ const Dwarf = () => {
             page={"dwarf"}
         >
             <Stars />
-            <p>{dwarfData.definition}</p>
+            <h4>{dwarfData.definition}</h4>
         </Container>
     );
 }

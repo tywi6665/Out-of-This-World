@@ -1,6 +1,183 @@
 {
     "definition": "A dwarf planet is a planetary-mass object that is neither a true planet nor a natural satellite. That is, it is in direct orbit of a star, and is massive enough for its gravity to compress it into a spherical shape, but has not cleared the neighborhood of other material around its orbit. The term was adopted by the International Astronomical Union in 2006.",
     "data": [
-        {}
+        {
+            "name": "ceres",
+            "symbol": "⚳",
+            "discoveryDate": "1 January 1801",
+            "discoverer": "Giuseppe Piazzi",
+            "location": "asteriod belt",
+            "orbitalDistance": "414,010,000 km",
+            "inclination": 10.59,
+            "radius": 473,
+            "volume": "4.21e8 km^3",
+            "mass": "9.39e20 kg",
+            "moons": [],
+            "funFact": "Ceres is the largest object in the asteroid belt. Ceres is both the largest of the asteroids and the only unambiguous dwarf planet inside Neptune's orbit. It is the 33rd-largest known body in the Solar System.",
+            "url": "https://upload.wikimedia.org/wikipedia/commons/5/58/Ceres_-_RC3_-_Haulani_Crater_%2822381131691%29.jpg"
+        },
+        {
+            "name": "pluto",
+            "symbol": "♇",
+            "discoveryDate": "18 February 1930",
+            "discoverer": "Clyde W. Tombaugh",
+            "location": "kuiper belt",
+            "orbitalDistance": "5.91e9 km",
+            "inclination": 17.16,
+            "radius": 1188.3,
+            "volume": "7.06e9 km^3",
+            "mass": "1.30e22 kg",
+            "moons": [
+                {
+                    "name": "charon",
+                    "radius": 606,
+                    "orbitalDistance": 19591,
+                    "discovery": "22 June 1978",
+                    "colors": [
+                        "grey",
+                        "lightgrey"
+                    ],
+                    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Charon_in_True_Color_-_High-Res.jpg/1280px-Charon_in_True_Color_-_High-Res.jpg"
+                },
+                {
+                    "name": "styx",
+                    "radius": 8,
+                    "orbitalDistance": 42656,
+                    "discovery": "26 June 2012",
+                    "colors": [
+                        "grey",
+                        "lightgrey"
+                    ],
+                    "url": "https://upload.wikimedia.org/wikipedia/commons/3/38/Styx_%28moon%29.jpg"
+                },
+                {
+                    "name": "kerberos",
+                    "radius": 10,
+                    "orbitalDistance": 57783,
+                    "discovery": "28 June 2011",
+                    "colors": [
+                        "grey",
+                        "lightgrey"
+                    ],
+                    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Kerberos_%28moon%29.jpg/1280px-Kerberos_%28moon%29.jpg"
+                },
+                {
+                    "name": "nix",
+                    "radius": 25,
+                    "orbitalDistance": 48694,
+                    "discovery": "15 June 2005",
+                    "colors": [
+                        "lightgrey",
+                        "#e5a7b8"
+                    ],
+                    "url": "https://upload.wikimedia.org/wikipedia/commons/6/6e/Nix_best_view-true_color.jpg"
+                },
+                {
+                    "name": "hydra",
+                    "radius": 25,
+                    "orbitalDistance": 64738,
+                    "discovery": "15 June 2005",
+                    "colors": [
+                        "lightgrey",
+                        "grey"
+                    ],
+                    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Hydra_Enhanced_Color.jpg/1024px-Hydra_Enhanced_Color.jpg"
+                }
+            ],
+            "funFact": "Pluto is a dwarf planet in the Kuiper belt, a ring of bodies beyond Neptune. It was the first Kuiper belt object to be discovered and is the largest known plutoid (or ice dwarf).",
+            "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Pluto_in_True_Color_-_High-Res.jpg/1280px-Pluto_in_True_Color_-_High-Res.jpg"
+        },
+        {
+            "name": "eris",
+            "symbol": "",
+            "discoveryDate": "21 October 2003",
+            "discoverer": "M. E. Brown",
+            "location": "kuiper belt",
+            "orbitalDistance": "10.17e9 km",
+            "inclination": 44.04,
+            "radius": 1163,
+            "volume": "6.59e9 km^3",
+            "mass": "1.66e22 kg",
+            "moons": [
+                {
+                    "name": "dysnomia",
+                    "radius": 175,
+                    "orbitalDistance": 37350,
+                    "discovery": "10 September 2005",
+                    "colors": [
+                        "lightgrey",
+                        "grey"
+                    ],
+                    "url": "https://upload.wikimedia.org/wikipedia/commons/5/5b/Eris_and_dysnomia2.jpg"
+                }
+            ],
+            "funFact": "Eris is the most massive and second-largest (by volume) dwarf planet (and plutoid) known in the Solar System. It was named after Eris, the Greek goddess of strife and discord. Eris is the ninth most massive object directly orbiting the Sun, and the 16th most massive overall.",
+            "url": "https://upload.wikimedia.org/wikipedia/commons/5/5b/Eris_and_dysnomia2.jpg"
+        },
+        {
+            "name": "makemake",
+            "symbol": "",
+            "discoveryDate": "31 March 2005",
+            "discoverer": "M. E. Brown",
+            "location": "kuiper belt",
+            "orbitalDistance": "6.82e9 km",
+            "inclination": 28.98,
+            "radius": 715,
+            "volume": "1.70e9 km^3",
+            "mass": "4.40e21 kg",
+            "moons": [
+                {
+                    "name": "MK2",
+                    "radius": 87.5,
+                    "orbitalDistance": 21000,
+                    "discovery": "April 2015",
+                    "colors": [
+                        "lightgrey",
+                        "grey"
+                    ],
+                    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Makemake_moon_Hubble_image_with_legend_%28cropped%29.jpg/1280px-Makemake_moon_Hubble_image_with_legend_%28cropped%29.jpg"
+                }
+            ],
+            "funFact": "Makemake is a dwarf planet (and plutoid) and perhaps the second largest Kuiper belt. Its name derives from Makemake in the mythology of the Rapa Nui people of Easter Island.",
+            "url": "https://upload.wikimedia.org/wikipedia/commons/3/34/Makemake_with_moon.JPG"
+        },
+        {
+            "name": "haumea",
+            "symbol": "",
+            "discoveryDate": "28 Decemeber 2004",
+            "discoverer": "M. E. Brown",
+            "location": "kuiper belt",
+            "orbitalDistance": "6.47e12 km",
+            "inclination": 28.19,
+            "radius": 798,
+            "volume": "2.40e9 km^3",
+            "mass": "4.01e21 kg",
+            "moons": [
+                {
+                    "name": "namaka",
+                    "radius": 85,
+                    "orbitalDistance": 25657,
+                    "discovery": "30 June 2005",
+                    "colors": [
+                        "lightgrey",
+                        "grey"
+                    ],
+                    "url": "https://upload.wikimedia.org/wikipedia/en/6/65/2003_EL61_Haumea%2C_with_moons.jpg"
+                },
+                {
+                    "name": "hiʻiaka",
+                    "radius": 160,
+                    "orbitalDistance": 49880,
+                    "discovery": "26 January 2005",
+                    "colors": [
+                        "lightgrey",
+                        "grey"
+                    ],
+                    "url": "https://upload.wikimedia.org/wikipedia/en/6/65/2003_EL61_Haumea%2C_with_moons.jpg"
+                }
+            ],
+            "funFact": "Haumea is a dwarf planet located in the Kuiper belt discovered in 2004. It was named after Haumea, the Hawaiian goddess of childbirth.",
+            "url": "https://upload.wikimedia.org/wikipedia/commons/2/2b/Haumea_Hubble.png"
+        }
     ]
 }
