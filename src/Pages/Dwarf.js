@@ -28,24 +28,52 @@ const Dwarf = () => {
         const svg = d3.select("#svg-dwarf");
 
         const radiusScale = d3.scaleLinear()
-            // .domain(d3.extent(data, d => d.radius))
-            .domain([0, 1188.3])
+            .domain([0, d3.max(data, d => d.radius)])
             .range([0, 400]);
 
         const dwarfSystem = svg.append("g")
-            .attr("class", "dwarf-system")
-            .attr("transform", `translate(${width * 0.15}, 0)`);
-
-        dwarfSystem.selectAll("g.dwarf-planet")
+            .attr("transform", `translate(${width * 0.15}, 0)`)
+            .attr("width", `${width}px`)
+            .attr("height", `${height}px`)
+            .selectAll("g")
             .data(data)
             .enter()
             .append("g")
-            .attr("class", "dwarf-planet")
+            .attr("class", d => `dwarf-system`)
             .attr("transform", (d, i) => "translate(" + [(i * ((width - width * 0.15) / data.length)), 50] + ")")
-            .append("circle")
-            .attr("class", d => `${d.name}`)
-            .attr("r", d => radiusScale(d.radius) / 10)
-            .style("fill", "white");
+
+
+
+
+        // dwarfSystem.selectAll("g.dwarf-planet")
+        //     .data(data)
+        //     .enter()
+        //     .append("g")
+        //     .attr("class", "dwarf-planet")
+        //     .attr("transform", (d, i) => "translate(" + [(i * ((width - width * 0.15) / data.length)), 50] + ")")
+        //     .append("circle")
+        //     .attr("class", d => `${d.name}`)
+        //     .attr("r", d => radiusScale(d.radius) / 10)
+        //     .style("fill", "white")
+        //     .each((d) => {
+        //         console.log(this)
+        //         d3.select(this)
+        //             .selectAll("g.dwarf-moon")
+        //             .data(d.moons)
+        //             .enter()
+        //             .each(function (d) {
+        //                 d3.select(this)
+        //                     .append("g")
+        //                     .attr("class", "dwarf-lunar-system")
+        //                     .append("circle")
+        //                     .attr("r", d => radiusScale(d.radius) / 10)
+        //                     .attr("transform", (d, i) => "translate(" + [0, (i * 10) + 50] + ")")
+        //                     .attr("class", "dwarf-moon")
+        //                     .style("fill", "red");
+        //             })
+        //     })
+
+
 
     }, [windowWidth]);
 
