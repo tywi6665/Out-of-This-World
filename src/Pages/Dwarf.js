@@ -19,6 +19,7 @@ const Dwarf = () => {
     useEffect(() => {
 
         d3.select(".dwarf-system").remove();
+        d3.select("defs").remove()
 
         const data = dwarfData.data;
 
@@ -37,6 +38,7 @@ const Dwarf = () => {
         let filter = null
 
         function glow(data) {
+            console.log(data)
             filter = defs.append("filter")
                 .attr("id", `glow-${data.name}`);
             filter.append("feGaussianBlur")
@@ -53,8 +55,10 @@ const Dwarf = () => {
 
         function radialGradient(data, isMoon) {
             gradient = defs.append("radialGradient")
-                .attr("cx", `${isMoon ? "75%" : "100%"}`)
-                .attr("cy", `${Math.random() * 100}%`)
+                .attr("cx", `${100}%`)
+                .attr("cy", `${50}%`)
+                .attr("fx", `140%`)
+                .attr("fy", `50%`)
                 .attr("id", `gradient-${data.name}`)
                 .attr("gradientTransform", `${isMoon ? "rotate(" + Math.random() * 90 + ")" : "rotate(0)"}`)
 
@@ -91,11 +95,15 @@ const Dwarf = () => {
             .attr("transform", (d, i) => "translate(" + [(i * ((width - width * 0.15) / data.length)), 50] + ")")
             .each(function (d) {
                 d3.select(this)
+                    // .append('image')
+                    // .attr('xlink:href', `${d.url}`)
+                    // .attr('width', d => radiusScale(d.radius) / 10)
+                    // .attr('height', d => radiusScale(d.radius) / 10)
                     .append("circle")
                     .attr("class", d => `dwarf-planet ${d.name}`)
                     .attr("r", d => radiusScale(d.radius) / 10)
                     .style("fill", radialGradient(d, false))
-                    .style("filter", glow(d.name))
+                    .style("filter", glow(d))
                 // .on("click", showDwarfPlanetInfo)
                 // .on("mouseout", hideInfo);
 
@@ -104,24 +112,23 @@ const Dwarf = () => {
                 //     .text(d => d.name)
                 //     .attr("transform", "translate(-50, -25)")
                 //     .style("fill", "white");
-                !d.moons.length ? console.log(`${d.name} doesn't have any moons :(`) : (
-                    d3.select(this)
-                        .append("g")
-                        .attr("transform", `translate(0, 100)`)
-                        .selectAll("g.dwarf-moon")
-                        .data(d.moons)
-                        .enter()
-                        .append("g")
-                        .attr("transform", (d, i) => `translate(0, ${(i) * 50})`)
-                        .each(function (d) {
-                            d3.select(this)
-                                .append("circle")
-                                .attr("class", `${d.name} dwarf-moon`)
-                                .attr("r", radiusScale(d.radius) / 10)
-                                .style("fill", "white")
-                                .style("fill", radialGradient(d, true))
-                        })
-                )
+                d3.select(this)
+                    .append("g")
+                    .attr("transform", `translate(0, 100)`)
+                    .selectAll("g.dwarf-moon")
+                    .data(d.moons)
+                    .enter()
+                    .append("g")
+                    .attr("transform", (d, i) => `translate(0, ${(i) * 50})`)
+                    .each(function (d) {
+                        d3.select(this)
+                            .append("circle")
+                            .attr("class", `${d.name} dwarf-moon`)
+                            .attr("r", radiusScale(d.radius) / 10)
+                            .style("fill", "white")
+                            .style("fill", radialGradient(d, true))
+                    })
+
             });
 
         // const dwarfPlanetModal = d3.select(`.container`)
