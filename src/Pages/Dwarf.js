@@ -98,6 +98,12 @@ const Dwarf = () => {
                     .style("filter", glow(d.name))
                 // .on("click", showDwarfPlanetInfo)
                 // .on("mouseout", hideInfo);
+
+                // d3.select(this)
+                //     .append("text")
+                //     .text(d => d.name)
+                //     .attr("transform", "translate(-50, -25)")
+                //     .style("fill", "white");
                 !d.moons.length ? console.log(`${d.name} doesn't have any moons :(`) : (
                     d3.select(this)
                         .append("g")
@@ -113,6 +119,7 @@ const Dwarf = () => {
                                 .attr("class", `${d.name} dwarf-moon`)
                                 .attr("r", radiusScale(d.radius) / 10)
                                 .style("fill", "white")
+                                .style("fill", radialGradient(d, true))
                         })
                 )
             });
