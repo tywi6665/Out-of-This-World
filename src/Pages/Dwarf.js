@@ -130,7 +130,13 @@ const Dwarf = () => {
                             .style("fill", "white")
                             .style("fill", radialGradient(d, true))
                     })
-
+                    .append("polyline")
+                    .style("fill", "none")
+                    .attr("stroke", "white")
+                    .attr("stroke-width", 0.5)
+                    .attr("points", (d, i) => {
+                        return i % 2 === 0 ? "0,0, 25,-25, 50,-25" : "0,0, -25,-25, -50,-25"
+                    })
             });
 
         // const dwarfPlanetModal = d3.select(`.container`)
