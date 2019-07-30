@@ -85,7 +85,7 @@ const Dwarf = () => {
 
         const dwarfSystem = svg.append("g")
             .attr("class", "dwarf-system")
-            .attr("transform", `translate(${width * 0.15}, 0)`)
+            .attr("transform", `translate(${width * 0.15}, 20)`)
 
         dwarfSystem.selectAll("g.dwarf-planet")
             .data(data)
@@ -107,11 +107,13 @@ const Dwarf = () => {
                 // .on("click", showDwarfPlanetInfo)
                 // .on("mouseout", hideInfo);
 
-                // d3.select(this)
-                //     .append("text")
-                //     .text(d => d.name)
-                //     .attr("transform", "translate(-50, -25)")
-                //     .style("fill", "white");
+                d3.select(this)
+                    .append("text")
+                    .text(d => d.name.charAt(0).toUpperCase() + d.name.slice(1))
+                    .attr("transform", d => {
+                        return `translate(-${(radiusScale(d.radius) / 10) + 15}, -${(radiusScale(d.radius) / 10) - 5}) rotate(-35)`
+                    })
+                    .style("fill", "white");
                 d3.select(this)
                     .append("g")
                     .attr("transform", `translate(0, 100)`)
