@@ -32,29 +32,69 @@ const Dwarf = () => {
             .range([0, 400]);
 
         const dwarfSystem = svg.append("g")
+            .attr("class", "dwarf-system")
             .attr("transform", `translate(${width * 0.15}, 0)`)
-            .attr("width", `${width}px`)
-            .attr("height", `${height}px`)
-            .selectAll("g")
+        //     .selectAll("g")
+        //     .data(data)
+        //     .enter()
+        //     .append("g")
+        //     .attr("class", d => `dwarf-system dwarf-system-${d.name}`)
+        //     .attr("transform", (d, i) => "translate(" + [(i * ((width - width * 0.15) / data.length)), 50] + ")")
+        //     .append("g")
+        //     .attr("class", "dwarf-planet")
+        //     .append("circle")
+        //     .attr("class", d => `${d.name}`)
+        //     .attr("r", d => radiusScale(d.radius) / 10)
+        //     .style("fill", "white")
+        //     .each((d) => {
+        //         console.log(this)
+        //     })
+
+        // generateDwarfPlanets(data);
+
+        // function generateDwarfPlanets(data) {
+        //     console.log(data);
+
+        //     const dwarfPlanet = d3.select(`.dwarf-system`)
+        //         .selectAll("g")
+        //         .data(data)
+        //         .append("g")
+        // };
+        dwarfSystem.selectAll("g.dwarf-planet")
             .data(data)
             .enter()
             .append("g")
-            .attr("class", d => `dwarf-system`)
+            .attr("class", "dwarf-planet-moons")
             .attr("transform", (d, i) => "translate(" + [(i * ((width - width * 0.15) / data.length)), 50] + ")")
-
-
+            .each(function (d) {
+                d3.select(this)
+                    .append("circle")
+                    .attr("class", d => `dwarf-planet ${d.name}`)
+                    .attr("r", d => radiusScale(d.radius) / 10)
+                    .style("fill", "white")
+                !d.moons.length ? console.log(`${d.name} doesn't have any moons :(`) : (
+                    d3.select(this)
+                        .append("g")
+                        .attr("transform", (d, i) => `translate(0, ${(i + 1) * 50})`)
+                        .selectAll("g.dwarf-moon")
+                        .data(d.moons)
+                        .enter()
+                        .append("g")
+                        .each(function (d) {
+                            d3.select(this)
+                                .append("circle")
+                                .attr("class", `${d.name} dwarf-moon`)
+                                .attr("r", radiusScale(d.radius) / 10)
+                                .style("fill", "white")
+                                .attr("transform", (d, i) => `translate(0, ${(i) * 50})`)
+                        })
+                )
+            })
 
 
         // dwarfSystem.selectAll("g.dwarf-planet")
         //     .data(data)
         //     .enter()
-        //     .append("g")
-        //     .attr("class", "dwarf-planet")
-        //     .attr("transform", (d, i) => "translate(" + [(i * ((width - width * 0.15) / data.length)), 50] + ")")
-        //     .append("circle")
-        //     .attr("class", d => `${d.name}`)
-        //     .attr("r", d => radiusScale(d.radius) / 10)
-        //     .style("fill", "white")
         //     .each((d) => {
         //         console.log(this)
         //         d3.select(this)
