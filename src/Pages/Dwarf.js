@@ -38,7 +38,6 @@ const Dwarf = () => {
         let filter = null
 
         function glow(data) {
-            console.log(data)
             filter = defs.append("filter")
                 .attr("id", `glow-${data.name}`);
             filter.append("feGaussianBlur")
@@ -80,12 +79,12 @@ const Dwarf = () => {
                     .attr("stop-color", data.colors[1]);
             }
 
-            return `url(#gradient-${data.name})`
-        }
+            return `url(#gradient-${data.name})`;
+        };
 
         const dwarfSystem = svg.append("g")
             .attr("class", "dwarf-system")
-            .attr("transform", `translate(${width * 0.15}, 20)`)
+            .attr("transform", `translate(${width * 0.15}, 20)`);
 
         dwarfSystem.selectAll("g.dwarf-planet")
             .data(data)
@@ -130,13 +129,22 @@ const Dwarf = () => {
                             .attr("r", radiusScale(d.radius) / 10)
                             .style("fill", "white")
                             .style("fill", radialGradient(d, true))
-                    })
-                    .append("path")
-                    .style("fill", "none")
-                    .attr("stroke", "white")
-                    .attr("stroke-width", 0.5)
-                    .attr("d", (d, i) => {
-                        return i % 2 === 0 ? "M0,0, 25,-25, 50,-25" : "M0,0, -25,-25, -50,-25"
+                        d3.select(this)
+                            .append("path")
+                            .attr("id", `path-${d.name}`)
+                            .style("fill", "none")
+                            .attr("stroke", "white")
+                            .attr("stroke-width", 0.5)
+                            .attr("d", (d, i) => {
+                                return i % 2 === 0 ? "M0,0, 25,-25, 50,-25" : "M0,0, -25,-25, -50,-25"
+                            })
+                        d3.select(this)
+                            .append("text")
+                            .append("textPath")
+                            .attr("xlink:href", d => `#path-${d.name}`)
+                            .text(d => d.name)
+                            .attr("stroke", "white")
+                            .attr("stroke-width", 0.5)
                     })
             })
 
