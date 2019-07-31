@@ -138,22 +138,23 @@ const Dwarf = () => {
                             .attr("stroke", "white")
                             .attr("stroke-width", 0.5)
                             .attr("d", (d) => {
-                                let path;
-                                counter % 2 !== 0 ? path = `M0,0, ${(radiusScale(d.radius) / 10) + 5},-15, 80,-15` : path = `M0,0, -${(radiusScale(d.radius) / 10) + 5},-15, -50,-15`;
-                                counter++;
-                                return path;
-                                // return `M${radiusScale(d.radius) / 10},0, 80,0`
+                                // let path;
+                                // counter % 2 !== 0 ? path = `M0,0, ${(radiusScale(d.radius) / 10) + 5},-15, 80,-15` : path = `M0,0, -${(radiusScale(d.radius) / 10) + 5},-15, -50,-15`;
+                                // counter++;
+                                // return path;
+                                let scale = Math.floor(radiusScale(d.radius) / 10);
+                                return `M${-scale - 15} -10 S0 ${-scale - 25} ${scale + 15} -10`
                             })
                         d3.select(this)
                             .append("text")
-                            .attr("transform", d => {
-                                return counter % 2 !== 0 ? "translate(-50, -30) rotate(180)" : "translate(0, 0) rotate(0)";
-                            })
+                            // .attr("transform", d => {
+                            //     return counter % 2 !== 0 ? "translate(-50, -30) rotate(180)" : "translate(0, 0) rotate(0)";
+                            // })
                             .style("text-anchor", "start")
                             .append("textPath")
                             .attr("xlink:href", d => `#path-${d.name}`)
                             .text(d => d.name.charAt(0).toUpperCase() + d.name.slice(1))
-                            .attr("startOffset", "25%")
+                            .attr("startOffset", "0%")
                             .attr("fill", "white")
                     })
             })
