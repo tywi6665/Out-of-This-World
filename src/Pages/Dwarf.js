@@ -86,6 +86,8 @@ const Dwarf = () => {
             .attr("class", "dwarf-system")
             .attr("transform", `translate(${width * 0.15}, 20)`);
 
+        let counter = 1;
+
         dwarfSystem.selectAll("g.dwarf-planet")
             .data(data)
             .enter()
@@ -135,16 +137,24 @@ const Dwarf = () => {
                             .style("fill", "none")
                             .attr("stroke", "white")
                             .attr("stroke-width", 0.5)
-                            .attr("d", (d, i) => {
-                                return i % 2 === 0 ? "M0,0, 25,-25, 50,-25" : "M0,0, -25,-25, -50,-25"
+                            .attr("d", (d) => {
+                                let path;
+                                counter % 2 !== 0 ? path = `M0,0, ${(radiusScale(d.radius) / 10) + 5},-15, 80,-15` : path = `M0,0, -${(radiusScale(d.radius) / 10) + 5},-15, -50,-15`;
+                                counter++;
+                                return path;
+                                // return `M${radiusScale(d.radius) / 10},0, 80,0`
                             })
                         d3.select(this)
                             .append("text")
+                            .attr("transform", d => {
+                                return counter % 2 !== 0 ? "translate(-50, -30) rotate(180)" : "translate(0, 0) rotate(0)";
+                            })
+                            .style("text-anchor", "start")
                             .append("textPath")
                             .attr("xlink:href", d => `#path-${d.name}`)
-                            .text(d => d.name)
-                            .attr("stroke", "white")
-                            .attr("stroke-width", 0.5)
+                            .text(d => d.name.charAt(0).toUpperCase() + d.name.slice(1))
+                            .attr("startOffset", "25%")
+                            .attr("fill", "white")
                     })
             })
 
