@@ -116,6 +116,7 @@ const Dwarf = () => {
                     .style("fill", "white");
                 d3.select(this)
                     .append("g")
+                    .attr("class", "dwarf-moons")
                     .attr("transform", `translate(0, 100)`)
                     .selectAll("g.dwarf-moon")
                     .data(d.moons)
@@ -130,14 +131,24 @@ const Dwarf = () => {
                             .style("fill", "white")
                             .style("fill", radialGradient(d, true))
                     })
-                    .append("polyline")
+                    .append("path")
                     .style("fill", "none")
                     .attr("stroke", "white")
                     .attr("stroke-width", 0.5)
-                    .attr("points", (d, i) => {
-                        return i % 2 === 0 ? "0,0, 25,-25, 50,-25" : "0,0, -25,-25, -50,-25"
+                    .attr("d", (d, i) => {
+                        return i % 2 === 0 ? "M0,0, 25,-25, 50,-25" : "M0,0, -25,-25, -50,-25"
                     })
-            });
+            })
+
+        // svg.selectAll("text.dwarf-moon-text")
+        //     .data(data)
+        //     .enter()
+        //     .append("text")
+        //     .attr("class", "dwarf-moon-text")
+        //     .text((d) => `${d.moons.name}`)
+        //     .attr("transform", "translate(0, 0)")
+        //     .style("text-anchor", "start")
+        //     .style("fill", "white");
 
         // const dwarfPlanetModal = d3.select(`.container`)
         //     .append("div")
