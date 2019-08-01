@@ -96,17 +96,13 @@ const Dwarf = () => {
             .attr("transform", (d, i) => "translate(" + [(i * ((width - width * 0.15) / data.length)), 50] + ")")
             .each(function (d) {
                 d3.select(this)
-                    // .append('image')
-                    // .attr('xlink:href', `${d.url}`)
-                    // .attr('width', d => radiusScale(d.radius) / 10)
-                    // .attr('height', d => radiusScale(d.radius) / 10)
                     .append("circle")
                     .attr("class", d => `dwarf-planet ${d.name}`)
                     .attr("r", d => radiusScale(d.radius) / 10)
                     .style("fill", radialGradient(d, false))
                     .style("filter", glow(d))
-                // .on("click", showDwarfPlanetInfo)
-                // .on("mouseout", hideInfo);
+                    .on("click", showDwarfPlanetInfo)
+                    .on("mouseout", hideInfo);
 
                 d3.select(this)
                     .append("text")
@@ -159,56 +155,48 @@ const Dwarf = () => {
                     })
             })
 
-        // svg.selectAll("text.dwarf-moon-text")
-        //     .data(data)
-        //     .enter()
-        //     .append("text")
-        //     .attr("class", "dwarf-moon-text")
-        //     .text((d) => `${d.moons.name}`)
-        //     .attr("transform", "translate(0, 0)")
-        //     .style("text-anchor", "start")
-        //     .style("fill", "white");
-
-        // const dwarfPlanetModal = d3.select(`.container`)
-        //     .append("div")
-        //     .attr("class", `tool-tip-planet`)
-        //     .style("opacity", 0);
+        const dwarfPlanetModal = d3.select(`.container`)
+            .append("div")
+            .attr("class", `tool-tip-planet tool-tip-dwarf`)
+            .style("opacity", 0);
 
 
-        // function showDwarfPlanetInfo(d) {
-        //     dwarfPlanetModal.transition()
-        //         .delay(100)
-        //         .duration(200)
-        //         .style("opacity", 1);
+        function showDwarfPlanetInfo(d) {
+            dwarfPlanetModal.transition()
+                .delay(100)
+                .duration(200)
+                .style("opacity", 1);
 
-        //     dwarfPlanetModal.html(`
-        //                 <div>
-        //                     <img src=${d.url} />
-        //                     <h4>${d.name.charAt(0).toUpperCase() + d.name.slice(1)} ${d.symbol}</h4>
-        //                     <p>${d.funFact}</p>
-        //                     <span>
-        //                         <ul>
-        //                             <li><b>Mass:</b> ${d.mass}</li>
-        //                             <li><b>Volume:</b> ${d.volume}</li>
-        //                             <li><b>Mean Radius:</b> ${d.radius} km</li>
-        //                             <li><b>Mean Orbital Distance:</b> ${d.orbitalDistance} km</li>
-        //                             <li><b>Date of Discovery: </b>${d.discovery}</li>
-        //                         </ul>
-        //                         <ul>
-        //                             <li><b>Axial Tilt:</b> ${d.tilt}°</li>
-        //                             <li><b>Day Length:</b> ${d.dayLength} (compared to Earth)</li>
-        //                             <li><b>Year Length:</b> ${d.yearLength} (compared to Earth)</li>
-        //                             <li><b>Number of known moons: </b>${d.numMoons}</li>
-        //                         </ul>
-        //                     </span>
-        //                 </div>`)
-        // }
+            dwarfPlanetModal.html(`
+                        <div>
+                            <img src=${d.url} />
+                            <h4>${d.name.charAt(0).toUpperCase() + d.name.slice(1)} ${d.symbol}</h4>
+                            <p>${d.funFact}</p>
+                            <span>
+                                <ul>
+                                <li><b>Location: </b>${d.location}</li>
+                                    <li><b>Mass:</b> ${d.mass}</li>
+                                    <li><b>Volume:</b> ${d.volume}</li>
+                                    <li><b>Mean Radius:</b> ${d.radius} km</li>
+                                    <li><b>Mean Orbital Distance:</b> ${d.orbitalDistance}</li>
+                                    <li><b>Date of Discovery: </b>${d.discoveryDate}</li>
+                                </ul>
+                                <ul>
+                                    <li><b>Date of Discovery: </b>${d.discoveryDate}</li>
+                                    <li><b>Discovered By: </b>${d.discoverer}</li>
+                                    <li><b>Inclination to ecliptic:</b> ${d.inclination}°</li>
+                                    <li><b>Year Length:</b> ${d.yearLength} (compared to Earth)</li>
+                                    <li><b>Number of known moons: </b>${d.moons.length}</li>
+                                </ul>
+                            </span>
+                        </div>`)
+        }
 
-        // function hideInfo(d) {
-        //     dwarfPlanetModal.transition()
-        //         .duration(500)
-        //         .style("opacity", 0)
-        // }
+        function hideInfo(d) {
+            dwarfPlanetModal.transition()
+                .duration(500)
+                .style("opacity", 0)
+        }
 
     }, [windowWidth]);
 
@@ -217,7 +205,7 @@ const Dwarf = () => {
             page={"dwarf"}
         >
             <Stars />
-            <h4>{dwarfData.definition}</h4>
+            <h4 className="summary">{dwarfData.definition}</h4>
             <svg
                 id="svg-dwarf"
                 width={windowWidth - 20}

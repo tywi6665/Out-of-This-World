@@ -12,6 +12,7 @@
             "radius": 473,
             "volume": "4.21e8 km^3",
             "mass": "9.39e20 kg",
+            "yearLength": "4.6 years",
             "colors": [
                 "#605756",
                 "#9c9893"
@@ -31,6 +32,7 @@
             "radius": 1188.3,
             "volume": "7.06e9 km^3",
             "mass": "1.30e22 kg",
+            "yearLength": "248 years",
             "colors": [
                 "#382514",
                 "#f6efe3"
@@ -106,6 +108,7 @@
             "radius": 1163,
             "volume": "6.59e9 km^3",
             "mass": "1.66e22 kg",
+            "yearLength": "558 years",
             "colors": [
                 "#540002",
                 "#d7e5f0"
@@ -137,6 +140,7 @@
             "radius": 715,
             "volume": "1.70e9 km^3",
             "mass": "4.40e21 kg",
+            "yearLength": "309 years",
             "colors": [
                 "black",
                 "white"
@@ -168,6 +172,7 @@
             "radius": 798,
             "volume": "2.40e9 km^3",
             "mass": "4.01e21 kg",
+            "yearLength": "309 years",
             "colors": [
                 "black",
                 "white"
