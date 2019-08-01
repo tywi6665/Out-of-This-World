@@ -100,7 +100,7 @@
     stroke-opacity: 0.3;   
 }
 
-.tool-tip-moon, .tool-tip-planet, .tool-tip-dwarf {	
+.tool-tip-moon, .tool-tip-planet, .tool-tip-dwarf, .tool-tip-dwarf-moon {	
     text-align: center;			
     width: fit-content;	
     max-width: 500px;				
@@ -137,8 +137,13 @@
     }
 }
 
-.tool-tip-moon {
+.tool-tip-moon, .tool-tip-dwarf-moon {
     position: absolute;
+}
+
+.tool-tip-dwarf-moon {
+    bottom: 20px;
+    left: 0 auto;
 }
 
 .tool-tip-planet {
@@ -162,7 +167,7 @@
     opacity: 1;
     max-width: 100%;
     max-height: 50%;
-    bottom: 10px;
+    bottom: 20px;
     left: 0;
     margin: 0 10px 0 10px;
     display: flex;

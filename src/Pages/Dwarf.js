@@ -7,6 +7,8 @@ const dwarfData = require("../Data/dwarfData.json");
 const Dwarf = () => {
 
     d3.select(".svg-body").remove();
+    d3.select(".tool-tip-dwarf").remove();
+    d3.select(".tool-tip-moon").remove();
 
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
@@ -125,23 +127,16 @@ const Dwarf = () => {
                             .append("circle")
                             .attr("class", `${d.name} dwarf-moon`)
                             .attr("r", radiusScale(d.radius) / 10)
-                            .style("fill", "white")
                             .style("fill", radialGradient(d, true))
+                            .on("mouseover", showDwarfMoonInfo)
+                            .on("mouseout", hideInfo);
                         d3.select(this)
                             .append("path")
                             .attr("id", `path-${d.name}`)
                             .style("fill", "none")
                             .attr("stroke", "none")
                             .attr("stroke-width", 0.5)
-                            .attr("d", (d) => {
-                                // let path;
-                                // counter % 2 !== 0 ? path = `M0,0, ${(radiusScale(d.radius) / 10) + 5},-15, 80,-15` : path = `M0,0, -${(radiusScale(d.radius) / 10) + 5},-15, -50,-15`;
-                                // counter++;
-                                // return path;
-                                // let scale = Math.floor(radiusScale(d.radius) / 10);
-                                // return `M${-scale - 25} -10 S0 ${-scale - 30} ${scale + 25} -10`
-                                return "M-45 -10 0 -40";
-                            })
+                            .attr("d", "M-45 -10 0 -40")
                         d3.select(this)
                             .append("text")
                             .attr("transform", d => `translate(10, ${Math.floor(-radiusScale(d.radius) / 10) + 20})`)
@@ -160,6 +155,10 @@ const Dwarf = () => {
             .attr("class", `tool-tip-dwarf`)
             .style("opacity", 0);
 
+        const dwarfMoonModal = d3.select(`.container`)
+            .append("div")
+            .attr("class", "tool-tip-dwarf-moon")
+            .style("opacity", 0);
 
         function showDwarfPlanetInfo(d) {
             dwarfPlanetModal.transition()
@@ -191,14 +190,39 @@ const Dwarf = () => {
                                     <li><b>Number of known moons: </b>${d.moons.length}</li>
                                 </ul>
                             </span>
-                        </div>`)
+                        </div>`);
+        };
+
+        function showDwarfMoonInfo(d) {
+            dwarfMoonModal.transition()
+                .delay(100)
+                .duration(200)
+                .style("opacity", 1);
+
+            dwarfMoonModal.html(`
+                    <img src=${d.url} />
+                    <div>
+                        <h4>${d.name.charAt(0).toUpperCase() + d.name.slice(1)}</h4>
+                        <ul>
+                            <li><b>Mean Radius:</b> ${d.radius} km</li>
+                            <li><b>Mean Orbital Distance:</b> ${d.orbitalDistance} km</li>
+                            <li><b>Date of Discovery: </b>${d.discovery}</li>
+                        </ul>
+                    </div>`)
+            // .style("position", "fixed")
+            // .style("left", `${- 250}px`)
+            // .style("top", `${- 250}px`);
         }
 
         function hideInfo(d) {
             dwarfPlanetModal.transition()
                 .duration(500)
-                .style("opacity", 0)
-        }
+                .style("opacity", 0);
+
+            dwarfMoonModal.transition()
+                .duration(500)
+                .style("opacity", 0);
+        };
 
     }, [windowWidth]);
 
