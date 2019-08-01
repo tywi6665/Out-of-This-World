@@ -1,7 +1,7 @@
 import React from 'react';
 import Container from "../Components/Container";
 import Stars from "../Components/Stars";
-import PlanetCard from "../Components/PlanetCard";
+import PlanetSVG from "../Components/PlanetSVG";
 import * as d3 from "d3";
 const outerPlanetData = require("../Data/outerPlanetsData.json");
 
@@ -18,7 +18,7 @@ const OuterPlanets = () => {
             <Stars />
             {outerPlanets.map(outerPlanet => {
                 return (
-                    <PlanetCard
+                    <PlanetSVG
                         planet={outerPlanet}
                         page={"outer"}
                         key={outerPlanet.name}

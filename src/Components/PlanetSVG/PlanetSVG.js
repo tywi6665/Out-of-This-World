@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import "./PlanetCard.scss";
+import "./PlanetSVG.scss";
 import * as d3 from "d3";
 import { Tween, Timeline } from "react-gsap";
 
-const PlanetCard = ({ planet, page }) => {
+const PlanetSVG = ({ planet, page }) => {
 
     // const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
@@ -315,4 +315,4 @@ const PlanetCard = ({ planet, page }) => {
     );
 }
 
-export default PlanetCard;
+export default PlanetSVG;
