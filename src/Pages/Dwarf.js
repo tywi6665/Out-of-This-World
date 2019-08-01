@@ -135,22 +135,22 @@ const Dwarf = () => {
                             .append("path")
                             .attr("id", `path-${d.name}`)
                             .style("fill", "none")
-                            .attr("stroke", "white")
+                            .attr("stroke", "none")
                             .attr("stroke-width", 0.5)
                             .attr("d", (d) => {
                                 // let path;
                                 // counter % 2 !== 0 ? path = `M0,0, ${(radiusScale(d.radius) / 10) + 5},-15, 80,-15` : path = `M0,0, -${(radiusScale(d.radius) / 10) + 5},-15, -50,-15`;
                                 // counter++;
                                 // return path;
-                                let scale = Math.floor(radiusScale(d.radius) / 10);
-                                return `M${-scale - 15} -10 S0 ${-scale - 25} ${scale + 15} -10`
+                                // let scale = Math.floor(radiusScale(d.radius) / 10);
+                                // return `M${-scale - 25} -10 S0 ${-scale - 30} ${scale + 25} -10`
+                                return "M-45 -10 0 -40";
                             })
                         d3.select(this)
                             .append("text")
-                            // .attr("transform", d => {
-                            //     return counter % 2 !== 0 ? "translate(-50, -30) rotate(180)" : "translate(0, 0) rotate(0)";
-                            // })
+                            .attr("transform", d => `translate(10, ${Math.floor(-radiusScale(d.radius) / 10) + 20})`)
                             .style("text-anchor", "start")
+                            .style("font-size", "0.8em")
                             .append("textPath")
                             .attr("xlink:href", d => `#path-${d.name}`)
                             .text(d => d.name.charAt(0).toUpperCase() + d.name.slice(1))
