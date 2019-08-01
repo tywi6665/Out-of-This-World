@@ -157,7 +157,7 @@ const Dwarf = () => {
 
         const dwarfPlanetModal = d3.select(`.container`)
             .append("div")
-            .attr("class", `tool-tip-planet tool-tip-dwarf`)
+            .attr("class", `tool-tip-dwarf`)
             .style("opacity", 0);
 
 
@@ -168,10 +168,12 @@ const Dwarf = () => {
                 .style("opacity", 1);
 
             dwarfPlanetModal.html(`
-                        <div>
-                            <img src=${d.url} />
-                            <h4>${d.name.charAt(0).toUpperCase() + d.name.slice(1)} ${d.symbol}</h4>
-                            <p>${d.funFact}</p>
+                        <img src=${d.url} />
+                        <div class="dwarf-modal-body">
+                                <div>
+                                    <h4>${d.name.charAt(0).toUpperCase() + d.name.slice(1)} ${d.symbol}</h4>
+                                    <p>${d.funFact}</p>
+                                </div>
                             <span>
                                 <ul>
                                 <li><b>Location: </b>${d.location}</li>
