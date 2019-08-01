@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import "./PlanetCard.scss";
 
-const PlanetCard = () => {
+const PlanetCard = ({ data }) => {
+
+    console.log(data);
 
     const [isOpen, setIsOpen] = useState(false);
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -48,10 +50,10 @@ const PlanetCard = () => {
     };
 
     function scaleCoverToWindow(cardPosition, cover) {
-        var scaleX = windowWidth / cardPosition.width;
-        var scaleY = windowHeight / cardPosition.height;
-        var offsetX = (windowWidth / 2 - cardPosition.width / 2 - cardPosition.left) / scaleX;
-        var offsetY = (windowHeight / 2 - cardPosition.height / 2 - cardPosition.top) / scaleY;
+        const scaleX = windowWidth / cardPosition.width;
+        const scaleY = windowHeight / cardPosition.height;
+        const offsetX = (windowWidth / 2 - cardPosition.width / 2 - cardPosition.left) / scaleX;
+        const offsetY = (windowHeight / 2 - cardPosition.height / 2 - cardPosition.top) / scaleY;
         cover.style.transform = `scaleX(${scaleX}) scaleY(${+scaleY}) translate3d(${offsetX}px, ${offsetY})px, 0px)`;
     };
 

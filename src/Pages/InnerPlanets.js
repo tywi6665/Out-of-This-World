@@ -17,7 +17,6 @@ const InnerPlanets = () => {
         >
             <Stars />
             {innerPlanets.map(innerPlanet => {
-                console.log(innerPlanet)
                 return (
                     <PlanetSVG
                         planet={innerPlanet}

@@ -3,6 +3,7 @@ import Container from "../Components/Container";
 import Stars from "../Components/Stars";
 import * as d3 from "d3";
 import PlanetCard from '../Components/PlanetCard/PlanetCard';
+import renderEmpty from 'antd/lib/config-provider/renderEmpty';
 const dwarfData = require("../Data/dwarfData.json");
 
 const Dwarf = () => {
@@ -12,6 +13,7 @@ const Dwarf = () => {
     d3.select(".tool-tip-moon").remove();
 
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+    const [isOpen, setIsOpen] = useState(false);
 
     useEffect(() => {
         const handleResize = () => setWindowWidth(window.innerWidth);
@@ -89,8 +91,6 @@ const Dwarf = () => {
             .attr("class", "dwarf-system")
             .attr("transform", `translate(${width * 0.15}, 20)`);
 
-        let counter = 1;
-
         dwarfSystem.selectAll("g.dwarf-planet")
             .data(data)
             .enter()
@@ -104,6 +104,7 @@ const Dwarf = () => {
                     .attr("r", d => radiusScale(d.radius) / 10)
                     .style("fill", radialGradient(d, false))
                     .style("filter", glow(d))
+                    // .on("click", modal)
                     .on("click", showDwarfPlanetInfo)
                     .on("mouseout", hideInfo);
 
@@ -227,19 +228,30 @@ const Dwarf = () => {
 
     }, [windowWidth]);
 
+    // const modal = (d) => {
+    //     console.log(d)
+    //     setIsOpen(true);
+    //     return (
+    //         <PlanetCard
+    //             data={d}
+    //         />
+    //     );
+    // };
+
     return (
-        <Container
-            page={"dwarf"}
-        >
-            <Stars />
-            <h4 className="summary">{dwarfData.definition}</h4>
-            <PlanetCard />
-            <svg
-                id="svg-dwarf"
-                width={windowWidth - 20}
-                height="400px"
-            ></svg>
-        </Container>
+        <>
+            <Container
+                page={"dwarf"}
+            >
+                <Stars />
+                <h4 className="summary">{dwarfData.definition}</h4>
+                <svg
+                    id="svg-dwarf"
+                    width={windowWidth - 20}
+                    height="400px"
+                ></svg>
+            </Container>
+        </>
     );
 }
 
