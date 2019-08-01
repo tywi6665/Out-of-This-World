@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Container from "../Components/Container";
 import Stars from "../Components/Stars";
 import * as d3 from "d3";
+import PlanetCard from '../Components/PlanetCard/PlanetCard';
 const dwarfData = require("../Data/dwarfData.json");
 
 const Dwarf = () => {
@@ -232,6 +233,7 @@ const Dwarf = () => {
         >
             <Stars />
             <h4 className="summary">{dwarfData.definition}</h4>
+            <PlanetCard />
             <svg
                 id="svg-dwarf"
                 width={windowWidth - 20}
