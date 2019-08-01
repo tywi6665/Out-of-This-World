@@ -1,22 +1,32 @@
-import React from 'react';
+import React, { useState } from "react";
 import "./PlanetCard.scss";
 
 const PlanetCard = () => {
 
-    function expandCard(e) {
+    const [isOpen, setIsOpen] = useState(false);
+
+    function card() {
         const card = document.getElementById("planet-card");
-        card.classList.add("clicked");
         const openContent = document.getElementById("open-content");
-        openContent.classList.add("open")
+
+        isOpen ? closeCard(card, openContent) : expandCard(card, openContent)
     };
 
-    function closeCard() {
+    function expandCard(card, openContent) {
+        setIsOpen(true);
+        card.classList.add("clicked");
+        openContent.classList.add("open");
+    }
 
+    function closeCard(card, openContent) {
+        setIsOpen(false);
+        card.classList.remove("clicked");
+        openContent.classList.remove("open");
     };
 
     return (
         <>
-            <div id="planet-card" className="planet-card" onClick={expandCard}>
+            <div id="planet-card" className="planet-card" onClick={card}>
                 <div className="border"></div>
                 <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/53148/deathtostock-00.jpg" />
                 <h1>Hey now, you're an allstar</h1>
@@ -28,7 +38,7 @@ const PlanetCard = () => {
                 <a href="#"
                     id="close-content"
                     className="close-content"
-                    onClick={closeCard}
+                    onClick={card}
                 >
                     <span className="x-1"></span>
                     <span className="x-2"></span>
