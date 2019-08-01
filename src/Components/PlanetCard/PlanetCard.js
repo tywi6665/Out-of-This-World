@@ -4,24 +4,55 @@ import "./PlanetCard.scss";
 const PlanetCard = () => {
 
     const [isOpen, setIsOpen] = useState(false);
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+    const [windowHeight, setWindowHeight] = useState(window.innerHeight);
 
     function card() {
         const card = document.getElementById("planet-card");
         const openContent = document.getElementById("open-content");
+        const cover = document.getElementById('cover');
 
-        isOpen ? closeCard(card, openContent) : expandCard(card, openContent)
+        isOpen ? closeCard(card, openContent, cover) : expandCard(card, openContent, cover)
     };
 
-    function expandCard(card, openContent) {
+    function expandCard(card, openContent, cover) {
         setIsOpen(true);
         card.classList.add("clicked");
+        setTimeout(() => {
+            animateForward(card, cover)
+        }, 500);
         openContent.classList.add("open");
     }
 
-    function closeCard(card, openContent) {
+    function closeCard(card, openContent, cover) {
         setIsOpen(false);
         card.classList.remove("clicked");
         openContent.classList.remove("open");
+    };
+
+    function animateForward(card, cover) {
+        const openContentText = document.getElementById('open-content-text')
+        const openContentImage = document.getElementById('open-content-image')
+        const cardPosition = card.getBoundingClientRect();
+        const cardStyle = getComputedStyle(card);
+        setCoverPosition(cardPosition, cover);
+        // setCoverColor(cardStyle);
+        scaleCoverToWindow(cardPosition, cover);
+    };
+
+    function setCoverPosition(cardPosition, cover) {
+        cover.style.left = cardPosition.left + 'px';
+        cover.style.top = cardPosition.top + 'px';
+        cover.style.width = cardPosition.width + 'px';
+        cover.style.height = cardPosition.height + 'px';
+    };
+
+    function scaleCoverToWindow(cardPosition, cover) {
+        var scaleX = windowWidth / cardPosition.width;
+        var scaleY = windowHeight / cardPosition.height;
+        var offsetX = (windowWidth / 2 - cardPosition.width / 2 - cardPosition.left) / scaleX;
+        var offsetY = (windowHeight / 2 - cardPosition.height / 2 - cardPosition.top) / scaleY;
+        cover.style.transform = `scaleX(${scaleX}) scaleY(${+scaleY}) translate3d(${offsetX}px, ${offsetY})px, 0px)`;
     };
 
     return (
@@ -45,6 +76,7 @@ const PlanetCard = () => {
                 </a>
                 <img id="open-content-image" src="" />
                 <div className="text" id="open-content-text">
+                    Hey now, you're an allstarHey now, you're an allstarHey now, you're an allstarHey now, you're an allstar
                 </div>
             </div>
         </>
