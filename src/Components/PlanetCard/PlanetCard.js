@@ -87,6 +87,8 @@ const PlanetCard = ({ data, toggle }) => {
                 </a>
                 <img src={data.url} />
                 <h1>{data.name.charAt(0).toUpperCase() + data.name.slice(1)}</h1>
+                <p>{data.funFact}</p>
+                <p className="click-me">Click me for more details</p>
             </div>
 
             <div id="cover" className="cover"></div>
@@ -103,6 +105,21 @@ const PlanetCard = ({ data, toggle }) => {
                 <img id="open-content-image" src="" />
                 <div className="text" id="open-content-text">
                     Hey now, you're an allstarHey now, you're an allstarHey now, you're an allstarHey now, you're an allstar
+                <ul>
+                        <li><b>Location: </b>{data.location}</li>
+                        <li><b>Mass:</b> {data.mass}</li>
+                        <li><b>Volume:</b> {data.volume}</li>
+                        <li><b>Mean Radius:</b> {data.radius} km</li>
+                        <li><b>Mean Orbital Distance:</b> {data.orbitalDistance}</li>
+                        <li><b>Date of Discovery: </b>{data.discoveryDate}</li>
+                    </ul>
+                    <ul>
+                        <li><b>Date of Discovery: </b>{data.discoveryDate}</li>
+                        <li><b>Discovered By: </b>{data.discoverer}</li>
+                        <li><b>Inclination to ecliptic:</b> {data.inclination}°</li>
+                        <li><b>Year Length:</b> {data.yearLength} (compared to Earth)</li>
+                        <li><b>Number of known moons: </b>{data.moons.length}</li>
+                    </ul>
                 </div>
             </div>
         </>
