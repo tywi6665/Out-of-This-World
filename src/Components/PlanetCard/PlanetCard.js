@@ -3,8 +3,6 @@ import "./PlanetCard.scss";
 
 const PlanetCard = ({ data }) => {
 
-    console.log(data);
-
     const [isOpen, setIsOpen] = useState(false);
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
     const [windowHeight, setWindowHeight] = useState(window.innerHeight);

@@ -14,6 +14,7 @@ const Dwarf = () => {
 
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
     const [isOpen, setIsOpen] = useState(false);
+    const [modalData, setModalData] = useState(null);
 
     useEffect(() => {
         const handleResize = () => setWindowWidth(window.innerWidth);
@@ -104,8 +105,8 @@ const Dwarf = () => {
                     .attr("r", d => radiusScale(d.radius) / 10)
                     .style("fill", radialGradient(d, false))
                     .style("filter", glow(d))
-                    // .on("click", modal)
-                    .on("click", showDwarfPlanetInfo)
+                    .on("click", modal)
+                    // .on("click", showDwarfPlanetInfo)
                     .on("mouseout", hideInfo);
 
                 d3.select(this)
@@ -217,6 +218,8 @@ const Dwarf = () => {
         }
 
         function hideInfo(d) {
+            setModalData(null);
+
             dwarfPlanetModal.transition()
                 .duration(500)
                 .style("opacity", 0);
@@ -228,15 +231,10 @@ const Dwarf = () => {
 
     }, [windowWidth]);
 
-    // const modal = (d) => {
-    //     console.log(d)
-    //     setIsOpen(true);
-    //     return (
-    //         <PlanetCard
-    //             data={d}
-    //         />
-    //     );
-    // };
+    const modal = (d) => {
+        setIsOpen(true);
+        setModalData(d);
+    };
 
     return (
         <>
@@ -244,6 +242,7 @@ const Dwarf = () => {
                 page={"dwarf"}
             >
                 <Stars />
+                {isOpen ? <PlanetCard data={modalData} /> : null}
                 <h4 className="summary">{dwarfData.definition}</h4>
                 <svg
                     id="svg-dwarf"
