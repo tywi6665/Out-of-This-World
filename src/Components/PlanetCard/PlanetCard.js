@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import "./PlanetCard.scss";
 
-const PlanetCard = ({ data }) => {
+const PlanetCard = ({ data, toggle }) => {
+
+    console.log(data)
 
     const [isOpen, setIsOpen] = useState(false);
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -11,34 +13,50 @@ const PlanetCard = ({ data }) => {
         const card = document.getElementById("planet-card");
         const openContent = document.getElementById("open-content");
         const cover = document.getElementById('cover');
+        const openContentText = document.getElementById('open-content-text')
+        const openContentImage = document.getElementById('open-content-image')
 
-        isOpen ? closeCard(card, openContent, cover) : expandCard(card, openContent, cover)
+        isOpen ? closeCard(card, openContent, cover, openContentText, openContentImage) : expandCard(card, openContent, cover, openContentText, openContentImage)
     };
 
-    function expandCard(card, openContent, cover) {
+    function expandCard(card, openContent, cover, openContentText, openContentImage) {
         setIsOpen(true);
         card.classList.add("clicked");
         setTimeout(() => {
-            animateForward(card, cover)
+            animateForward(card, cover, openContentText, openContentImage)
         }, 500);
         openContent.classList.add("open");
     }
 
-    function closeCard(card, openContent, cover) {
+    function closeCard(card, openContent, cover, openContentText, openContentImage) {
         setIsOpen(false);
-        card.classList.remove("clicked");
         openContent.classList.remove("open");
+        animateBackward(card, cover, openContentText, openContentImage)
     };
 
-    function animateForward(card, cover) {
-        const openContentText = document.getElementById('open-content-text')
-        const openContentImage = document.getElementById('open-content-image')
+    function animateForward(card, cover, openContentText, openContentImage) {
         const cardPosition = card.getBoundingClientRect();
         const cardStyle = getComputedStyle(card);
         setCoverPosition(cardPosition, cover);
         // setCoverColor(cardStyle);
         scaleCoverToWindow(cardPosition, cover);
     };
+
+    function animateBackward(card, cover, openContentText, openContentImage) {
+        const cardPosition = card.getBoundingClientRect();
+        setCoverPosition(cardPosition, cover);
+        scaleCoverToWindow(cardPosition, cover);
+        cover.style.transform = `scaleX(1) scaleY(1) translate3d(0px, 0px, 0px)`;
+        setTimeout(function () {
+            // openContentText.innerHTML = '';
+            // openContentImage.src = '';
+            cover.style.width = '0px';
+            cover.style.height = '0px';
+            setIsOpen(false);
+            card.classList.remove("clicked");
+        }, 301);
+
+    }
 
     function setCoverPosition(cardPosition, cover) {
         cover.style.left = cardPosition.left + 'px';
@@ -52,15 +70,23 @@ const PlanetCard = ({ data }) => {
         const scaleY = windowHeight / cardPosition.height;
         const offsetX = (windowWidth / 2 - cardPosition.width / 2 - cardPosition.left) / scaleX;
         const offsetY = (windowHeight / 2 - cardPosition.height / 2 - cardPosition.top) / scaleY;
-        cover.style.transform = `scaleX(${scaleX}) scaleY(${+scaleY}) translate3d(${offsetX}px, ${offsetY})px, 0px)`;
+        cover.style.transform = `scaleX(${windowWidth}) scaleY(${+scaleY}) translate3d(${offsetX}px, ${offsetY})px, 0px)`;
     };
 
     return (
         <>
             <div id="planet-card" className="planet-card" onClick={card}>
                 <div className="border"></div>
-                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/53148/deathtostock-00.jpg" />
-                <h1>Hey now, you're an allstar</h1>
+                <a href="#"
+                    id="close-content"
+                    className="close-content"
+                    onClick={toggle}
+                >
+                    <span className="x-1"></span>
+                    <span className="x-2"></span>
+                </a>
+                <img src={data.url} />
+                <h1>{data.name.charAt(0).toUpperCase() + data.name.slice(1)}</h1>
             </div>
 
             <div id="cover" className="cover"></div>

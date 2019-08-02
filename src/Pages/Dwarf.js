@@ -218,7 +218,7 @@ const Dwarf = () => {
         }
 
         function hideInfo(d) {
-            setModalData(null);
+            // setModalData(null);
 
             dwarfPlanetModal.transition()
                 .duration(500)
@@ -232,8 +232,8 @@ const Dwarf = () => {
     }, [windowWidth]);
 
     const modal = (d) => {
+        setModalData(d)
         setIsOpen(true);
-        setModalData(d);
     };
 
     return (
@@ -242,7 +242,10 @@ const Dwarf = () => {
                 page={"dwarf"}
             >
                 <Stars />
-                {isOpen ? <PlanetCard data={modalData} /> : null}
+                {isOpen ? <PlanetCard
+                    data={modalData}
+                    toggle={() => setIsOpen(false)}
+                /> : null}
                 <h4 className="summary">{dwarfData.definition}</h4>
                 <svg
                     id="svg-dwarf"
