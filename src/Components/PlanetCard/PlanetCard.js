@@ -75,23 +75,38 @@ const PlanetCard = ({ data, toggle }) => {
 
     return (
         <>
-            <div id="planet-card" className="planet-card" onClick={card}>
+            <div
+                id="planet-card"
+                className="planet-card"
+                onClick={card}
+                style={{ background: `linear-gradient(to bottom, #000 60%, ${data.colors[0]} 100%` }}
+            >
                 <div className="border"></div>
                 <a href="#"
                     id="close-content"
                     className="close-content"
                     onClick={toggle}
                 >
-                    <span className="x-1"></span>
-                    <span className="x-2"></span>
+                    <span
+                        className="x-1"
+                        onClick={toggle}
+                    ></span>
+                    <span
+                        className="x-2"
+                        onClick={toggle}
+                    ></span>
                 </a>
                 <img src={data.url} />
-                <h1>{data.name.charAt(0).toUpperCase() + data.name.slice(1)}</h1>
+                <h1>{data.name.charAt(0).toUpperCase() + data.name.slice(1)} {data.symbol}</h1>
                 <p>{data.funFact}</p>
                 <p className="click-me">Click me for more details</p>
             </div>
 
-            <div id="cover" className="cover"></div>
+            <div
+                id="cover"
+                className="cover"
+                style={{ background: `linear-gradient(to bottom, #000 60%, ${data.colors[0]} 100%` }}
+            ></div>
 
             <div id="open-content" className="open-content">
                 <a href="#"
