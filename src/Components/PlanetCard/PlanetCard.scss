@@ -7,7 +7,6 @@
     margin-left: auto;
     margin-right: auto;
     position: fixed;
-    // background: #EB5160;
     color: #fff;
     cursor: pointer;
     margin-bottom: 60px;
@@ -92,9 +91,9 @@
 
 .cover {
     position: fixed;
-    background: #EB5160;
     z-index: 100;
     transform-origin: 50% 50%;
+    transform: scaleX(1) scaleY(1) translate3d(50px, 50px, 0px);
     transition: transform 300ms ease-in-out;
 }
 

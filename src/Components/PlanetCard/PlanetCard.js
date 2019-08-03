@@ -3,11 +3,10 @@ import "./PlanetCard.scss";
 
 const PlanetCard = ({ data, toggle }) => {
 
-    console.log(data)
-
     const [isOpen, setIsOpen] = useState(false);
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
     const [windowHeight, setWindowHeight] = useState(window.innerHeight);
+    const [fillWindow, setFillWindow] = useState(0);
 
     function card() {
         const card = document.getElementById("planet-card");
@@ -38,18 +37,15 @@ const PlanetCard = ({ data, toggle }) => {
         const cardPosition = card.getBoundingClientRect();
         const cardStyle = getComputedStyle(card);
         setCoverPosition(cardPosition, cover);
-        // setCoverColor(cardStyle);
-        scaleCoverToWindow(cardPosition, cover);
+        // scaleCoverToWindow(cardPosition, cover);
     };
 
     function animateBackward(card, cover, openContentText, openContentImage) {
         const cardPosition = card.getBoundingClientRect();
         setCoverPosition(cardPosition, cover);
-        scaleCoverToWindow(cardPosition, cover);
+        // scaleCoverToWindow(cardPosition, cover);
         cover.style.transform = `scaleX(1) scaleY(1) translate3d(0px, 0px, 0px)`;
         setTimeout(function () {
-            // openContentText.innerHTML = '';
-            // openContentImage.src = '';
             cover.style.width = '0px';
             cover.style.height = '0px';
             setIsOpen(false);
@@ -59,10 +55,10 @@ const PlanetCard = ({ data, toggle }) => {
     }
 
     function setCoverPosition(cardPosition, cover) {
-        cover.style.left = cardPosition.left + 'px';
-        cover.style.top = cardPosition.top + 'px';
-        cover.style.width = cardPosition.width + 'px';
-        cover.style.height = cardPosition.height + 'px';
+        cover.style.left = '-50px';
+        cover.style.top = '-70px';
+        cover.style.width = windowWidth + 'px';
+        cover.style.height = windowHeight + 20 + 'px';
     };
 
     function scaleCoverToWindow(cardPosition, cover) {
@@ -70,7 +66,7 @@ const PlanetCard = ({ data, toggle }) => {
         const scaleY = windowHeight / cardPosition.height;
         const offsetX = (windowWidth / 2 - cardPosition.width / 2 - cardPosition.left) / scaleX;
         const offsetY = (windowHeight / 2 - cardPosition.height / 2 - cardPosition.top) / scaleY;
-        cover.style.transform = `scaleX(${windowWidth}) scaleY(${+scaleY}) translate3d(${offsetX}px, ${offsetY})px, 0px)`;
+        cover.style.transform = `scaleX(${windowWidth}) scaleY(${scaleY}) translate3d(${offsetX}px, ${offsetY})px, 0px)`;
     };
 
     return (
