@@ -37,25 +37,25 @@
             .planet-info-mercury { 
                 grid-area: 2 / 1 / 3 / 2;
             } 
-            .planet-card-mercury { 
+            .planet-viewbox-mercury { 
                 grid-area: 3 / 1 / 4 / 2;
             } 
             .planet-info-venus { 
                 grid-area: 4 / 1 / 5 / 2;
             } 
-            .planet-card-venus { 
+            .planet-viewbox-venus { 
                 grid-area: 5 / 1 / 6 / 2;
             } 
             .planet-info-earth { 
                 grid-area: 6 / 1 / 7 / 2; 
             } 
-            .planet-card-earth {
+            .planet-viewbox-earth {
                 grid-area: 7 / 1 / 8 / 2;
             } 
             .planet-info-mars { 
                 grid-area: 8 / 1 / 9 / 2;
             } 
-            .planet-card-mars { 
+            .planet-viewbox-mars { 
                 grid-area: 9 / 1 / 10 / 2;
                 margin-bottom: 50px; 
             }  
@@ -73,26 +73,26 @@
             .planet-info-jupiter { 
                 grid-area: 2 / 1 / 3 / 2;
             } 
-            .planet-card-jupiter { 
+            .planet-viewbox-jupiter { 
                 grid-area: 3 / 1 / 4 / 2;
                 // margin-bottom: 200px;
             } 
             .planet-info-saturn { 
                 grid-area: 4 / 1 / 5 / 2;
             } 
-            .planet-card-saturn { 
+            .planet-viewbox-saturn { 
                 grid-area: 5 / 1 / 6 / 2;
             } 
             .planet-info-uranus { 
                 grid-area: 6 / 1 / 7 / 2; 
             } 
-            .planet-card-uranus {
+            .planet-viewbox-uranus {
                 grid-area: 7 / 1 / 8 / 2;
             } 
             .planet-info-neptune { 
                 grid-area: 8 / 1 / 9 / 2;
             } 
-            .planet-card-neptune { 
+            .planet-viewbox-neptune { 
                 grid-area: 9 / 1 / 10 / 2; 
             } 
     }

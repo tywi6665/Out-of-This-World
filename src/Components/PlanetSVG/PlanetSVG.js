@@ -22,7 +22,7 @@ const PlanetSVG = ({ planet, page }) => {
         const width = 2700,
             height = planetData[0].radius / 250;
 
-        const svg = d3.select(`.planet-card-${planetData[0].name}`)
+        const svg = d3.select(`.planet-viewbox-${planetData[0].name}`)
             .append("svg")
             .attr("width", `${width}px`)
             .attr("height", `${height}px`)
@@ -193,14 +193,14 @@ const PlanetSVG = ({ planet, page }) => {
 
             if (data[0].name === "jupiter") {
                 d3.select(".great-red-spot").remove();
-                const greatRedSpot = d3.select(".planet-card-jupiter")
+                const greatRedSpot = d3.select(".planet-viewbox-jupiter")
                     .append("div")
                     .attr("class", "great-red-spot");
             };
 
             if (data[0].name === "saturn") {
                 d3.select(".saturn-rings").remove();
-                const rings = d3.select(".planet-card-saturn")
+                const rings = d3.select(".planet-viewbox-saturn")
                     .append("div")
                     .attr("class", "saturn-rings");
             }
@@ -306,7 +306,7 @@ const PlanetSVG = ({ planet, page }) => {
                     <div className={`planet-info planet-info-${planet.name}`}>
                         <h2>{planet.systemName.charAt(0).toUpperCase() + planet.systemName.slice(1)} System</h2>
                     </div>
-                    <div className={`planet-card planet-card-${planet.name}`}></div>
+                    <div className={`planet-viewbox planet-viewbox-${planet.name}`}></div>
                 </>
             }
         >

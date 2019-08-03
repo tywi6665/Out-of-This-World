@@ -97,7 +97,7 @@ const PlanetCard = ({ data, toggle }) => {
                 <a href="#"
                     id="close-content"
                     className="close-content"
-                    onClick={card}
+                    onClick={toggle}
                 >
                     <span className="x-1"></span>
                     <span className="x-2"></span>
