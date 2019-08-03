@@ -68,26 +68,26 @@
         font-size: 0.7em;
         padding-top: 0;
     }
-}
 
-.card.clicked img {
+    &.clicked img {
     transform: translate3d(0px, -40px, 0px);
     opacity: 0;
-}
+    }
 
-.card.clicked .border {
+    &.clicked .border {
     opacity: 0;
     transform: scale(1.3);
-}
+    }
 
-.card.out, .card.out img {
+    &.out, &.out img {
     transform: translate3d(0px, -40px, 0px);
     opacity: 0;
-}
+    }
 
-.card.out h1, .card.clicked h1 {
+    &.out h1, &.clicked h1 {
     transform: translate3d(20%, -40px, 0px);
     opacity: 0;
+    }
 }
 
 .cover {
