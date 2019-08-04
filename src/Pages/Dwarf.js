@@ -236,6 +236,10 @@ const Dwarf = () => {
         setIsOpen(true);
     };
 
+    const closeModal = () => {
+        setIsOpen(false)
+    }
+
     return (
         <>
             <Container
@@ -244,7 +248,7 @@ const Dwarf = () => {
                 <Stars />
                 {isOpen ? <PlanetCard
                     data={modalData}
-                    toggle={() => setIsOpen(false)}
+                    close={closeModal}
                 /> : null}
                 <h4 className="summary">{dwarfData.definition}</h4>
                 <svg
