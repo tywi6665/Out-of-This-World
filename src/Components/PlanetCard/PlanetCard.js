@@ -105,6 +105,7 @@ const PlanetCard = ({ data, toggle }) => {
             ></div>
 
             <div id="open-content" className="open-content">
+                <div className="border"></div>
                 <a href="#"
                     id="close-content"
                     className="close-content"
@@ -119,7 +120,7 @@ const PlanetCard = ({ data, toggle }) => {
                     src={data.url1}
                 />
                 <div id="open-content-text" className="open-content-wrapper">
-                    <h4>{data.name}</h4>
+                    <h4>{data.name.charAt(0).toUpperCase() + data.name.slice(1)} {data.symbol}</h4>
                     <div className="text">
                         <div className="image-header">
                             <div className="image-wrapper">
@@ -132,9 +133,6 @@ const PlanetCard = ({ data, toggle }) => {
                             <li><b>Volume:</b> {data.volume}</li>
                             <li><b>Mean Radius:</b> {data.radius} km</li>
                             <li><b>Mean Orbital Distance:</b> {data.orbitalDistance}</li>
-                            <li><b>Date of Discovery: </b>{data.discoveryDate}</li>
-                        </ul>
-                        <ul>
                             <li><b>Date of Discovery: </b>{data.discoveryDate}</li>
                             <li><b>Discovered By: </b>{data.discoverer}</li>
                             <li><b>Inclination to ecliptic:</b> {data.inclination}°</li>
