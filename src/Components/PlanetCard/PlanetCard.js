@@ -25,10 +25,14 @@ const PlanetCard = ({ data, toggle }) => {
             animateForward(card, cover, openContentText, openContentImage)
         }, 500);
         openContent.classList.add("open");
+        setTimeout(function () {
+            card.classList.add("out");
+        }, 200);
     }
 
     function closeCard(card, openContent, cover, openContentText, openContentImage) {
         setIsOpen(false);
+        card.classList.remove("out");
         openContent.classList.remove("open");
         animateBackward(card, cover, openContentText, openContentImage)
     };
@@ -75,7 +79,10 @@ const PlanetCard = ({ data, toggle }) => {
                 id="planet-card"
                 className="planet-card"
                 onClick={card}
-                style={{ background: `linear-gradient(to bottom, #000 60%, ${data.colors[0]} 100%` }}
+                style={{
+                    background: `linear-gradient(to bottom, #000 60%, ${data.colors[0]} 100%`,
+                    transform: `translate(${(windowWidth / 2) - 177}px, 70px)`
+                }}
             >
                 <div className="border"></div>
                 <a href="#"
