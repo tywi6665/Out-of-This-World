@@ -95,44 +95,83 @@
     transform-origin: 50% 50%;
     transform: scaleX(1) scaleY(1) translate3d(50px, 50px, 0px);
     transition: transform 300ms ease-in-out;
+
+    display: none;
 }
 
 .open-content {
-    width: 100%;
+    width: 90%;
     z-index: 110;
-    position: absolute;
+    position: fixed;
+    top: 0;
+    background: #fff;
     opacity: 0;
+    margin: 1% 5%;
     pointer-events: none;
     transition: opacity 200ms linear 0ms;
 
-    img {
-        position: relative;
-        width: 90%;
-        margin-left: 3%;
-        margin-top: 20px;
+    .image-banner {
+        // position: absolute;
+        // top: 0;
+        left: 10%;
+        height: 250px;
+        width: 100%;
+        // margin-left: 3%;
+        // margin-top: 20px;
         z-index: 5;
     }
 
-    .text {
+    .open-content-wrapper {
+        position: relative;
         background: #fff;
         color: #000;
-        margin-top: -56%;
-        padding: 60% 5% 5% 5%;
-        width: 80%;
-        margin-left: 5%;
-        margin-bottom: 5%;
+        // margin-top: -56%;
+        // padding: 50% 5% 5% 5%;
+        width: 90%;
+        margin: 5% auto;
 
-        ul {
-            list-style: none;
-            text-align: left;
-            padding-left: 0;
-            margin-right: 10px;
-    
-            li {
-                font-size: 0.8rem;
+        .text {
+            position: relative;
+            border: solid black 0.5px;
+            margin-right: 10%;
+
+            .image-header {
+                position: absolute;
+                top: 25px;
+                right: -66px;
+                width: 125px;
+                height: 125px;
+                border-radius: 50%;
+                background: #fff;
+                // border-bottom: solid black 1px;
+                border-left: solid black 1px;
+                z-index: 111;
+        
+                .image-wrapper {
+                    border-radius: 50%;
+                }
+        
+                img {
+                    border-radius: 50%;
+                    padding: 5%;
+                    width: 90%;
+                }
+            }
+
+            ul {
+                list-style: none;
+                text-align: left;
+                padding-left: 0;
+                margin-right: 10px;
+        
+                li {
+                    font-size: 0.8rem;
+                }
             }
         }
     }
+
+    
 
     .text h1, .open-content .text p {
         max-width: 700px;

@@ -113,24 +113,35 @@ const PlanetCard = ({ data, toggle }) => {
                     <span className="x-1"></span>
                     <span className="x-2"></span>
                 </a>
-                <img id="open-content-image" src="" />
-                <div className="text" id="open-content-text">
-                    Hey now, you're an allstarHey now, you're an allstarHey now, you're an allstarHey now, you're an allstar
-                <ul>
-                        <li><b>Location: </b>{data.location}</li>
-                        <li><b>Mass:</b> {data.mass}</li>
-                        <li><b>Volume:</b> {data.volume}</li>
-                        <li><b>Mean Radius:</b> {data.radius} km</li>
-                        <li><b>Mean Orbital Distance:</b> {data.orbitalDistance}</li>
-                        <li><b>Date of Discovery: </b>{data.discoveryDate}</li>
-                    </ul>
-                    <ul>
-                        <li><b>Date of Discovery: </b>{data.discoveryDate}</li>
-                        <li><b>Discovered By: </b>{data.discoverer}</li>
-                        <li><b>Inclination to ecliptic:</b> {data.inclination}°</li>
-                        <li><b>Year Length:</b> {data.yearLength} (compared to Earth)</li>
-                        <li><b>Number of known moons: </b>{data.moons.length}</li>
-                    </ul>
+                <img
+                    id="open-content-image"
+                    className="image-banner"
+                    src={data.url1}
+                />
+                <div id="open-content-text" className="open-content-wrapper">
+                    <h4>{data.name}</h4>
+                    <div className="text">
+                        <div className="image-header">
+                            <div className="image-wrapper">
+                                <img src={data.url} />
+                            </div>
+                        </div>
+                        <ul>
+                            <li><b>Location: </b>{data.location}</li>
+                            <li><b>Mass:</b> {data.mass}</li>
+                            <li><b>Volume:</b> {data.volume}</li>
+                            <li><b>Mean Radius:</b> {data.radius} km</li>
+                            <li><b>Mean Orbital Distance:</b> {data.orbitalDistance}</li>
+                            <li><b>Date of Discovery: </b>{data.discoveryDate}</li>
+                        </ul>
+                        <ul>
+                            <li><b>Date of Discovery: </b>{data.discoveryDate}</li>
+                            <li><b>Discovered By: </b>{data.discoverer}</li>
+                            <li><b>Inclination to ecliptic:</b> {data.inclination}°</li>
+                            <li><b>Year Length:</b> {data.yearLength} (compared to Earth)</li>
+                            <li><b>Number of known moons: </b>{data.moons.length}</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </>
