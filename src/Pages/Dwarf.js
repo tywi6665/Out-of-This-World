@@ -108,9 +108,6 @@ const Dwarf = () => {
                     .style("fill", radialGradient(d, false))
                     .style("filter", glow(d))
                     .on("click", openModal)
-                // .on("click", showDwarfPlanetInfo)
-                // .on("mouseout", hideInfo);
-
                 d3.select(this)
                     .append("text")
                     .text(d => d.name.charAt(0).toUpperCase() + d.name.slice(1))
@@ -134,7 +131,6 @@ const Dwarf = () => {
                             .attr("r", radiusScale(d.radius) / 10)
                             .style("fill", radialGradient(d, true))
                             .on("click", openMoonModal)
-                        // .on("mouseout", closeModal);
                         d3.select(this)
                             .append("path")
                             .attr("id", `path-${d.name}`)
@@ -154,83 +150,6 @@ const Dwarf = () => {
                             .attr("fill", "white")
                     })
             })
-
-        const dwarfPlanetModal = d3.select(`.container`)
-            .append("div")
-            .attr("class", `tool-tip-dwarf`)
-            .style("opacity", 0);
-
-        const dwarfMoonModal = d3.select(`.container`)
-            .append("div")
-            .attr("class", "tool-tip-dwarf-moon")
-            .style("opacity", 0);
-
-        function showDwarfPlanetInfo(d) {
-            dwarfPlanetModal.transition()
-                .delay(100)
-                .duration(200)
-                .style("opacity", 1);
-
-            dwarfPlanetModal.html(`
-                        <img src=${d.url} />
-                        <div class="dwarf-modal-body">
-                                <div>
-                                    <h4>${d.name.charAt(0).toUpperCase() + d.name.slice(1)} ${d.symbol}</h4>
-                                    <p>${d.funFact}</p>
-                                </div>
-                            <span>
-                                <ul>
-                                <li><b>Location: </b>${d.location}</li>
-                                    <li><b>Mass:</b> ${d.mass}</li>
-                                    <li><b>Volume:</b> ${d.volume}</li>
-                                    <li><b>Mean Radius:</b> ${d.radius} km</li>
-                                    <li><b>Mean Orbital Distance:</b> ${d.orbitalDistance}</li>
-                                    <li><b>Date of Discovery: </b>${d.discoveryDate}</li>
-                                </ul>
-                                <ul>
-                                    <li><b>Date of Discovery: </b>${d.discoveryDate}</li>
-                                    <li><b>Discovered By: </b>${d.discoverer}</li>
-                                    <li><b>Inclination to ecliptic:</b> ${d.inclination}°</li>
-                                    <li><b>Year Length:</b> ${d.yearLength} (compared to Earth)</li>
-                                    <li><b>Number of known moons: </b>${d.moons.length}</li>
-                                </ul>
-                            </span>
-                        </div>`);
-        };
-
-        function showDwarfMoonInfo(d) {
-            dwarfMoonModal.transition()
-                .delay(100)
-                .duration(200)
-                .style("opacity", 1);
-
-            dwarfMoonModal.html(`
-                    <img src=${d.url} />
-                    <div>
-                        <h4>${d.name.charAt(0).toUpperCase() + d.name.slice(1)}</h4>
-                        <ul>
-                            <li><b>Mean Radius:</b> ${d.radius} km</li>
-                            <li><b>Mean Orbital Distance:</b> ${d.orbitalDistance} km</li>
-                            <li><b>Date of Discovery: </b>${d.discovery}</li>
-                        </ul>
-                    </div>`)
-            // .style("position", "fixed")
-            // .style("left", `${- 250}px`)
-            // .style("top", `${- 250}px`);
-        }
-
-        function hideInfo(d) {
-            // setModalData(null);
-
-            dwarfPlanetModal.transition()
-                .duration(500)
-                .style("opacity", 0);
-
-            dwarfMoonModal.transition()
-                .duration(500)
-                .style("opacity", 0);
-        };
-
     }, [windowWidth]);
 
     const openModal = (d) => {

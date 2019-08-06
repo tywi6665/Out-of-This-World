@@ -5,8 +5,8 @@ const PlanetCard = ({ data, close }) => {
 
     const [isOpen, setIsOpen] = useState(false);
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-    const [windowHeight, setWindowHeight] = useState(window.innerHeight);
-    const [fillWindow, setFillWindow] = useState(0);
+    // const [windowHeight, setWindowHeight] = useState(window.innerHeight);
+    // const [fillWindow, setFillWindow] = useState(0);
 
     function card() {
 
@@ -52,7 +52,6 @@ const PlanetCard = ({ data, close }) => {
             cover.style.height = '0px';
             setIsOpen(false);
             card.classList.remove("clicked");
-            // close();
         }, 301);
 
     }
