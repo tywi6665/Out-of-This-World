@@ -101,11 +101,11 @@
     width: 90%;
     max-width: 500px;
     z-index: 110;
-    position: absolute;
+    position: fixed;
     top: 0;
     background: #fff;
     opacity: 0;
-    margin: 3% 5%;
+    // margin: 3% auto;
     pointer-events: none;
     transition: opacity 200ms linear 0ms;
 

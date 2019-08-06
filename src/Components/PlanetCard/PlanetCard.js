@@ -94,7 +94,13 @@ const PlanetCard = ({ data, close, isPlanet }) => {
                 style={{ background: `linear-gradient(to bottom, #000 60%, ${data.colors[0]} 100%` }}
             ></div>
 
-            <div id="open-content" className="open-content">
+            <div
+                id="open-content"
+                className="open-content"
+                style={{
+                    transform: `translate(${(windowWidth / 2) - 259}px, 50px)`
+                }}
+            >
                 <div className="border"></div>
                 <a href="#"
                     id="close-content"
