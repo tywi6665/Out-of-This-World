@@ -19,7 +19,8 @@
             ],
             "moons": [],
             "funFact": "Ceres is the largest object in the asteroid belt. Ceres is both the largest of the asteroids and the only unambiguous dwarf planet inside Neptune's orbit. It is the 33rd-largest known body in the Solar System.",
-            "url": "https://upload.wikimedia.org/wikipedia/commons/5/58/Ceres_-_RC3_-_Haulani_Crater_%2822381131691%29.jpg"
+            "url": "https://upload.wikimedia.org/wikipedia/commons/5/58/Ceres_-_RC3_-_Haulani_Crater_%2822381131691%29.jpg",
+            "url1": "http://cdn.sci-news.com/images/2016/12/image_4482-Occator-Crater.jpg"
         },
         {
             "name": "pluto",
@@ -128,7 +129,8 @@
                 }
             ],
             "funFact": "Eris is the most massive and second-largest (by volume) dwarf planet (and plutoid) known in the Solar System. It was named after Eris, the Greek goddess of strife and discord. Eris is the ninth most massive object directly orbiting the Sun, and the 16th most massive overall.",
-            "url": "https://upload.wikimedia.org/wikipedia/commons/5/5b/Eris_and_dysnomia2.jpg"
+            "url": "https://upload.wikimedia.org/wikipedia/commons/5/5b/Eris_and_dysnomia2.jpg",
+            "url1": "http://www.jerichardsonjr.info/Seismic/Eros_20001026cfull.gif"
         },
         {
             "name": "makemake",
@@ -160,7 +162,8 @@
                 }
             ],
             "funFact": "Makemake is a dwarf planet (and plutoid) and perhaps the second largest Kuiper belt. Its name derives from Makemake in the mythology of the Rapa Nui people of Easter Island.",
-            "url": "https://upload.wikimedia.org/wikipedia/commons/3/34/Makemake_with_moon.JPG"
+            "url": "https://upload.wikimedia.org/wikipedia/commons/3/34/Makemake_with_moon.JPG",
+            "url1": "http://www.jerichardsonjr.info/Seismic/Eros_20001026cfull.gif"
         },
         {
             "name": "haumea",
@@ -203,7 +206,8 @@
                 }
             ],
             "funFact": "Haumea is a dwarf planet located in the Kuiper belt discovered in 2004. It was named after Haumea, the Hawaiian goddess of childbirth.",
-            "url": "https://upload.wikimedia.org/wikipedia/commons/2/2b/Haumea_Hubble.png"
+            "url": "https://upload.wikimedia.org/wikipedia/commons/2/2b/Haumea_Hubble.png",
+            "url1": "http://www.jerichardsonjr.info/Seismic/Eros_20001026cfull.gif"
         }
     ]
 }
