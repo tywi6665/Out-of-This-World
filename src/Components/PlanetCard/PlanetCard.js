@@ -52,7 +52,7 @@ const PlanetCard = ({ data, close }) => {
             cover.style.height = '0px';
             setIsOpen(false);
             card.classList.remove("clicked");
-            close();
+            // close();
         }, 301);
 
     }
@@ -72,15 +72,15 @@ const PlanetCard = ({ data, close }) => {
                 <a href="#"
                     id="close-content"
                     className="close-content"
-                    onClick={card}
+                    onClick={close}
                 >
                     <span
                         className="x-1"
-                        onClick={card}
+                        onClick={close}
                     ></span>
                     <span
                         className="x-2"
-                        onClick={card}
+                        onClick={close}
                     ></span>
                 </a>
                 <img src={data.url} />
@@ -100,10 +100,16 @@ const PlanetCard = ({ data, close }) => {
                 <a href="#"
                     id="close-content"
                     className="close-content"
-                    onClick={card}
+                    onClick={close}
                 >
-                    <span className="x-1"></span>
-                    <span className="x-2"></span>
+                    <span
+                        className="x-1"
+                        onClick={close}
+                    ></span>
+                    <span
+                        className="x-2"
+                        onClick={close}
+                    ></span>
                 </a>
                 <img
                     id="open-content-image"

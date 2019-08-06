@@ -105,7 +105,7 @@ const Dwarf = () => {
                     .attr("r", d => radiusScale(d.radius) / 10)
                     .style("fill", radialGradient(d, false))
                     .style("filter", glow(d))
-                    .on("click", modal)
+                    .on("click", openModal)
                     // .on("click", showDwarfPlanetInfo)
                     .on("mouseout", hideInfo);
 
@@ -231,7 +231,7 @@ const Dwarf = () => {
 
     }, [windowWidth]);
 
-    const modal = (d) => {
+    const openModal = (d) => {
         setModalData(d)
         setIsOpen(true);
     };
