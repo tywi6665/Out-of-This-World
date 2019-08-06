@@ -15,6 +15,7 @@ const Dwarf = () => {
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [isMoonModalOpen, setIsMoonModalOpen] = useState(false);
+    const [location, setLocation] = useState({ top: null, left: null })
     const [modalData, setModalData] = useState(null);
 
     useEffect(() => {
@@ -107,8 +108,8 @@ const Dwarf = () => {
                     .style("fill", radialGradient(d, false))
                     .style("filter", glow(d))
                     .on("click", openModal)
-                    // .on("click", showDwarfPlanetInfo)
-                    .on("mouseout", hideInfo);
+                // .on("click", showDwarfPlanetInfo)
+                // .on("mouseout", hideInfo);
 
                 d3.select(this)
                     .append("text")
@@ -132,8 +133,8 @@ const Dwarf = () => {
                             .attr("class", `${d.name} dwarf-moon`)
                             .attr("r", radiusScale(d.radius) / 10)
                             .style("fill", radialGradient(d, true))
-                            .on("mouseover", openMoonModal)
-                        // .on("mouseout", hideInfo);
+                            .on("click", openMoonModal)
+                        // .on("mouseout", closeModal);
                         d3.select(this)
                             .append("path")
                             .attr("id", `path-${d.name}`)
@@ -239,11 +240,13 @@ const Dwarf = () => {
 
     const openMoonModal = (d) => {
         setModalData(d)
+        setLocation({ top: d3.event.pageY, left: d3.event.pageX })
         setIsMoonModalOpen(true)
     }
 
     const closeModal = () => {
         setIsModalOpen(false)
+        setIsMoonModalOpen(false)
     }
 
     return (
@@ -258,6 +261,8 @@ const Dwarf = () => {
                 /> : null}
                 {isMoonModalOpen ? <MoonCard
                     data={modalData}
+                    location={location}
+                    close={closeModal}
                 /> : null}
                 <h4 className="summary">{dwarfData.definition}</h4>
                 <svg
