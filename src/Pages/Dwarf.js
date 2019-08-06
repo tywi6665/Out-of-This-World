@@ -3,7 +3,7 @@ import Container from "../Components/Container";
 import Stars from "../Components/Stars";
 import * as d3 from "d3";
 import PlanetCard from '../Components/PlanetCard/PlanetCard';
-import renderEmpty from 'antd/lib/config-provider/renderEmpty';
+import MoonCard from "../Components/MoonCard";
 const dwarfData = require("../Data/dwarfData.json");
 
 const Dwarf = () => {
@@ -13,7 +13,8 @@ const Dwarf = () => {
     d3.select(".tool-tip-moon").remove();
 
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-    const [isOpen, setIsOpen] = useState(false);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isMoonModalOpen, setIsMoonModalOpen] = useState(false);
     const [modalData, setModalData] = useState(null);
 
     useEffect(() => {
@@ -131,8 +132,8 @@ const Dwarf = () => {
                             .attr("class", `${d.name} dwarf-moon`)
                             .attr("r", radiusScale(d.radius) / 10)
                             .style("fill", radialGradient(d, true))
-                            .on("mouseover", showDwarfMoonInfo)
-                            .on("mouseout", hideInfo);
+                            .on("mouseover", openMoonModal)
+                        // .on("mouseout", hideInfo);
                         d3.select(this)
                             .append("path")
                             .attr("id", `path-${d.name}`)
@@ -233,11 +234,16 @@ const Dwarf = () => {
 
     const openModal = (d) => {
         setModalData(d)
-        setIsOpen(true);
+        setIsModalOpen(true);
     };
 
+    const openMoonModal = (d) => {
+        setModalData(d)
+        setIsMoonModalOpen(true)
+    }
+
     const closeModal = () => {
-        setIsOpen(false)
+        setIsModalOpen(false)
     }
 
     return (
@@ -246,9 +252,12 @@ const Dwarf = () => {
                 page={"dwarf"}
             >
                 <Stars />
-                {isOpen ? <PlanetCard
+                {isModalOpen ? <PlanetCard
                     data={modalData}
                     close={closeModal}
+                /> : null}
+                {isMoonModalOpen ? <MoonCard
+                    data={modalData}
                 /> : null}
                 <h4 className="summary">{dwarfData.definition}</h4>
                 <svg
