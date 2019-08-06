@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./PlanetCard.scss";
 
-const PlanetCard = ({ data, close }) => {
+const PlanetCard = ({ data, close, isPlanet }) => {
 
     const [isOpen, setIsOpen] = useState(false);
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -124,7 +124,11 @@ const PlanetCard = ({ data, close }) => {
                             </div>
                         </div>
                         <ul>
-                            <li><b>Location: </b>{data.location}</li>
+                            {!isPlanet ? (
+                                <li><b>Planet Order: </b>{data.order}</li>
+                            ) : (
+                                    <li><b>Location: </b>{data.location}</li>
+                                )}
                             <li><b>Mass:</b> {data.mass}</li>
                             <li><b>Volume:</b> {data.volume}</li>
                             <li><b>Mean Radius:</b> {data.radius} km</li>

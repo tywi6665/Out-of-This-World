@@ -153,6 +153,8 @@ const Dwarf = () => {
     }, [windowWidth]);
 
     const openModal = (d) => {
+        setIsModalOpen(false)
+        setIsMoonModalOpen(false)
         setModalData(d)
         setIsModalOpen(true);
     };
@@ -177,11 +179,13 @@ const Dwarf = () => {
                 {isModalOpen ? <PlanetCard
                     data={modalData}
                     close={closeModal}
+                    isPlanet={true}
                 /> : null}
                 {isMoonModalOpen ? <MoonCard
                     data={modalData}
                     location={location}
                     close={closeModal}
+                    isPlanet={false}
                 /> : null}
                 <h4 className="summary">{dwarfData.definition}</h4>
                 <svg

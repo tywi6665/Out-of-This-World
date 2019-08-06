@@ -3,6 +3,7 @@
         {
             "name": "jupiter",
             "systemName": "jovian",
+            "order": 5,
             "tilt": 25.19,
             "radius": 69911,
             "period": 0.41,
@@ -15,7 +16,7 @@
             "volume": "1.43e15 km^3",
             "mass": "1.90e27 kg",
             "numMoons": 79,
-            "url": "https://upload.wikimedia.org/wikipedia/commons/2/2b/Jupiter_and_its_shrunken_Great_Red_Spot.jpg",
+            "url": "https://i1.wp.com/freepngimages.com/wp-content/uploads/2016/04/planet-jupiter-1.png?w=800",
             "colors": [
                 "#4a4d42",
                 "#8a8369",
@@ -82,6 +83,7 @@
         {
             "name": "saturn",
             "systemName": "saturnian",
+            "order": 6,
             "tilt": 26.73,
             "radius": 58232,
             "period": 0.44,
@@ -94,7 +96,7 @@
             "volume": "8.27e14 km^3",
             "mass": "5.68e26 kg",
             "numMoons": 62,
-            "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Saturn_during_Equinox.jpg/1280px-Saturn_during_Equinox.jpg",
+            "url": "https://i1.wp.com/freepngimages.com/wp-content/uploads/2016/04/saturn-transparent-background-planet-1.png?fit=797%2C620",
             "rings": {
                 "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/PIA17172_Saturn_eclipse_mosaic_bright_crop.jpg/1280px-PIA17172_Saturn_eclipse_mosaic_bright_crop.jpg"
             },
@@ -185,6 +187,7 @@
         {
             "name": "uranus",
             "systemName": "uranian",
+            "order": 7,
             "tilt": 82.23,
             "radius": 25362,
             "period": -0.72,
@@ -197,7 +200,7 @@
             "volume": "6.83e13 km^3",
             "mass": "8.68e25 kg",
             "numMoons": 27,
-            "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Uranus2.jpg/1280px-Uranus2.jpg",
+            "url": "https://upload.wikimedia.org/wikipedia/commons/1/16/Uranus2-transparent.png",
             "colors": [
                 "#d0f6f7",
                 "#88adb5"
@@ -263,6 +266,7 @@
         {
             "name": "neptune",
             "systemName": "neptunian",
+            "order": 8,
             "tilt": 28.32,
             "radius": 24622,
             "period": 0.72,
@@ -275,7 +279,7 @@
             "volume": "6.25e13 km^3",
             "mass": "1.02e26 kg",
             "numMoons": 14,
-            "url": "https://upload.wikimedia.org/wikipedia/commons/5/56/Neptune_Full.jpg",
+            "url": "https://i.ya-webdesign.com/images/neptune-cartoon-png-7.png",
             "colors": [
                 "#85addb",
                 "#3f54ba"

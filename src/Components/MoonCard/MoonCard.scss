@@ -2,6 +2,7 @@
     position: absolute;
     width: fit-content;
     color: #fff;
+    z-index: 10;
 
     .border {
         position: absolute;
@@ -12,7 +13,6 @@
         opacity: 0.5;
         left: -6px;
         top: -6px;
-        transition: opacity 200ms linear, transform 200ms ease-out;
     }
 
     span {
@@ -37,7 +37,7 @@
         height: 150px;
         position: absolute;
         top: -40%;
-        left: -23%;
+        left: -28%;
         border-radius: 50%;
         transition: opacity 200ms linear 0ms, transform 200ms ease-in 0ms;
     }

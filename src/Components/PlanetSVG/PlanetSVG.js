@@ -1,9 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import "./PlanetSVG.scss";
 import * as d3 from "d3";
+import PlanetCard from "../PlanetCard";
+import MoonCard from "../MoonCard";
 import { Tween, Timeline } from "react-gsap";
 
 const PlanetSVG = ({ planet, page }) => {
+
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isMoonModalOpen, setIsMoonModalOpen] = useState(false);
+    const [location, setLocation] = useState({ top: null, left: null })
+    const [modalData, setModalData] = useState(null);
 
     // const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
@@ -188,8 +195,9 @@ const PlanetSVG = ({ planet, page }) => {
                 .attr("r", radiusScale(data[0].radius))
                 .style("fill", "url(#gradient-" + data[0].name + ")")
                 .style("filter", `url(#glow-${data[0].name})`)
-                .on("click", showPlanetInfo)
-                .on("mouseout", hideInfo);
+                .on("click", openModal)
+            // .on("click", showPlanetInfo)
+            // .on("mouseout", hideInfo);
 
             if (data[0].name === "jupiter") {
                 d3.select(".great-red-spot").remove();
@@ -218,8 +226,9 @@ const PlanetSVG = ({ planet, page }) => {
                         .attr("class", `moon ${d.name}`)
                         .style("fill", radialGradient(d, true))
                         .style("filter", `url(#glow-${data[0].name})`)
-                        .on("mouseover", showMoonInfo)
-                        .on("mouseout", hideInfo);
+                        .on("click", openMoonModal)
+                    // .on("mouseover", showMoonInfo)
+                    // .on("mouseout", hideInfo);
                 });
 
             const moonModal = d3.select(`.container`)
@@ -298,20 +307,51 @@ const PlanetSVG = ({ planet, page }) => {
         };
     }, []);
 
+    const openModal = (d) => {
+        setIsModalOpen(false)
+        setIsMoonModalOpen(false)
+        setModalData(d)
+        setIsModalOpen(true);
+    };
+
+    const openMoonModal = (d) => {
+        setModalData(d)
+        setLocation({ top: d3.event.pageY, left: d3.event.pageX })
+        setIsMoonModalOpen(true)
+    }
+
+    const closeModal = () => {
+        setIsModalOpen(false)
+        setIsMoonModalOpen(false)
+    }
+
     return (
-        <Timeline
-            wrapper={<span className="tweened-span-inner" />}
-            target={
-                <>
-                    <div className={`planet-info planet-info-${planet.name}`}>
-                        <h2>{planet.systemName.charAt(0).toUpperCase() + planet.systemName.slice(1)} System</h2>
-                    </div>
-                    <div className={`planet-viewbox planet-viewbox-${planet.name}`}></div>
-                </>
-            }
-        >
-            <Tween from={{ transform: "translatex(-150px)", opacity: 0 }} to={{ transform: "translateY(0px)", opacity: 1 }} duration={3} />
-        </Timeline>
+        <>
+            {isModalOpen ? <PlanetCard
+                data={modalData}
+                close={closeModal}
+                isPlanet={true}
+            /> : null}
+            {isMoonModalOpen ? <MoonCard
+                data={modalData}
+                location={location}
+                close={closeModal}
+                isPlanet={false}
+            /> : null}
+            <Timeline
+                wrapper={<span className="tweened-span-inner" />}
+                target={
+                    <>
+                        <div className={`planet-info planet-info-${planet.name}`}>
+                            <h2>{planet.systemName.charAt(0).toUpperCase() + planet.systemName.slice(1)} System</h2>
+                        </div>
+                        <div className={`planet-viewbox planet-viewbox-${planet.name}`}></div>
+                    </>
+                }
+            >
+                <Tween from={{ transform: "translatex(-150px)", opacity: 0 }} to={{ transform: "translateY(0px)", opacity: 1 }} duration={3} />
+            </Timeline>
+        </>
     );
 }
 
