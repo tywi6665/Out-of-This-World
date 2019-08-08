@@ -138,8 +138,8 @@ const PlanetCard = ({ data, close, isPlanet }) => {
                                 <li><b>Mean Radius:</b> {data.radius} km</li>
                                 <li><b>Axial Tilt:</b> {data.tilt}°</li>
                                 <li><b>Mean Orbital Distance:</b> {data.orbitalDistance}</li>
-                                <li><b>Date of Discovery: </b>{data.discoveryDate}</li>
                                 <li><b>Discovery: </b>{data.discovery}</li>
+                                <li><b>Day Length: </b>{data.dayLength} (compared to Earth)</li>
                                 <li><b>Year Length:</b> {data.yearLength} (compared to Earth)</li>
                                 <li><b>Number of known moons: </b>{data.numMoons}</li>
                             </ul>
