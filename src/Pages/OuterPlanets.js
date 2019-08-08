@@ -26,6 +26,8 @@ const OuterPlanets = () => {
     };
 
     const openMoonModal = (d) => {
+        setIsModalOpen(false)
+        setIsMoonModalOpen(false)
         setModalData(d)
         setLocation({ top: d3.event.pageY, left: d3.event.pageX })
         setIsMoonModalOpen(true)
