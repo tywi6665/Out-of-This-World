@@ -15,7 +15,8 @@
             "volume": "6.08e10 km^3",
             "mass": "3.03e23 kg",
             "numMoons": 0,
-            "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Mercury_in_color_-_Prockter07-edit1.jpg/1280px-Mercury_in_color_-_Prockter07-edit1.jpg",
+            "url": "https://i1.wp.com/freepngimages.com/wp-content/uploads/2016/05/planet-mercury-transparent-background.png?w=680",
+            "url1": "https://www.sciencemag.org/sites/default/files/styles/inline__699w__no_aspect/public/ma_1005_NID_Mercury_online3.jpg?itok=ph30cHlT",
             "colors": [
                 "#e7e8ec",
                 "#b1adad"
@@ -37,7 +38,8 @@
             "volume": "9.24e11 km^3",
             "mass": "4.88e24 kg",
             "numMoons": 0,
-            "url": "https://upload.wikimedia.org/wikipedia/commons/e/e5/Venus-real_color.jpg",
+            "url": "http://drapak.ca/cpg/img/planets/Venus.png",
+            "url1": "https://astrobiology.nasa.gov/uploads/filer_public_thumbnails/filer_public/87/5e/875e4a0e-23d2-4254-9b44-429e8ecb88b5/uvi_20180330_120112_283_365_l2b_v20180601_mod.png__1240x510_q85_crop_subject_location-620%2C254_subsampling-2.jpg",
             "colors": [
                 "#f8e2b0",
                 "#d3a567"
@@ -59,7 +61,8 @@
             "volume": "1.08e12 km^3",
             "mass": "5.97e24 kg",
             "numMoons": 1,
-            "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/The_Earth_seen_from_Apollo_17.jpg/1280px-The_Earth_seen_from_Apollo_17.jpg",
+            "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/The_Earth_seen_from_Apollo_17_with_transparent_background.png/1206px-The_Earth_seen_from_Apollo_17_with_transparent_background.png",
+            "url1": "https://cdn.disclose.tv/sites/default/files/styles/article_image/public/img/post/2017/01/09/video_youtube_JEWKGsaTOPE.jpg?itok=AkT6qGLg",
             "colors": [
                 "#9fc164",
                 "#6b93d6"
@@ -93,7 +96,8 @@
             "volume": "1.63e11 km^3",
             "mass": "6.41e23 kg",
             "numMoons": 2,
-            "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/OSIRIS_Mars_true_color.jpg/1280px-OSIRIS_Mars_true_color.jpg",
+            "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Mars_%2816716283421%29_-_Transparent_background.png/1200px-Mars_%2816716283421%29_-_Transparent_background.png",
+            "url1": "https://www.sciencealert.com/images/2019-08/processed/curiosity-selfie-mars-resize_1024.jpg",
             "colors": [
                 "#ef1501",
                 "#ad0000"
