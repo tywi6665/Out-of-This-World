@@ -28,11 +28,14 @@
 
     &-inner-planets {
         position: relative;
-        text-align: left;
         grid-template-columns: 1fr; 
         grid-template-rows: 0.15fr auto auto auto auto auto auto auto auto; 
         overflow: hidden;
         justify-items: left;
+
+        h2 {
+            text-align: left;
+        }
 
             .planet-info-mercury { 
                 grid-area: 2 / 1 / 3 / 2;
@@ -64,11 +67,14 @@
 
     &-outer-planets {
         position: relative;
-        text-align: left;
         width: 2700px;
         grid-template-columns: 1fr; 
         grid-template-rows: 0.15fr auto auto auto auto auto auto auto auto; 
         justify-items: left;
+
+        h2 {
+            text-align: left;
+        }
         
             .planet-info-jupiter { 
                 grid-area: 2 / 1 / 3 / 2;
