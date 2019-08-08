@@ -34,7 +34,6 @@ const OuterPlanets = () => {
     }
 
     const closeModal = (e) => {
-        console.log(e)
         e.preventDefault();
         setIsModalOpen(false)
         setIsMoonModalOpen(false)

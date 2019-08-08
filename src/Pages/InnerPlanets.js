@@ -33,7 +33,8 @@ const InnerPlanets = () => {
         setIsMoonModalOpen(true)
     }
 
-    const closeModal = () => {
+    const closeModal = (e) => {
+        e.preventDefault();
         setIsModalOpen(false)
         setIsMoonModalOpen(false)
     }
