@@ -1,16 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import "./PlanetSVG.scss";
 import * as d3 from "d3";
-import PlanetCard from "../PlanetCard";
-import MoonCard from "../MoonCard";
+// import PlanetCard from "../PlanetCard";
+// import MoonCard from "../MoonCard";
 import { Tween, Timeline } from "react-gsap";
 
-const PlanetSVG = ({ planet, page }) => {
+const PlanetSVG = ({ planet, page, modal, moonModal, close }) => {
 
-    const [isModalOpen, setIsModalOpen] = useState(false);
-    const [isMoonModalOpen, setIsMoonModalOpen] = useState(false);
-    const [location, setLocation] = useState({ top: null, left: null })
-    const [modalData, setModalData] = useState(null);
+    // const [location, setLocation] = useState({ top: null, left: null })
+    // const [modalData, setModalData] = useState(null);
 
     // const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
@@ -195,9 +193,7 @@ const PlanetSVG = ({ planet, page }) => {
                 .attr("r", radiusScale(data[0].radius))
                 .style("fill", "url(#gradient-" + data[0].name + ")")
                 .style("filter", `url(#glow-${data[0].name})`)
-                .on("click", openModal)
-            // .on("click", showPlanetInfo)
-            // .on("mouseout", hideInfo);
+                .on("click", modal)
 
             if (data[0].name === "jupiter") {
                 d3.select(".great-red-spot").remove();
@@ -226,108 +222,29 @@ const PlanetSVG = ({ planet, page }) => {
                         .attr("class", `moon ${d.name}`)
                         .style("fill", radialGradient(d, true))
                         .style("filter", `url(#glow-${data[0].name})`)
-                        .on("click", openMoonModal)
-                    // .on("mouseover", showMoonInfo)
-                    // .on("mouseout", hideInfo);
+                        .on("click", moonModal)
                 });
-
-            const moonModal = d3.select(`.container`)
-                .append("div")
-                .attr("class", "tool-tip-moon")
-                .style("opacity", 0);
-
-            const planetModal = d3.select(`.container`)
-                .append("div")
-                .attr("class", `tool-tip-planet`)
-                .style("opacity", 0);
-
-            function showPlanetInfo(d) {
-                planetModal.transition()
-                    .delay(100)
-                    .duration(200)
-                    .style("opacity", 1);
-
-                planetModal.html(`
-                        <div>
-                            <img src=${d.url} />
-                            <h4>${d.name.charAt(0).toUpperCase() + d.name.slice(1)} ${d.symbol}</h4>
-                            <p>${d.funFact}</p>
-                            <span>
-                                <ul>
-                                    <li><b>Mass:</b> ${d.mass}</li>
-                                    <li><b>Volume:</b> ${d.volume}</li>
-                                    <li><b>Mean Radius:</b> ${d.radius} km</li>
-                                    <li><b>Mean Orbital Distance:</b> ${d.orbitalDistance} km</li>
-                                    <li><b>Date of Discovery: </b>${d.discovery}</li>
-                                </ul>
-                                <ul>
-                                    <li><b>Axial Tilt:</b> ${d.tilt}°</li>
-                                    <li><b>Day Length:</b> ${d.dayLength} (compared to Earth)</li>
-                                    <li><b>Year Length:</b> ${d.yearLength} (compared to Earth)</li>
-                                    <li><b>Number of known moons: </b>${d.numMoons}</li>
-                                </ul>
-                            </span>
-                        </div>`)
-            }
-
-            function showMoonInfo(d) {
-                moonModal.transition()
-                    .delay(100)
-                    .duration(200)
-                    .style("opacity", 1);
-
-                moonModal.html(`
-                        <img src=${d.url} />
-                        <div>
-                            <h4>${d.name.charAt(0).toUpperCase() + d.name.slice(1)}</h4>
-                            <ul>
-                                <li><b>Mean Radius:</b> ${d.radius} km</li>
-                                <li><b>Mean Orbital Distance:</b> ${d.orbitalDistance} km</li>
-                                <li><b>Date of Discovery: </b>${d.discovery}</li>
-                            </ul>
-                        </div>`)
-                    .style("left", `${d3.event.pageX - 275}px`)
-                    .style("top", `${d3.event.pageY + 25}px`);
-            }
-
-            function hideInfo(d) {
-                planetModal.transition()
-                    .duration(500)
-                    .style("opacity", 0)
-
-                moonModal.transition()
-                    .duration(500)
-                    .style("opacity", 0)
-            }
-
-            // d3.timer(function (elapsed) {
-            //     projection.rotate([rotation[0] + elapsed * 0.01 / data.period, rotation[1] + elapsed * 0 / data.period, rotation[2]])
-            //     gridLines.attr("d", path);
-            // })
-        };
+        }
     }, []);
 
-    const openModal = (d) => {
-        setIsModalOpen(false)
-        setIsMoonModalOpen(false)
-        setModalData(d)
-        setIsModalOpen(true);
-    };
+    // const openModal = (d) => {
+    //     setModalData(d);
+    //     modal();
+    // };
 
-    const openMoonModal = (d) => {
-        setModalData(d)
-        setLocation({ top: d3.event.pageY, left: d3.event.pageX })
-        setIsMoonModalOpen(true)
-    }
+    // const openMoonModal = (d) => {
+    //     setModalData(d);
+    //     setLocation({ top: d3.event.pageY, left: d3.event.pageX });
+    //     moonModal();
+    // }
 
-    const closeModal = () => {
-        setIsModalOpen(false)
-        setIsMoonModalOpen(false)
-    }
+    // const closeModal = () => {
+    //     close();
+    // }
 
     return (
         <>
-            {isModalOpen ? <PlanetCard
+            {/* {isModalOpen ? <PlanetCard
                 data={modalData}
                 close={closeModal}
                 isPlanet={true}
@@ -337,7 +254,7 @@ const PlanetSVG = ({ planet, page }) => {
                 location={location}
                 close={closeModal}
                 isPlanet={false}
-            /> : null}
+            /> : null} */}
             <Timeline
                 wrapper={<span className="tweened-span-inner" />}
                 target={
