@@ -129,22 +129,35 @@ const PlanetCard = ({ data, close, isPlanet }) => {
                                 <img src={data.url} />
                             </div>
                         </div>
-                        <ul>
-                            {!isPlanet ? (
+
+                        {isPlanet ? (
+                            <ul>
                                 <li><b>Planet Order: </b>{data.order}</li>
-                            ) : (
+                                <li><b>Mass:</b> {data.mass}</li>
+                                <li><b>Volume:</b> {data.volume}</li>
+                                <li><b>Mean Radius:</b> {data.radius} km</li>
+                                <li><b>Axial Tilt:</b> {data.tilt}°</li>
+                                <li><b>Mean Orbital Distance:</b> {data.orbitalDistance}</li>
+                                <li><b>Date of Discovery: </b>{data.discoveryDate}</li>
+                                <li><b>Discovery: </b>{data.discovery}</li>
+                                <li><b>Year Length:</b> {data.yearLength} (compared to Earth)</li>
+                                <li><b>Number of known moons: </b>{data.numMoons}</li>
+                            </ul>
+                        ) : (
+                                <ul>
                                     <li><b>Location: </b>{data.location}</li>
-                                )}
-                            <li><b>Mass:</b> {data.mass}</li>
-                            <li><b>Volume:</b> {data.volume}</li>
-                            <li><b>Mean Radius:</b> {data.radius} km</li>
-                            <li><b>Mean Orbital Distance:</b> {data.orbitalDistance}</li>
-                            <li><b>Date of Discovery: </b>{data.discoveryDate}</li>
-                            <li><b>Discovered By: </b>{data.discoverer}</li>
-                            <li><b>Inclination to ecliptic:</b> {data.inclination}°</li>
-                            <li><b>Year Length:</b> {data.yearLength} (compared to Earth)</li>
-                            <li><b>Number of known moons: </b>{data.moons.length}</li>
-                        </ul>
+                                    <li><b>Mass:</b> {data.mass}</li>
+                                    <li><b>Volume:</b> {data.volume}</li>
+                                    <li><b>Mean Radius:</b> {data.radius} km</li>
+                                    <li><b>Mean Orbital Distance:</b> {data.orbitalDistance}</li>
+                                    <li><b>Date of Discovery: </b>{data.discoveryDate}</li>
+                                    <li><b>Discovered By: </b>{data.discoverer}</li>
+                                    <li><b>Inclination to ecliptic:</b> {data.inclination}°</li>
+                                    <li><b>Year Length:</b> {data.yearLength} (compared to Earth)</li>
+                                    <li><b>Number of known moons: </b>{data.moons.length}</li>
+                                </ul>
+                            )}
+
                     </div>
                 </div>
             </div>
