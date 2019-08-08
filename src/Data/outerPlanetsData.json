@@ -17,6 +17,7 @@
             "mass": "1.90e27 kg",
             "numMoons": 79,
             "url": "https://upload.wikimedia.org/wikipedia/commons/e/e1/Jupiter_%28transparent%29.png",
+            "url1": "https://cdn.vox-cdn.com/thumbor/J85lBLditBHKUEguiZh8rPEmWqg=/0x0:3805x1288/1200x675/filters:focal(1599x340:2207x948)/cdn.vox-cdn.com/uploads/chorus_image/image/59799667/pia21974.0.jpg",
             "colors": [
                 "#4a4d42",
                 "#8a8369",
@@ -97,6 +98,7 @@
             "mass": "5.68e26 kg",
             "numMoons": 62,
             "url": "https://i1.wp.com/freepngimages.com/wp-content/uploads/2016/04/saturn-transparent-background-planet-1.png?fit=797%2C620",
+            "url1": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/PIA17172_Saturn_eclipse_mosaic_bright_crop.jpg/880px-PIA17172_Saturn_eclipse_mosaic_bright_crop.jpg",
             "rings": {
                 "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/PIA17172_Saturn_eclipse_mosaic_bright_crop.jpg/1280px-PIA17172_Saturn_eclipse_mosaic_bright_crop.jpg"
             },
@@ -201,6 +203,7 @@
             "mass": "8.68e25 kg",
             "numMoons": 27,
             "url": "https://upload.wikimedia.org/wikipedia/commons/1/16/Uranus2-transparent.png",
+            "url1": "https://www.sciencealert.com/images/2019-06/processed/uranus-voyager-photo_1024.jpg",
             "colors": [
                 "#d0f6f7",
                 "#88adb5"
@@ -280,6 +283,7 @@
             "mass": "1.02e26 kg",
             "numMoons": 14,
             "url": "https://i.ya-webdesign.com/images/neptune-cartoon-png-7.png",
+            "url1": "https://en.es-static.us/upl/2016/09/Neptune2.jpg",
             "colors": [
                 "#85addb",
                 "#3f54ba"
