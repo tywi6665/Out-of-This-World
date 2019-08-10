@@ -19,24 +19,24 @@ const OuterPlanets = () => {
     const outerPlanets = outerPlanetData.data;
 
     const openModal = (d) => {
-        setIsModalOpen(false)
-        setIsMoonModalOpen(false)
-        setModalData(d)
+        setIsModalOpen(false);
+        setIsMoonModalOpen(false);
+        setModalData(d);
         setIsModalOpen(true);
     };
 
     const openMoonModal = (d) => {
-        setIsModalOpen(false)
-        setIsMoonModalOpen(false)
-        setModalData(d)
-        setLocation({ top: d3.event.pageY, left: d3.event.pageX })
-        setIsMoonModalOpen(true)
+        setIsModalOpen(false);
+        setIsMoonModalOpen(false);
+        setModalData(d);
+        setLocation({ top: d3.event.pageY, left: d3.event.pageX });
+        setIsMoonModalOpen(true);
     }
 
     const closeModal = (e) => {
         e.preventDefault();
-        setIsModalOpen(false)
-        setIsMoonModalOpen(false)
+        setIsModalOpen(false);
+        setIsMoonModalOpen(false);
     }
 
     return (

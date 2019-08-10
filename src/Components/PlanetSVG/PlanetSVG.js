@@ -227,34 +227,8 @@ const PlanetSVG = ({ planet, page, modal, moonModal, close }) => {
         }
     }, []);
 
-    // const openModal = (d) => {
-    //     setModalData(d);
-    //     modal();
-    // };
-
-    // const openMoonModal = (d) => {
-    //     setModalData(d);
-    //     setLocation({ top: d3.event.pageY, left: d3.event.pageX });
-    //     moonModal();
-    // }
-
-    // const closeModal = () => {
-    //     close();
-    // }
-
     return (
         <>
-            {/* {isModalOpen ? <PlanetCard
-                data={modalData}
-                close={closeModal}
-                isPlanet={true}
-            /> : null}
-            {isMoonModalOpen ? <MoonCard
-                data={modalData}
-                location={location}
-                close={closeModal}
-                isPlanet={false}
-            /> : null} */}
             <Timeline
                 wrapper={<span className="tweened-span-inner" />}
                 target={

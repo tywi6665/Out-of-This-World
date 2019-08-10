@@ -31,8 +31,7 @@ const Dwarf = () => {
 
         const data = dwarfData.data;
 
-        const height = 400,
-            width = windowWidth;
+        const width = windowWidth;
 
         const svg = d3.select("#svg-dwarf");
 

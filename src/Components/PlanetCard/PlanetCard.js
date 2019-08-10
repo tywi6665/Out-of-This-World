@@ -5,25 +5,20 @@ const PlanetCard = ({ data, close, isPlanet }) => {
 
     const [isOpen, setIsOpen] = useState(false);
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-    // const [windowHeight, setWindowHeight] = useState(window.innerHeight);
-    // const [fillWindow, setFillWindow] = useState(0);
 
     function card() {
 
         const card = document.getElementById("planet-card");
         const openContent = document.getElementById("open-content");
-        const cover = document.getElementById('cover');
-        const openContentText = document.getElementById('open-content-text')
-        const openContentImage = document.getElementById('open-content-image')
 
-        isOpen ? closeCard(card, openContent, cover, openContentText, openContentImage) : expandCard(card, openContent, cover, openContentText, openContentImage)
+        isOpen ? closeCard(card, openContent) : expandCard(card, openContent)
     };
 
-    function expandCard(card, openContent, cover, openContentText, openContentImage) {
+    function expandCard(card, openContent) {
         setIsOpen(true);
         card.classList.add("clicked");
         setTimeout(() => {
-            animateForward(card, cover, openContentText, openContentImage)
+            animateForward(card)
         }, 500);
         openContent.classList.add("open");
         setTimeout(function () {
@@ -31,25 +26,22 @@ const PlanetCard = ({ data, close, isPlanet }) => {
         }, 200);
     }
 
-    function closeCard(card, openContent, cover, openContentText, openContentImage) {
+    function closeCard(card, openContent) {
         setIsOpen(false);
         card.classList.remove("clicked");
         card.classList.remove("out");
         openContent.classList.remove("open");
-        animateBackward(card, cover, openContentText, openContentImage)
+        animateBackward(card)
     };
 
-    function animateForward(card, cover, openContentText, openContentImage) {
+    function animateForward(card) {
         const cardPosition = card.getBoundingClientRect();
         const cardStyle = getComputedStyle(card);
     };
 
-    function animateBackward(card, cover, openContentText, openContentImage) {
+    function animateBackward(card) {
         const cardPosition = card.getBoundingClientRect();
-        cover.style.transform = `scaleX(1) scaleY(1) translate3d(0px, 0px, 0px)`;
         setTimeout(function () {
-            cover.style.width = '0px';
-            cover.style.height = '0px';
             setIsOpen(false);
             card.classList.remove("clicked");
         }, 301);
