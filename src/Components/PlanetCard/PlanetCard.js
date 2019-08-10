@@ -149,7 +149,6 @@ const PlanetCard = ({ data, close, isPlanet }) => {
                                     <li><b>Number of known moons: </b>{data.moons.length}</li>
                                 </ul>
                             )}
-
                     </div>
                 </div>
             </div>

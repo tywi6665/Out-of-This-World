@@ -1,14 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import "./PlanetSVG.scss";
 import * as d3 from "d3";
-// import PlanetCard from "../PlanetCard";
-// import MoonCard from "../MoonCard";
 import { Tween, Timeline } from "react-gsap";
 
 const PlanetSVG = ({ planet, page, modal, moonModal, close }) => {
-
-    // const [location, setLocation] = useState({ top: null, left: null })
-    // const [modalData, setModalData] = useState(null);
 
     // const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
