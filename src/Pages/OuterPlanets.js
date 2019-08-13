@@ -55,7 +55,10 @@ const OuterPlanets = () => {
                 close={closeModal}
                 isPlanet={false}
             /> : null}
-            <div className="icon">
+            <div className="icon jupiter">
+                <div className="arrow"></div>
+            </div>
+            <div className="icon saturn">
                 <div className="arrow"></div>
             </div>
             {outerPlanets.map(outerPlanet => {

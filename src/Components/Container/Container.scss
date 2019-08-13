@@ -78,10 +78,18 @@
 
         .icon {
             position: absolute;
-            top: 45.1%;
-            left: 44.5%;
             width: 60px;
             height: 40px;
+
+            &.jupiter {
+                top: 15.1%;
+                left: 44.5%;
+            }
+
+            &.saturn {
+                top: 45.1%;
+                left: 44.5%;
+            }
 
             .arrow {
                 position: absolute;
