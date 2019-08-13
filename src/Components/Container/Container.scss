@@ -80,6 +80,7 @@
             position: absolute;
             width: 60px;
             height: 40px;
+            animation: fadeIn 5s ease-in forwards;
 
             &.jupiter {
                 top: 15.1%;
@@ -97,7 +98,7 @@
                 width: 50%;
                 height: 2px;
                 background-color: #fff;
-                animation: arrow 700ms linear infinite;
+                animation: arrow 700ms linear 3s infinite;
 
                 &::before {
                     content: '';
@@ -126,6 +127,11 @@
                 0% { left: 0; }
                 50% { left: 10px; }
                 100% { left: 0; }
+            }
+
+            @keyframes fadeIn {
+                from { opacity: 0; }
+                to { opacity: 1; }
             }
         }
         
