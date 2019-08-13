@@ -13,7 +13,6 @@
     }
 
     &-saturn {
-        // perspective: 10000px;
         perspective-origin: center;
         transform-style: preserve-3d;
 
@@ -96,7 +95,7 @@
 
 .axis-line {
     stroke: #fff;
-    stroke-width: 1px;
+    stroke-width: 2px;
     stroke-opacity: 0.3;   
 }
 
