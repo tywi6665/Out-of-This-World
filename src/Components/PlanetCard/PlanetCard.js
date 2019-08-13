@@ -133,7 +133,7 @@ const PlanetCard = ({ data, close, isPlanet }) => {
                                 <li><b>Volume:</b> {data.volume}</li>
                                 <li><b>Mean Radius:</b> {data.radius} km</li>
                                 <li><b>Axial Tilt:</b> {data.tilt}°</li>
-                                <li><b>Mean Orbital Distance:</b> {data.orbitalDistance}</li>
+                                <li><b>Mean Orbital Distance:</b> {data.orbitalDistance} km</li>
                                 <li><b>Discovery: </b>{data.discovery}</li>
                                 <li><b>Day Length: </b>{data.dayLength} (compared to Earth)</li>
                                 <li><b>Year Length:</b> {data.yearLength} (compared to Earth)</li>
