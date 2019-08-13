@@ -55,6 +55,9 @@ const OuterPlanets = () => {
                 close={closeModal}
                 isPlanet={false}
             /> : null}
+            <div className="icon">
+                <div className="arrow"></div>
+            </div>
             {outerPlanets.map(outerPlanet => {
                 return (
                     <PlanetSVG
