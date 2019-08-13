@@ -53,7 +53,6 @@ const OuterPlanets = () => {
                 data={modalData}
                 location={location}
                 close={closeModal}
-                isPlanet={false}
             /> : null}
             <div className="icon jupiter">
                 <div className="arrow"></div>
