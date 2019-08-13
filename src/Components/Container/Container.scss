@@ -75,6 +75,51 @@
         h2 {
             text-align: left;
         }
+
+        .icon {
+            position: absolute;
+            top: 45.1%;
+            left: 44.5%;
+            width: 60px;
+            height: 40px;
+
+            .arrow {
+                position: absolute;
+                top: 25px;
+                width: 50%;
+                height: 2px;
+                background-color: #fff;
+                animation: arrow 700ms linear infinite;
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    width: 60%;
+                    height: 2px;
+                    top: 7px;
+                    right: -2px;
+                    background-color: #fff;
+                    transform: rotate(-45deg);
+                }
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    width: 60%;
+                    height: 2px;
+                    top: -7px;
+                    right: -2px;
+                    background-color: #fff;
+                    transform: rotate(45deg);
+                  }
+            }
+
+            @keyframes arrow {
+                0% { left: 0; }
+                50% { left: 10px; }
+                100% { left: 0; }
+            }
+        }
         
             .planet-info-jupiter { 
                 grid-area: 2 / 1 / 3 / 2;
