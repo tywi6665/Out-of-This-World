@@ -74,7 +74,7 @@ const PlanetCard = ({ data, close, isPlanet }) => {
                         onClick={close}
                     ></span>
                 </a>
-                <img src={data.url} />
+                <img src={data.url} style={{ borderRadius: `${data.name === "saturn" ? 0 : "50%"}` }} />
                 <h1>{data.name.charAt(0).toUpperCase() + data.name.slice(1)} {data.symbol}</h1>
                 <p>{data.funFact}</p>
                 <p className="click-me">Click me for more details</p>
@@ -118,7 +118,11 @@ const PlanetCard = ({ data, close, isPlanet }) => {
                     <div className="text">
                         <div className="image-header">
                             <div className="image-wrapper">
-                                <img src={data.url} />
+                                <img src={data.url}
+                                    style={{
+                                        borderRadius: `${data.name === "saturn" ? 0 : "50%"}`,
+                                        paddingTop: `${data.name === "saturn" ? "16%" : "5%"}`
+                                    }} />
                             </div>
                         </div>
 
