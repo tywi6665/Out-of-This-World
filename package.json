@@ -1,6 +1,6 @@
 {
   "name": "outofthisworld",
-  "homepage": "https://tywi6665.github.io/Out-of-This-World",
+  "homepage": "https://tywi6665.herokuapp.com/out-of-this-world",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
